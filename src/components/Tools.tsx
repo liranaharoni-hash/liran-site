@@ -11,36 +11,37 @@ const categories = [
       "User Behavior",
       "Adoption Systems",
       "Messaging & Positioning",
-      "GTM Thinking",
-      "Creator Economy",
+      "Content Systems",
+      "Creator Workflow Understanding",
     ],
   },
   {
-    title: "Generative AI",
+    title: "Generative AI & Visual Systems",
+    items: ["Midjourney", "Runway", "Sora", "Higgsfield"],
+  },
+  {
+    title: "AI Product & Workflow Tools",
     items: [
       "ChatGPT",
       "Claude",
-      "Gemini",
-      "Midjourney",
-      "Runway",
-      "Sora",
-      "Higgsfield",
-    ],
-  },
-  {
-    title: "AI Workflow",
-    items: [
       "Claude Code",
-      "Base44",
-      "Google AI Studio",
-      "NotebookLM",
+      "Gemini",
       "Perplexity",
+      "NotebookLM",
+      "Google AI Studio",
+      "Base44",
       "Vibe Coding",
     ],
   },
   {
     title: "Platforms",
-    items: ["Meta", "TikTok", "YouTube", "LinkedIn", "IMAI Dashboard"],
+    items: [
+      "Meta",
+      "TikTok",
+      "YouTube",
+      "LinkedIn",
+      "IMAI Influencer Dashboard",
+    ],
   },
 ];
 
@@ -75,7 +76,7 @@ export default function Tools() {
                   {cat.items.map((item) => (
                     <li
                       key={item}
-                      className="font-sans text-[13px] font-light transition-colors cursor-default hover:!text-[var(--text-muted)]"
+                      className="font-sans text-[13px] font-light transition-colors cursor-default hover:!text-[var(--text-primary)]"
                       style={{ color: "var(--text-dim)" }}
                     >
                       {item}
@@ -86,6 +87,15 @@ export default function Tools() {
             </FadeIn>
           ))}
         </div>
+
+        <FadeIn delay={0.5}>
+          <p
+            className="font-mono text-[11px] italic font-light mt-10"
+            style={{ color: "var(--text-faint)" }}
+          >
+            Selected tools are not the point. Systems are.
+          </p>
+        </FadeIn>
       </div>
     </section>
   );

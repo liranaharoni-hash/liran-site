@@ -62,12 +62,14 @@ export default function Hero({ onOpenModal }: { onOpenModal: () => void }) {
               style={{ color: "var(--text-dim)" }}
             >
               Senior creative and strategy leader with 15+ years across content,
-              campaigns, production, and digital systems.
+              campaigns, production, and digital systems. Over time, the work
+              expanded into AI-enabled workflows, behavioral thinking, and
+              system design shaped by real-world use.
             </p>
           </FadeIn>
 
           <FadeIn delay={0.32}>
-            <div className="flex flex-wrap items-center gap-3 mb-5">
+            <div className="flex flex-wrap items-center gap-3 mb-4">
               <a
                 href="#systems"
                 className="inline-block px-5 py-2.5 text-[13px] font-sans font-normal rounded-[5px] hover:opacity-90 transition-opacity"
@@ -88,7 +90,25 @@ export default function Hero({ onOpenModal }: { onOpenModal: () => void }) {
               >
                 Creative Work
               </a>
+              <a
+                href="#contact"
+                className="inline-block px-5 py-2.5 text-[13px] font-sans font-light transition-colors hover:!text-[var(--gold)]"
+                style={{ color: "var(--text-dim)" }}
+              >
+                Contact
+              </a>
             </div>
+          </FadeIn>
+
+          <FadeIn delay={0.36}>
+            <p
+              className="font-mono text-[10px] tracking-[2px] mb-5"
+              style={{ color: "var(--text-faint)" }}
+            >
+              Not a classic product manager. Not just a creative director.
+              <br className="hidden sm:block" />A hybrid operator working
+              between both.
+            </p>
           </FadeIn>
 
           <FadeIn delay={0.4}>

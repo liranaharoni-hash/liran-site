@@ -5,14 +5,17 @@ import FadeIn from "./FadeIn";
 
 interface CaseStudy {
   icon: string;
-  label: string;
-  title: string;
-  tagline: string;
+  cardLabel: string;
+  cardTitle: string;
+  cardDescriptor: string;
+  heroLine: string;
   problem: string;
   insight: string;
-  whatIDid: string;
-  whyItWorked: string;
+  systemDesign: string;
+  shiftBefore: string;
+  shiftAfter: string;
   outcome: string;
+  whatThisProves: string[];
   process: string;
   flowSteps: string[];
   stats?: { label: string; value: string }[];
@@ -21,21 +24,30 @@ interface CaseStudy {
 const caseStudies: CaseStudy[] = [
   {
     icon: "🤖",
-    label: "BEHAVIOR LAYER FOR CREATOR ECONOMY",
-    title: "Bestie.ai",
-    tagline: "A behavior layer for the creator economy",
+    cardLabel: "BEHAVIOR LAYER",
+    cardTitle: "Bestie.ai",
+    cardDescriptor:
+      "Scaling creator interaction through AI-driven conversation systems",
+    heroLine:
+      "Scaling creators is not a content problem. It is a behavior problem.",
     problem:
-      "As creators grow, personal interaction becomes impossible to sustain. DMs, comments, repeated questions, and community conversations create a scalability bottleneck.",
+      "Creators scale faster than their ability to maintain personal interaction. As audiences grow, DMs, comments, repeated questions, and product inquiries create a bottleneck that weakens community connection and leaves monetization opportunities unanswered.",
     insight:
-      "The real value of creator relationships is not content — it's the 1:1 layer of interaction. The challenge is how to scale relevant, personal interaction without flattening the creator's identity.",
-    whatIDid:
-      "Helped shape an AI-based creator extension system — a conversational layer built around the influencer's content, tone, knowledge, and boundaries. Designed to answer recurring questions in the creator's voice, surface relevant products, support conversion flows, and extract behavioral signals.",
-    whyItWorked:
-      "The system reframed AI from 'automation' into 'relationship scaling.' Not replacing the creator, but extending their presence across moments where human capacity breaks.",
+      "The real value of creator relationships does not happen in posts. It happens in conversations.",
+    systemDesign:
+      "Bestie.ai was designed as a conversational extension layer around the creator — trained on the creator's tone, content, preferences, and boundaries. Built to live inside high-intent interaction points such as DMs and direct questions. Capable of surfacing relevant products, content, and responses in context. Supports coupon flows, support routing, and insight extraction from audience conversations. Framed as an extension of the creator's presence, not a generic chatbot.",
+    shiftBefore: "Audiences consume content passively",
+    shiftAfter:
+      "Audiences interact, ask, discover, and convert through conversation",
     outcome:
-      "Used in advanced pilots with creators and brands. Validated a strong product need around creator scalability, response workflows, and community continuity.",
+      "Validated in advanced pilots with creators and brands. Proved strong relevance around scalability, monetization, and response workflows. Demonstrated the product value of extending creator presence rather than automating content.",
+    whatThisProves: [
+      "Ability to translate content problems into systems",
+      "Understanding of creator behavior at scale",
+      "Product thinking applied to real interaction patterns",
+    ],
     process:
-      "Behavior system design · Creator persona modeling · AI conversation architecture · Adoption flow mapping",
+      "AI-assisted structuring, system logic, interaction design, and behavior-layer thinking",
     flowSteps: [
       "Creator posts content",
       "User initiates DM",
@@ -46,21 +58,30 @@ const caseStudies: CaseStudy[] = [
   },
   {
     icon: "📄",
-    label: "POSITIONING SYSTEM, NOT CV POLISHING",
-    title: "CV Repositioning System",
-    tagline: "A system for restructuring how candidates are perceived",
+    cardLabel: "POSITIONING SYSTEM",
+    cardTitle: "CV Repositioning System",
+    cardDescriptor:
+      "Restructuring how candidates are perceived through role-specific hiring logic",
+    heroLine:
+      "Most hiring failures are not experience failures. They are positioning failures.",
     problem:
-      "Many people are filtered out not because they lack relevant experience, but because they present it in a way that hiring managers and screening systems don't interpret correctly.",
+      "Many candidates are filtered out not because they lack relevant experience, but because they present it in a way that hiring managers and screening systems do not interpret correctly.",
     insight:
-      "Hiring decisions are shaped by positioning, not just background. The same experience can look weak, unfocused, or highly relevant — depending on structure, emphasis, language, and hierarchy.",
-    whatIDid:
-      "Built a system that takes an existing CV and a target role, then restructures the candidate's experience according to decision-making signals: relevance, hierarchy, clarity, role fit, keyword logic, and business framing.",
-    whyItWorked:
-      "Instead of 'improving writing,' the system changes how the person is evaluated. It focuses on what should be kept, removed, reframed, or moved to the front — based on the specific job context.",
+      "The same experience can look generic, weak, or highly relevant — depending on hierarchy, emphasis, framing, and structure.",
+    systemDesign:
+      "Built a system that analyzes an existing CV against a target role and restructures the candidate's experience around actual hiring signals: relevance to the role, clarity of structure, hierarchy of information, business framing, keyword logic, and role-fit emphasis. The system does not invent or exaggerate. It reorganizes what is already true so the person is perceived more accurately.",
+    shiftBefore: "Candidate is scanned as broad or unfocused",
+    shiftAfter:
+      "Candidate is understood as relevant, intentional, and role-aligned",
     outcome:
-      "Tested across multiple profiles and role types — administrative, operations, project, and strategy-oriented candidates. Clearer, more role-aligned presentation that increases perceived relevance.",
+      "Tested across multiple role types and industries. Created stronger alignment between candidate background and role requirements. Shifted evaluation from 'generic profile' to 'clear fit.'",
+    whatThisProves: [
+      "Ability to turn ambiguity into structure",
+      "Understanding of screening logic and decision behavior",
+      "Product thinking applied to a real-world perception problem",
+    ],
     process:
-      "AI-assisted analysis · Positioning frameworks · Decision-signal mapping · Iterative restructuring",
+      "Hiring-logic mapping, restructuring systems, and AI-assisted iteration",
     flowSteps: [
       "Raw CV input",
       "Target role analysis",
@@ -71,21 +92,28 @@ const caseStudies: CaseStudy[] = [
   },
   {
     icon: "✨",
-    label: "CAMPAIGN → PARTICIPATORY EXPERIENCE",
-    title: "SodaStream AI Experience",
-    tagline: "Turning a campaign into a participatory product-like experience",
+    cardLabel: "PARTICIPATORY EXPERIENCE",
+    cardTitle: "SodaStream AI Experience",
+    cardDescriptor:
+      "Turning a campaign into a product-like interaction layer",
+    heroLine:
+      "A campaign becomes more powerful when people don't just watch it — they enter it.",
     problem:
-      "Launching a premium SodaStream machine with limited production budget. The challenge: generate high engagement and product desire without a traditional large-scale shoot.",
+      "A premium product launch needed strong engagement and excitement, but without relying on a heavy traditional production model.",
     insight:
-      "Instead of building a campaign people only watch, build an experience they actively participate in.",
-    whatIDid:
-      "Designed a participatory AI-based content experience that allowed users to generate their own branded visuals while keeping the product presence controlled and consistent.",
-    whyItWorked:
-      "Moved the audience from passive viewing into active interaction. Users were invited to create around the product — deepening engagement and making the experience shareable.",
-    outcome:
-      "~90,000 sessions · ~43,000 interactions · 18.6% engagement rate.",
+      "Instead of asking users to consume a campaign, invite them to participate in it.",
+    systemDesign:
+      "Created an AI-based branded interaction layer that allowed users to generate visual outputs around the launch experience. Controlled branded outputs with direct user interaction. Product presence maintained through structured visual logic. Campaign transformed into an experience rather than a one-way message.",
+    shiftBefore: "Passive exposure",
+    shiftAfter: "Active interaction and participation",
+    outcome: "~90,000 sessions · ~43,000 interactions · ~18.6% engagement",
+    whatThisProves: [
+      "Ability to convert campaigns into product-like systems",
+      "Understanding of interactive behavior",
+      "Blending brand, UX, and AI-assisted participation",
+    ],
     process:
-      "AI content generation · Structured interaction design · Behavior-driven campaign architecture",
+      "Concept system design, AI-assisted interaction logic, and structured engagement design",
     flowSteps: [
       "Campaign brief",
       "AI visual engine",
@@ -101,21 +129,30 @@ const caseStudies: CaseStudy[] = [
   },
   {
     icon: "📸",
-    label: "AI PRODUCTION SYSTEM",
-    title: "Studio48",
-    tagline: "AI production as a repeatable system",
+    cardLabel: "AI PRODUCTION SYSTEM",
+    cardTitle: "Studio48",
+    cardDescriptor:
+      "Turning visual production into a repeatable AI-enabled workflow",
+    heroLine:
+      "Brands don't actually need shoots. They need usable visual output.",
     problem:
-      "Traditional fashion and product shoots are slow, expensive, and hard to scale. Small brands need high-quality visual output but can't afford traditional production cycles.",
-    insight:
-      "Brands need output, not shoots. If AI generation is positioned as complementary — not replacement — it becomes scalable.",
-    whatIDid:
-      "Built an AI-powered visual production service for Israeli fashion boutiques. Developed the brand, playbook, outreach templates, and delivered real client work using AI generation tools.",
-    whyItWorked:
-      "Production became scalable and repeatable. By framing AI as a complement to traditional shoots, adoption barriers dropped significantly.",
+      "Fashion and product content production is expensive, slow, operationally heavy, and difficult to scale.",
+    insight: "The real bottleneck is not creativity. It is production.",
+    systemDesign:
+      "Built an AI-driven workflow that replaces traditional production with a controlled visual system. Generating consistent visual identities, creating repeatable model/environment combinations, producing campaign-ready outputs without full physical production, enabling faster iteration and lower production cost. Reframed visual execution from a one-time shoot into a repeatable system.",
+    shiftBefore:
+      "Brands depend on slow, expensive, fixed production cycles",
+    shiftAfter:
+      "Brands can test, adapt, and scale visual output much faster",
     outcome:
-      "Active client engagements delivered. Tiered pricing model validated. Pipeline and automation tools in development.",
+      "Significantly faster visual turnaround. Lower production friction. Validated as a scalable alternative to classic shooting workflows.",
+    whatThisProves: [
+      "Ability to turn creative execution into a system",
+      "Strong AI visual workflow thinking",
+      "Connection between aesthetics, production logic, and business utility",
+    ],
     process:
-      "AI image generation pipelines · Brand system design · Client workflow automation · Adoption strategy",
+      "AI visual workflows, consistency systems, and controlled generation logic",
     flowSteps: [
       "Client brief",
       "AI generation pipeline",
@@ -128,7 +165,7 @@ const caseStudies: CaseStudy[] = [
 
 function Placeholder({
   label,
-  aspect = "16/9",
+  aspect = "3/2",
   icon,
 }: {
   label: string;
@@ -196,7 +233,7 @@ function FlowDiagram({ steps }: { steps: string[] }) {
           {i < steps.length - 1 && (
             <span
               className="text-[10px]"
-              style={{ color: "var(--flow-connector)" }}
+              style={{ color: "var(--flow-connector, var(--gold-border))" }}
             >
               →
             </span>
@@ -216,15 +253,15 @@ function CollapsedCard({
 }) {
   return (
     <div
-      className="border rounded-lg overflow-hidden cursor-pointer flex flex-col"
+      className="border rounded-lg overflow-hidden cursor-pointer flex flex-col h-full"
       style={{
         borderColor: "var(--border)",
         backgroundColor: "var(--bg-surface)",
       }}
       onClick={onClick}
     >
-      <div className="shrink-0" style={{ aspectRatio: "16/9" }}>
-        <Placeholder label={cs.title} icon={cs.icon} aspect="16/9" />
+      <div className="shrink-0">
+        <Placeholder label={cs.cardTitle} icon={cs.icon} aspect="3/2" />
       </div>
       <div className="p-5 flex items-start justify-between gap-4 flex-1">
         <div className="min-w-0 overflow-hidden">
@@ -232,19 +269,19 @@ function CollapsedCard({
             className="font-mono text-[9px] uppercase tracking-[3px] mb-2"
             style={{ color: "var(--gold)" }}
           >
-            {cs.label}
+            {cs.cardLabel}
           </p>
           <h3
-            className="font-serif text-[22px] sm:text-[26px] font-light mb-1 truncate"
+            className="font-serif text-[22px] font-light mb-1 truncate"
             style={{ color: "var(--text-primary)" }}
           >
-            {cs.title}
+            {cs.cardTitle}
           </h3>
           <p
             className="font-sans text-[13px] font-light line-clamp-2"
             style={{ color: "var(--text-muted)" }}
           >
-            {cs.tagline}
+            {cs.cardDescriptor}
           </p>
         </div>
         <span
@@ -255,6 +292,28 @@ function CollapsedCard({
         </span>
       </div>
     </div>
+  );
+}
+
+function SectionLabel({ children }: { children: string }) {
+  return (
+    <p
+      className="font-mono text-[9px] uppercase tracking-[3px] mb-3"
+      style={{ color: "var(--gold)" }}
+    >
+      {children}
+    </p>
+  );
+}
+
+function SectionBody({ children }: { children: React.ReactNode }) {
+  return (
+    <p
+      className="font-sans text-[14px] font-light leading-relaxed"
+      style={{ color: "var(--text-secondary)" }}
+    >
+      {children}
+    </p>
   );
 }
 
@@ -281,13 +340,13 @@ function ExpandedCard({
               className="font-mono text-[9px] uppercase tracking-[3px] mb-1"
               style={{ color: "var(--gold)" }}
             >
-              {cs.label}
+              {cs.cardLabel}
             </p>
             <h3
               className="font-serif text-[28px] font-light"
               style={{ color: "var(--text-primary)" }}
             >
-              {cs.title}
+              {cs.cardTitle}
             </h3>
           </div>
           <button
@@ -306,10 +365,18 @@ function ExpandedCard({
           </button>
         </div>
 
+        {/* Hero line */}
+        <p
+          className="font-serif text-[20px] font-light leading-relaxed mb-8"
+          style={{ color: "var(--text-primary)" }}
+        >
+          {cs.heroLine}
+        </p>
+
         {/* Visual */}
         <div className="mb-8">
           <Placeholder
-            label={`${cs.title}-exp`}
+            label={`${cs.cardTitle}-exp`}
             aspect="21/9"
             icon={cs.icon}
           />
@@ -317,93 +384,79 @@ function ExpandedCard({
 
         {/* System Flow */}
         <div className="mb-8">
-          <p
-            className="font-mono text-[9px] uppercase tracking-[3px] mb-4"
-            style={{ color: "var(--gold)" }}
-          >
-            SYSTEM FLOW
-          </p>
+          <SectionLabel>SYSTEM FLOW</SectionLabel>
           <FlowDiagram steps={cs.flowSteps} />
         </div>
 
         {/* Problem / Insight */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
           <div>
-            <p
-              className="font-mono text-[9px] uppercase tracking-[3px] mb-3"
-              style={{ color: "var(--gold)" }}
-            >
-              PROBLEM
-            </p>
-            <p
-              className="font-sans text-[14px] font-light leading-relaxed"
-              style={{ color: "var(--text-secondary)" }}
-            >
-              {cs.problem}
-            </p>
+            <SectionLabel>PROBLEM</SectionLabel>
+            <SectionBody>{cs.problem}</SectionBody>
           </div>
           <div>
-            <p
-              className="font-mono text-[9px] uppercase tracking-[3px] mb-3"
-              style={{ color: "var(--gold)" }}
-            >
-              INSIGHT
-            </p>
-            <p
-              className="font-sans text-[14px] font-light leading-relaxed"
-              style={{ color: "var(--text-secondary)" }}
-            >
-              {cs.insight}
-            </p>
+            <SectionLabel>INSIGHT</SectionLabel>
+            <SectionBody>{cs.insight}</SectionBody>
           </div>
         </div>
 
-        {/* What I Did */}
+        {/* System Design */}
         <div className="mb-8">
-          <p
-            className="font-mono text-[9px] uppercase tracking-[3px] mb-3"
-            style={{ color: "var(--gold)" }}
-          >
-            WHAT I DID
-          </p>
-          <p
-            className="font-sans text-[14px] font-light leading-relaxed"
-            style={{ color: "var(--text-secondary)" }}
-          >
-            {cs.whatIDid}
-          </p>
+          <SectionLabel>SYSTEM DESIGN</SectionLabel>
+          <SectionBody>{cs.systemDesign}</SectionBody>
         </div>
 
-        {/* Why / Outcome */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-          <div>
-            <p
-              className="font-mono text-[9px] uppercase tracking-[3px] mb-3"
-              style={{ color: "var(--gold)" }}
+        {/* Behavioral Shift */}
+        <div className="mb-8">
+          <SectionLabel>BEHAVIORAL SHIFT</SectionLabel>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div
+              className="border rounded-md p-4"
+              style={{
+                borderColor: "var(--border)",
+                backgroundColor: "var(--bg-expanded)",
+              }}
             >
-              WHY IT WORKED
-            </p>
-            <p
-              className="font-sans text-[14px] font-light leading-relaxed"
-              style={{ color: "var(--text-secondary)" }}
+              <p
+                className="font-mono text-[9px] uppercase tracking-[2px] mb-2"
+                style={{ color: "var(--text-faint)" }}
+              >
+                BEFORE
+              </p>
+              <p
+                className="font-sans text-[13px] font-light"
+                style={{ color: "var(--text-muted)" }}
+              >
+                {cs.shiftBefore}
+              </p>
+            </div>
+            <div
+              className="border rounded-md p-4"
+              style={{
+                borderColor: "var(--gold-border)",
+                backgroundColor: "var(--gold-subtle)",
+              }}
             >
-              {cs.whyItWorked}
-            </p>
+              <p
+                className="font-mono text-[9px] uppercase tracking-[2px] mb-2"
+                style={{ color: "var(--gold)" }}
+              >
+                AFTER
+              </p>
+              <p
+                className="font-sans text-[13px] font-light"
+                style={{ color: "var(--text-secondary)" }}
+              >
+                {cs.shiftAfter}
+              </p>
+            </div>
           </div>
-          <div>
-            <p
-              className="font-mono text-[9px] uppercase tracking-[3px] mb-3"
-              style={{ color: "var(--gold)" }}
-            >
-              OUTCOME
-            </p>
-            <p
-              className="font-sans text-[14px] font-light leading-relaxed"
-              style={{ color: "var(--text-secondary)" }}
-            >
-              {cs.outcome}
-            </p>
-          </div>
+        </div>
+
+        {/* Outcome */}
+        <div className="mb-8">
+          <SectionLabel>OUTCOME</SectionLabel>
+          <SectionBody>{cs.outcome}</SectionBody>
         </div>
 
         {/* Stats */}
@@ -412,8 +465,8 @@ function ExpandedCard({
             {cs.stats.map((stat) => (
               <div key={stat.label}>
                 <p
-                  className="font-serif text-[28px] font-light"
-                  style={{ color: "var(--stats-color)" }}
+                  className="font-serif text-[36px] font-light"
+                  style={{ color: "var(--stats-color, var(--gold))" }}
                 >
                   {stat.value}
                 </p>
@@ -427,6 +480,25 @@ function ExpandedCard({
             ))}
           </div>
         )}
+
+        {/* What This Proves */}
+        <div className="mb-8">
+          <SectionLabel>WHAT THIS PROVES</SectionLabel>
+          <div
+            className="pl-4 flex flex-col gap-2"
+            style={{ borderLeft: "2px solid var(--gold-border)" }}
+          >
+            {cs.whatThisProves.map((item, j) => (
+              <p
+                key={j}
+                className="font-sans text-[13px] font-light leading-relaxed"
+                style={{ color: "var(--text-muted)" }}
+              >
+                {item}
+              </p>
+            ))}
+          </div>
+        </div>
 
         {/* Process */}
         <div
@@ -449,14 +521,6 @@ export default function CaseStudies() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const expandedRef = useRef<HTMLDivElement>(null);
 
-  const handleOpen = useCallback((idx: number) => {
-    setOpenIndex((prev) => {
-      if (prev === idx) return null;
-      return idx;
-    });
-  }, []);
-
-  // Scroll to expanded card after render
   const scrollToExpanded = useCallback(() => {
     requestAnimationFrame(() => {
       if (expandedRef.current) {
@@ -471,11 +535,10 @@ export default function CaseStudies() {
 
   const handleCardClick = useCallback(
     (idx: number) => {
-      handleOpen(idx);
-      // Use a short timeout to let state update and DOM render
+      setOpenIndex((prev) => (prev === idx ? null : idx));
       setTimeout(scrollToExpanded, 50);
     },
-    [handleOpen, scrollToExpanded]
+    [scrollToExpanded]
   );
 
   const remainingCards =
@@ -513,7 +576,6 @@ export default function CaseStudies() {
         </FadeIn>
 
         {openIndex === null ? (
-          /* Default 2×2 grid */
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {caseStudies.map((cs, i) => (
               <FadeIn key={i} delay={0.24 + i * 0.08}>
@@ -522,7 +584,6 @@ export default function CaseStudies() {
             ))}
           </div>
         ) : (
-          /* Expanded state: full-width card + 3 remaining below */
           <div className="flex flex-col gap-6">
             <div ref={expandedRef}>
               <ExpandedCard
@@ -530,8 +591,6 @@ export default function CaseStudies() {
                 onClose={() => setOpenIndex(null)}
               />
             </div>
-
-            {/* Remaining 3 cards in a row */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
               {remainingCards.map(({ cs, i }) => (
                 <CollapsedCard

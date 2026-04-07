@@ -66,10 +66,15 @@ export default function Experience() {
         <FadeIn delay={0.16}>
           <p
             className="font-sans text-[14px] font-light leading-relaxed mb-10"
-            style={{ color: "var(--text-dim)" }}
+            style={{ color: "var(--text-secondary)" }}
           >
-            From creative strategy and content systems to product thinking, AI
-            workflows, and how things are actually used.
+            I come from years of building creative strategy, content systems,
+            and campaigns across brands and platforms. Over time, the work
+            pushed deeper — from ideas into systems, from campaigns into
+            behavior, and from content into how things are actually used.
+            Instead of switching fields, I expanded the way I work —
+            integrating product thinking, AI tools, and workflow design into
+            the same creative foundation.
           </p>
         </FadeIn>
 
@@ -86,7 +91,6 @@ export default function Experience() {
                     : undefined
                 }
               >
-                {/* Header */}
                 <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-4">
                   <div>
                     <h3
@@ -110,7 +114,6 @@ export default function Experience() {
                   </p>
                 </div>
 
-                {/* Description */}
                 <p
                   className="font-sans text-[14px] font-light leading-relaxed mb-5"
                   style={{ color: "var(--text-secondary)" }}
@@ -118,7 +121,6 @@ export default function Experience() {
                   {role.description}
                 </p>
 
-                {/* Highlights */}
                 <div
                   className="pl-4 flex flex-col gap-2"
                   style={{ borderLeft: "2px solid var(--gold-border)" }}
@@ -138,7 +140,6 @@ export default function Experience() {
           ))}
         </div>
 
-        {/* Download CV link */}
         <FadeIn delay={0.56}>
           <div className="mt-10 text-center">
             <a

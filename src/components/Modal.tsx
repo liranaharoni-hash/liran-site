@@ -35,7 +35,7 @@ export default function Modal({
         className="relative border rounded-lg max-w-[460px] w-full p-8"
         style={{
           backgroundColor: "var(--modal-bg)",
-          borderColor: "var(--border)",
+          borderColor: "var(--gold-border)",
         }}
         onClick={(e) => e.stopPropagation()}
       >
@@ -52,10 +52,11 @@ export default function Modal({
 
         <p
           className="font-sans text-[15px] font-light leading-relaxed mb-4"
-          style={{ color: "var(--text-muted)" }}
+          style={{ color: "var(--text-secondary)" }}
         >
           This site was structured and iterated using AI tools as part of an
-          ongoing exploration into systems, workflows, and product thinking.
+          ongoing exploration into systems, workflows, product thinking, and
+          real-world application.
         </p>
 
         <p

@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import ThemeToggle from "./ThemeToggle";
 
 const links = [
-  { label: "Thinking", href: "#thinking" },
+  { label: "What I Do", href: "#dual-entry" },
   { label: "Creative", href: "#creative" },
   { label: "Systems", href: "#systems" },
   { label: "Experience", href: "#experience" },
@@ -24,9 +24,7 @@ export default function Navigation() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "backdrop-blur-md"
-          : "bg-transparent"
+        scrolled ? "backdrop-blur-md" : "bg-transparent"
       }`}
       style={
         scrolled
@@ -46,7 +44,6 @@ export default function Navigation() {
           LA
         </a>
 
-        {/* Desktop: toggle + links */}
         <div className="hidden md:flex items-center gap-6">
           <ThemeToggle />
           {links.map((link) => (
@@ -61,7 +58,6 @@ export default function Navigation() {
           ))}
         </div>
 
-        {/* Mobile: toggle + hamburger */}
         <div className="md:hidden flex items-center gap-3">
           <ThemeToggle />
           <button
@@ -85,7 +81,6 @@ export default function Navigation() {
         </div>
       </div>
 
-      {/* Mobile menu */}
       {menuOpen && (
         <div
           className="md:hidden backdrop-blur-md"

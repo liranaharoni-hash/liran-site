@@ -47,8 +47,10 @@ export default function Contact() {
             className="font-sans text-[14px] font-light leading-relaxed mb-10 max-w-[480px]"
             style={{ color: "var(--text-muted)" }}
           >
-            Building products, systems, or creator-facing experiences? Let&apos;s
-            talk about the human and strategic side of adoption.
+            If you&apos;re building systems, products, creator-facing
+            experiences, or AI-enabled workflows — and need someone who
+            understands both the strategic and human side of adoption —
+            let&apos;s talk.
           </p>
         </FadeIn>
 
@@ -65,13 +67,13 @@ export default function Contact() {
               >
                 <span
                   className="font-mono text-[10px] uppercase tracking-[3px] w-24 shrink-0"
-                  style={{ color: "var(--text-dim)" }}
+                  style={{ color: "var(--text-faint)" }}
                 >
                   {c.label}
                 </span>
                 <span
                   className="font-sans text-[14px] font-light transition-colors group-hover:!text-[var(--gold)]"
-                  style={{ color: "var(--text-muted)" }}
+                  style={{ color: "var(--text-secondary)" }}
                 >
                   {c.value}
                 </span>
