@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useCallback } from "react";
 import FadeIn from "./FadeIn";
 
 interface CaseStudy {
@@ -207,7 +207,58 @@ function FlowDiagram({ steps }: { steps: string[] }) {
   );
 }
 
-function ExpandedContent({
+function CollapsedCard({
+  cs,
+  onClick,
+}: {
+  cs: CaseStudy;
+  onClick: () => void;
+}) {
+  return (
+    <div
+      className="border rounded-lg overflow-hidden cursor-pointer flex flex-col"
+      style={{
+        borderColor: "var(--border)",
+        backgroundColor: "var(--bg-surface)",
+      }}
+      onClick={onClick}
+    >
+      <div className="shrink-0" style={{ aspectRatio: "16/9" }}>
+        <Placeholder label={cs.title} icon={cs.icon} aspect="16/9" />
+      </div>
+      <div className="p-5 flex items-start justify-between gap-4 flex-1">
+        <div className="min-w-0 overflow-hidden">
+          <p
+            className="font-mono text-[9px] uppercase tracking-[3px] mb-2"
+            style={{ color: "var(--gold)" }}
+          >
+            {cs.label}
+          </p>
+          <h3
+            className="font-serif text-[22px] sm:text-[26px] font-light mb-1 truncate"
+            style={{ color: "var(--text-primary)" }}
+          >
+            {cs.title}
+          </h3>
+          <p
+            className="font-sans text-[13px] font-light line-clamp-2"
+            style={{ color: "var(--text-muted)" }}
+          >
+            {cs.tagline}
+          </p>
+        </div>
+        <span
+          className="shrink-0 w-8 h-8 flex items-center justify-center text-xl"
+          style={{ color: "var(--text-dim)" }}
+        >
+          +
+        </span>
+      </div>
+    </div>
+  );
+}
+
+function ExpandedCard({
   cs,
   onClose,
 }: {
@@ -216,171 +267,179 @@ function ExpandedContent({
 }) {
   return (
     <div
-      className="border rounded-lg p-6 md:p-8 mt-4"
+      className="border rounded-lg overflow-hidden"
       style={{
         borderColor: "var(--border-expanded)",
         backgroundColor: "var(--bg-surface)",
       }}
     >
-      {/* Header with close */}
-      <div className="flex items-start justify-between mb-6">
-        <div>
+      <div className="p-6 md:p-8">
+        {/* Header with close */}
+        <div className="flex items-start justify-between mb-6">
+          <div>
+            <p
+              className="font-mono text-[9px] uppercase tracking-[3px] mb-1"
+              style={{ color: "var(--gold)" }}
+            >
+              {cs.label}
+            </p>
+            <h3
+              className="font-serif text-[28px] font-light"
+              style={{ color: "var(--text-primary)" }}
+            >
+              {cs.title}
+            </h3>
+          </div>
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              onClose();
+            }}
+            className="shrink-0 w-9 h-9 flex items-center justify-center text-xl border rounded-full"
+            style={{
+              color: "var(--text-dim)",
+              borderColor: "var(--gold-border)",
+            }}
+            aria-label="Close"
+          >
+            ×
+          </button>
+        </div>
+
+        {/* Visual */}
+        <div className="mb-8">
+          <Placeholder
+            label={`${cs.title}-exp`}
+            aspect="21/9"
+            icon={cs.icon}
+          />
+        </div>
+
+        {/* System Flow */}
+        <div className="mb-8">
           <p
-            className="font-mono text-[9px] uppercase tracking-[3px] mb-1"
+            className="font-mono text-[9px] uppercase tracking-[3px] mb-4"
             style={{ color: "var(--gold)" }}
           >
-            {cs.label}
+            SYSTEM FLOW
           </p>
-          <h3
-            className="font-serif text-[28px] font-light"
-            style={{ color: "var(--text-primary)" }}
-          >
-            {cs.title}
-          </h3>
+          <FlowDiagram steps={cs.flowSteps} />
         </div>
-        <button
-          onClick={onClose}
-          className="shrink-0 w-9 h-9 flex items-center justify-center text-xl border rounded-full"
-          style={{
-            color: "var(--text-dim)",
-            borderColor: "var(--gold-border)",
-          }}
-          aria-label="Close"
-        >
-          ×
-        </button>
-      </div>
 
-      {/* Visual */}
-      <div className="mb-8">
-        <Placeholder
-          label={`${cs.title}-exp`}
-          aspect="21/9"
-          icon={cs.icon}
-        />
-      </div>
+        {/* Problem / Insight */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+          <div>
+            <p
+              className="font-mono text-[9px] uppercase tracking-[3px] mb-3"
+              style={{ color: "var(--gold)" }}
+            >
+              PROBLEM
+            </p>
+            <p
+              className="font-sans text-[14px] font-light leading-relaxed"
+              style={{ color: "var(--text-secondary)" }}
+            >
+              {cs.problem}
+            </p>
+          </div>
+          <div>
+            <p
+              className="font-mono text-[9px] uppercase tracking-[3px] mb-3"
+              style={{ color: "var(--gold)" }}
+            >
+              INSIGHT
+            </p>
+            <p
+              className="font-sans text-[14px] font-light leading-relaxed"
+              style={{ color: "var(--text-secondary)" }}
+            >
+              {cs.insight}
+            </p>
+          </div>
+        </div>
 
-      {/* System Flow */}
-      <div className="mb-8">
-        <p
-          className="font-mono text-[9px] uppercase tracking-[3px] mb-4"
-          style={{ color: "var(--gold)" }}
-        >
-          SYSTEM FLOW
-        </p>
-        <FlowDiagram steps={cs.flowSteps} />
-      </div>
-
-      {/* Problem / Insight */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-        <div>
+        {/* What I Did */}
+        <div className="mb-8">
           <p
             className="font-mono text-[9px] uppercase tracking-[3px] mb-3"
             style={{ color: "var(--gold)" }}
           >
-            PROBLEM
+            WHAT I DID
           </p>
           <p
             className="font-sans text-[14px] font-light leading-relaxed"
             style={{ color: "var(--text-secondary)" }}
           >
-            {cs.problem}
+            {cs.whatIDid}
           </p>
         </div>
-        <div>
-          <p
-            className="font-mono text-[9px] uppercase tracking-[3px] mb-3"
-            style={{ color: "var(--gold)" }}
-          >
-            INSIGHT
-          </p>
-          <p
-            className="font-sans text-[14px] font-light leading-relaxed"
-            style={{ color: "var(--text-secondary)" }}
-          >
-            {cs.insight}
-          </p>
-        </div>
-      </div>
 
-      {/* What I Did */}
-      <div className="mb-8">
-        <p
-          className="font-mono text-[9px] uppercase tracking-[3px] mb-3"
-          style={{ color: "var(--gold)" }}
+        {/* Why / Outcome */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+          <div>
+            <p
+              className="font-mono text-[9px] uppercase tracking-[3px] mb-3"
+              style={{ color: "var(--gold)" }}
+            >
+              WHY IT WORKED
+            </p>
+            <p
+              className="font-sans text-[14px] font-light leading-relaxed"
+              style={{ color: "var(--text-secondary)" }}
+            >
+              {cs.whyItWorked}
+            </p>
+          </div>
+          <div>
+            <p
+              className="font-mono text-[9px] uppercase tracking-[3px] mb-3"
+              style={{ color: "var(--gold)" }}
+            >
+              OUTCOME
+            </p>
+            <p
+              className="font-sans text-[14px] font-light leading-relaxed"
+              style={{ color: "var(--text-secondary)" }}
+            >
+              {cs.outcome}
+            </p>
+          </div>
+        </div>
+
+        {/* Stats */}
+        {cs.stats && (
+          <div className="flex flex-wrap gap-8 mb-8">
+            {cs.stats.map((stat) => (
+              <div key={stat.label}>
+                <p
+                  className="font-serif text-[28px] font-light"
+                  style={{ color: "var(--stats-color)" }}
+                >
+                  {stat.value}
+                </p>
+                <p
+                  className="font-mono text-[9px] uppercase tracking-[2px]"
+                  style={{ color: "var(--text-dim)" }}
+                >
+                  {stat.label}
+                </p>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Process */}
+        <div
+          className="pt-6"
+          style={{ borderTop: "1px solid var(--border)" }}
         >
-          WHAT I DID
-        </p>
-        <p
-          className="font-sans text-[14px] font-light leading-relaxed"
-          style={{ color: "var(--text-secondary)" }}
-        >
-          {cs.whatIDid}
-        </p>
-      </div>
-
-      {/* Why / Outcome */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-        <div>
           <p
-            className="font-mono text-[9px] uppercase tracking-[3px] mb-3"
-            style={{ color: "var(--gold)" }}
+            className="font-mono text-[10px] tracking-[1px]"
+            style={{ color: "var(--text-dim)" }}
           >
-            WHY IT WORKED
-          </p>
-          <p
-            className="font-sans text-[14px] font-light leading-relaxed"
-            style={{ color: "var(--text-secondary)" }}
-          >
-            {cs.whyItWorked}
+            {cs.process}
           </p>
         </div>
-        <div>
-          <p
-            className="font-mono text-[9px] uppercase tracking-[3px] mb-3"
-            style={{ color: "var(--gold)" }}
-          >
-            OUTCOME
-          </p>
-          <p
-            className="font-sans text-[14px] font-light leading-relaxed"
-            style={{ color: "var(--text-secondary)" }}
-          >
-            {cs.outcome}
-          </p>
-        </div>
-      </div>
-
-      {/* Stats */}
-      {cs.stats && (
-        <div className="flex flex-wrap gap-8 mb-8">
-          {cs.stats.map((stat) => (
-            <div key={stat.label}>
-              <p
-                className="font-serif text-[28px] font-light"
-                style={{ color: "var(--stats-color)" }}
-              >
-                {stat.value}
-              </p>
-              <p
-                className="font-mono text-[9px] uppercase tracking-[2px]"
-                style={{ color: "var(--text-dim)" }}
-              >
-                {stat.label}
-              </p>
-            </div>
-          ))}
-        </div>
-      )}
-
-      {/* Process */}
-      <div className="pt-6" style={{ borderTop: "1px solid var(--border)" }}>
-        <p
-          className="font-mono text-[10px] tracking-[1px]"
-          style={{ color: "var(--text-dim)" }}
-        >
-          {cs.process}
-        </p>
       </div>
     </div>
   );
@@ -388,6 +447,43 @@ function ExpandedContent({
 
 export default function CaseStudies() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const expandedRef = useRef<HTMLDivElement>(null);
+
+  const handleOpen = useCallback((idx: number) => {
+    setOpenIndex((prev) => {
+      if (prev === idx) return null;
+      return idx;
+    });
+  }, []);
+
+  // Scroll to expanded card after render
+  const scrollToExpanded = useCallback(() => {
+    requestAnimationFrame(() => {
+      if (expandedRef.current) {
+        const top =
+          expandedRef.current.getBoundingClientRect().top +
+          window.scrollY -
+          100;
+        window.scrollTo({ top, behavior: "smooth" });
+      }
+    });
+  }, []);
+
+  const handleCardClick = useCallback(
+    (idx: number) => {
+      handleOpen(idx);
+      // Use a short timeout to let state update and DOM render
+      setTimeout(scrollToExpanded, 50);
+    },
+    [handleOpen, scrollToExpanded]
+  );
+
+  const remainingCards =
+    openIndex !== null
+      ? caseStudies
+          .map((cs, i) => ({ cs, i }))
+          .filter(({ i }) => i !== openIndex)
+      : [];
 
   return (
     <section id="systems" className="py-[120px]">
@@ -416,59 +512,36 @@ export default function CaseStudies() {
           </p>
         </FadeIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {caseStudies.map((cs, i) => (
-            <FadeIn key={i} delay={0.24 + i * 0.08}>
-              <div
-                className="border rounded-lg overflow-hidden cursor-pointer"
-                style={{
-                  borderColor: "var(--border)",
-                  backgroundColor: "var(--bg-surface)",
-                }}
-                onClick={() =>
-                  setOpenIndex(openIndex === i ? null : i)
-                }
-              >
-                <Placeholder label={cs.title} icon={cs.icon} />
-                <div className="p-5 flex items-start justify-between gap-4">
-                  <div className="min-w-0">
-                    <p
-                      className="font-mono text-[9px] uppercase tracking-[3px] mb-2"
-                      style={{ color: "var(--gold)" }}
-                    >
-                      {cs.label}
-                    </p>
-                    <h3
-                      className="font-serif text-[26px] font-light mb-1"
-                      style={{ color: "var(--text-primary)" }}
-                    >
-                      {cs.title}
-                    </h3>
-                    <p
-                      className="font-sans text-[13px] font-light"
-                      style={{ color: "var(--text-muted)" }}
-                    >
-                      {cs.tagline}
-                    </p>
-                  </div>
-                  <span
-                    className="shrink-0 w-8 h-8 flex items-center justify-center text-xl"
-                    style={{ color: "var(--text-dim)" }}
-                  >
-                    +
-                  </span>
-                </div>
-              </div>
-            </FadeIn>
-          ))}
-        </div>
+        {openIndex === null ? (
+          /* Default 2×2 grid */
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {caseStudies.map((cs, i) => (
+              <FadeIn key={i} delay={0.24 + i * 0.08}>
+                <CollapsedCard cs={cs} onClick={() => handleCardClick(i)} />
+              </FadeIn>
+            ))}
+          </div>
+        ) : (
+          /* Expanded state: full-width card + 3 remaining below */
+          <div className="flex flex-col gap-6">
+            <div ref={expandedRef}>
+              <ExpandedCard
+                cs={caseStudies[openIndex]}
+                onClose={() => setOpenIndex(null)}
+              />
+            </div>
 
-        {/* Expanded case study — rendered OUTSIDE the grid */}
-        {openIndex !== null && (
-          <ExpandedContent
-            cs={caseStudies[openIndex]}
-            onClose={() => setOpenIndex(null)}
-          />
+            {/* Remaining 3 cards in a row */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+              {remainingCards.map(({ cs, i }) => (
+                <CollapsedCard
+                  key={i}
+                  cs={cs}
+                  onClick={() => handleCardClick(i)}
+                />
+              ))}
+            </div>
+          </div>
         )}
       </div>
     </section>

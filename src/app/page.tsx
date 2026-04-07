@@ -23,9 +23,9 @@ export default function Home() {
         <div className="section-divider" />
         <Thinking />
         <div className="section-divider" />
-        <CaseStudies />
-        <div className="section-divider" />
         <Creative />
+        <div className="section-divider" />
+        <CaseStudies />
         <div className="section-divider" />
         <Experience />
         <div className="section-divider" />
