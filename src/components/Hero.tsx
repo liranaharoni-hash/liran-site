@@ -20,51 +20,54 @@ export default function Hero({ onOpenModal }: { onOpenModal: () => void }) {
         }}
       />
 
-      {/* Photo — full-bleed to one side */}
+      {/* Desktop photo — emerges from background, no container */}
       <div
-        className={`absolute top-0 bottom-0 hidden md:block ${
+        className={`absolute top-0 bottom-0 hidden md:block pointer-events-none ${
           isHe ? "left-0" : "right-0"
         }`}
-        style={{ width: "45vw" }}
+        style={{
+          width: "45vw",
+          maskImage:
+            "radial-gradient(ellipse 85% 90% at 50% 45%, black 55%, transparent 100%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse 85% 90% at 50% 45%, black 55%, transparent 100%)",
+        }}
       >
         <Image
           src="/images/liran-portrait.jpg"
           alt="Liran Aharoni"
           fill
-          className="object-cover object-top"
-          style={{ filter: "var(--hero-photo-filter, contrast(1.05) brightness(1.0))" }}
+          className="object-cover object-top hero-photo-blend"
+          style={{ filter: "var(--hero-photo-filter)" }}
           sizes="45vw"
           priority
         />
-        {/* Gradient fade into background */}
-        <div
-          className="absolute inset-0 z-10"
-          style={{
-            background: isHe
-              ? "linear-gradient(to left, var(--bg) 0%, transparent 25%)"
-              : "linear-gradient(to right, var(--bg) 0%, transparent 25%)",
-          }}
-        />
       </div>
 
-      {/* Mobile photo — above text */}
-      <div className="relative md:hidden w-full" style={{ aspectRatio: "4/5" }}>
-        <Image
-          src="/images/liran-portrait.jpg"
-          alt="Liran Aharoni"
-          fill
-          className="object-cover object-top"
-          style={{ filter: "var(--hero-photo-filter, contrast(1.05) brightness(1.0))" }}
-          sizes="100vw"
-          priority
-        />
-        {/* Bottom gradient fade */}
-        <div
-          className="absolute bottom-0 left-0 right-0 h-32 z-10"
-          style={{
-            background: "linear-gradient(to top, var(--bg), transparent)",
-          }}
-        />
+      {/* Mobile photo — centered, soft mask */}
+      <div
+        className="relative md:hidden flex justify-center pt-24 pb-4"
+        style={{
+          maskImage:
+            "radial-gradient(ellipse 80% 85% at 50% 40%, black 50%, transparent 100%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse 80% 85% at 50% 40%, black 50%, transparent 100%)",
+        }}
+      >
+        <div className="relative w-[280px]" style={{ aspectRatio: "3/4" }}>
+          <Image
+            src="/images/liran-portrait.jpg"
+            alt="Liran Aharoni"
+            fill
+            className="object-cover object-top"
+            style={{
+              mixBlendMode: "var(--hero-blend-mode, luminosity)" as React.CSSProperties["mixBlendMode"],
+              filter: "var(--hero-photo-filter)",
+            }}
+            sizes="280px"
+            priority
+          />
+        </div>
       </div>
 
       {/* Text content */}
