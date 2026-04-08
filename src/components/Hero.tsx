@@ -8,10 +8,10 @@ export default function Hero({ onOpenModal }: { onOpenModal: () => void }) {
   const { t, isHe } = useLang();
 
   return (
-    <section className="relative pt-28 pb-20 md:pt-36 md:pb-28">
+    <section className="relative min-h-screen overflow-hidden">
       {/* Gold glow */}
       <div
-        className="absolute top-0 end-0 w-[500px] h-[500px] pointer-events-none"
+        className="absolute top-0 end-0 w-[500px] h-[500px] pointer-events-none z-10"
         style={{
           background:
             "radial-gradient(circle, var(--gold-subtle) 0%, transparent 70%)",
@@ -20,15 +20,56 @@ export default function Hero({ onOpenModal }: { onOpenModal: () => void }) {
         }}
       />
 
+      {/* Photo — full-bleed to one side */}
       <div
-        className={`max-w-[960px] mx-auto px-6 flex flex-col items-start gap-12 ${
-          isHe
-            ? "md:flex-row-reverse md:gap-16"
-            : "md:flex-row md:gap-16"
+        className={`absolute top-0 bottom-0 hidden md:block ${
+          isHe ? "left-0" : "right-0"
         }`}
+        style={{ width: "45vw" }}
       >
-        {/* Text column */}
-        <div className="flex-1 relative z-10">
+        <Image
+          src="/images/liran-portrait.jpg"
+          alt="Liran Aharoni"
+          fill
+          className="object-cover object-top"
+          style={{ filter: "var(--hero-photo-filter, contrast(1.05) brightness(1.0))" }}
+          sizes="45vw"
+          priority
+        />
+        {/* Gradient fade into background */}
+        <div
+          className="absolute inset-0 z-10"
+          style={{
+            background: isHe
+              ? "linear-gradient(to left, var(--bg) 0%, transparent 25%)"
+              : "linear-gradient(to right, var(--bg) 0%, transparent 25%)",
+          }}
+        />
+      </div>
+
+      {/* Mobile photo — above text */}
+      <div className="relative md:hidden w-full" style={{ aspectRatio: "4/5" }}>
+        <Image
+          src="/images/liran-portrait.jpg"
+          alt="Liran Aharoni"
+          fill
+          className="object-cover object-top"
+          style={{ filter: "var(--hero-photo-filter, contrast(1.05) brightness(1.0))" }}
+          sizes="100vw"
+          priority
+        />
+        {/* Bottom gradient fade */}
+        <div
+          className="absolute bottom-0 left-0 right-0 h-32 z-10"
+          style={{
+            background: "linear-gradient(to top, var(--bg), transparent)",
+          }}
+        />
+      </div>
+
+      {/* Text content */}
+      <div className="relative z-20 max-w-[960px] mx-auto px-6 pt-8 pb-20 md:pt-36 md:pb-28">
+        <div className="md:max-w-[55%]">
           <FadeIn>
             <p className="label mb-6">{t.hero.label}</p>
           </FadeIn>
@@ -45,10 +86,14 @@ export default function Hero({ onOpenModal }: { onOpenModal: () => void }) {
               <span style={{ color: "var(--text-secondary)" }}>
                 {t.hero.headline2}
               </span>
-              <br />
-              <span style={{ color: "var(--text-secondary)" }}>
-                {t.hero.headline3}
-              </span>
+              {t.hero.headline3 && (
+                <>
+                  <br />
+                  <span style={{ color: "var(--text-secondary)" }}>
+                    {t.hero.headline3}
+                  </span>
+                </>
+              )}
               <br />
               <span style={{ color: "var(--gold)" }}>
                 {t.hero.headline4}
@@ -125,26 +170,6 @@ export default function Hero({ onOpenModal }: { onOpenModal: () => void }) {
             </button>
           </FadeIn>
         </div>
-
-        {/* Photo column */}
-        <FadeIn delay={0.24} className="shrink-0">
-          <div
-            className="w-[260px] h-[340px] rounded-[14px] relative overflow-hidden border"
-            style={{ borderColor: "var(--border)" }}
-          >
-            <Image
-              src="/images/liran-portrait.jpg"
-              alt="Liran Aharoni"
-              fill
-              className="object-cover object-top"
-              style={{
-                filter: "contrast(1.05) brightness(1.02)",
-              }}
-              sizes="260px"
-              priority
-            />
-          </div>
-        </FadeIn>
       </div>
     </section>
   );
