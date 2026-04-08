@@ -11,10 +11,10 @@ export const translations = {
     },
     hero: {
       label: "LIRAN AHARONI",
-      headline1: "Creative strategy,",
-      headline2: "evolved into systems,",
-      headline3: "product thinking,",
-      headline4: "and AI-driven workflows",
+      headline1: "Where creative strategy",
+      headline2: "meets AI, product thinking,",
+      headline3: "",
+      headline4: "and real-world use",
       subheadline:
         "Applying creative thinking to user behavior, adoption, and real-world product usage.",
       intro:
@@ -236,10 +236,10 @@ export const translations = {
     hero: {
       label: "לירן אהרוני",
       headline1: "אסטרטגיה קריאייטיבית",
-      headline2: "שהתפתחה למערכות, חשיבה מוצרית",
+      headline2: "שפוגשת בינה מלאכותית, חשיבה מוצרית",
       headline3: "",
-      headline4: "ותהליכי עבודה מונחי AI",
-      subheadline: "חשיבה קריאייטיבית שמיושמת על התנהגות משתמשים, אימוץ מוצר ושימוש בעולם האמיתי.",
+      headline4: "ושימוש אמיתי",
+      subheadline: "מחשיבה לרעיון — ועד איך אנשים באמת משתמשים בו.",
       intro: "15+ שנים של קריאייטיב, אסטרטגיה, תוכן והפקות. עם הזמן העבודה התרחבה לכיוון מערכות AI, חשיבה מוצרית והבנה של איך דברים באמת עובדים בפועל.",
       ctaSystems: "צפה במערכות",
       ctaCreative: "עבודות קריאייטיב",
