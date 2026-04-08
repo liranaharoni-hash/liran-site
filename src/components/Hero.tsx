@@ -1,6 +1,5 @@
 "use client";
 
-import { useRef, useState, useCallback, useEffect } from "react";
 import Image from "next/image";
 import FadeIn from "./FadeIn";
 import { useLang } from "@/i18n/LanguageContext";
@@ -9,86 +8,13 @@ import { useTheme } from "./ThemeContext";
 export default function Hero({ onOpenModal }: { onOpenModal: () => void }) {
   const { t, isHe } = useLang();
   const { dark } = useTheme();
-  const heroRef = useRef<HTMLElement>(null);
-  const photoRef = useRef<HTMLDivElement>(null);
-  const spotlightRef = useRef<HTMLDivElement>(null);
-  const rafRef = useRef<number>(0);
-  const [hovering, setHovering] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
 
-  useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth < 768);
-    check();
-    window.addEventListener("resize", check);
-    return () => window.removeEventListener("resize", check);
-  }, []);
-
-  const handleMouseMove = useCallback(
-    (e: React.MouseEvent) => {
-      if (isMobile) return;
-      cancelAnimationFrame(rafRef.current);
-      rafRef.current = requestAnimationFrame(() => {
-        const hero = heroRef.current;
-        const photo = photoRef.current;
-        const spotlight = spotlightRef.current;
-        if (!hero || !photo) return;
-
-        const rect = hero.getBoundingClientRect();
-        const cx = rect.width / 2;
-        const cy = rect.height / 2;
-        const mx = e.clientX - rect.left;
-        const my = e.clientY - rect.top;
-
-        // Parallax — photo moves opposite to mouse
-        const dirX = isHe ? 1 : -1; // flip for RTL
-        const ox = ((mx - cx) / cx) * 15 * dirX;
-        const oy = ((my - cy) / cy) * -10;
-        photo.style.transform = `translate(${ox}px, ${oy}px)`;
-
-        // Spotlight position relative to photo container
-        if (spotlight) {
-          const pr = photo.getBoundingClientRect();
-          const sx = e.clientX - pr.left;
-          const sy = e.clientY - pr.top;
-          spotlight.style.setProperty("--sx", `${sx}px`);
-          spotlight.style.setProperty("--sy", `${sy}px`);
-        }
-      });
-    },
-    [isMobile, isHe]
-  );
-
-  const handleMouseEnter = useCallback(() => {
-    if (!isMobile) setHovering(true);
-  }, [isMobile]);
-
-  const handleMouseLeave = useCallback(() => {
-    setHovering(false);
-    const photo = photoRef.current;
-    if (photo) photo.style.transform = "translate(0, 0)";
-  }, []);
-
-  // Photo filter values per mode
-  const baseFilter = dark
-    ? "brightness(0.5) contrast(0.85) saturate(0)"
-    : "brightness(0.85) contrast(0.95) saturate(0) sepia(0.05)";
-  const hoverFilter = dark
-    ? "brightness(1.1) contrast(1.3) saturate(0)"
-    : "brightness(1.05) contrast(1.05) saturate(0) sepia(0.05)";
-  const spotlightRadius = dark ? 200 : 300;
-
-  // Mask — soft oval, center shifted slightly toward the person
-  const maskCenter = isHe ? "45% 45%" : "55% 45%";
-  const mask = `radial-gradient(ellipse 90% 95% at ${maskCenter}, black 50%, transparent 100%)`;
+  const photoFilter = dark
+    ? "grayscale(1) contrast(1.35) brightness(0.85)"
+    : "grayscale(1) contrast(1.0) brightness(1.05)";
 
   return (
-    <section
-      ref={heroRef}
-      className="relative min-h-screen overflow-hidden"
-      onMouseMove={handleMouseMove}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
+    <section className="relative min-h-screen overflow-hidden">
       {/* Gold glow */}
       <div
         className="absolute top-0 end-0 w-[500px] h-[500px] pointer-events-none z-10"
@@ -100,68 +26,41 @@ export default function Hero({ onOpenModal }: { onOpenModal: () => void }) {
         }}
       />
 
-      {/* Desktop photo */}
+      {/* Desktop photo — clean cutout, no effects */}
       <div
-        ref={photoRef}
-        className={`absolute top-0 bottom-0 hidden md:block pointer-events-none ${
+        className={`absolute bottom-0 hidden md:block pointer-events-none ${
           isHe ? "left-0" : "right-0"
         }`}
         style={{
-          width: "45vw",
-          transition: "transform 0.3s ease-out",
-          willChange: "transform",
-          maskImage: mask,
-          WebkitMaskImage: mask,
+          width: "42vw",
+          height: "85vh",
         }}
       >
         <Image
-          src="/images/liran-portrait.jpg"
+          src="/images/liran-cutout.png"
           alt="Liran Aharoni"
           fill
-          className="object-cover object-top"
+          className="object-contain object-bottom"
           style={{
-            filter: hovering ? hoverFilter : baseFilter,
-            transition: "filter 0.5s ease",
-            willChange: "filter",
+            filter: photoFilter,
+            transition: "filter 0.8s ease",
           }}
-          sizes="45vw"
+          sizes="42vw"
           priority
-        />
-
-        {/* Spotlight overlay */}
-        <div
-          ref={spotlightRef}
-          className="absolute inset-0"
-          style={{
-            background: `radial-gradient(circle ${spotlightRadius}px at var(--sx, 50%) var(--sy, 50%), transparent 0%, rgba(0,0,0,${dark ? 0.5 : 0.3}) 100%)`,
-            mixBlendMode: "multiply",
-            opacity: hovering ? 1 : 0,
-            transition: "opacity 0.3s ease",
-            pointerEvents: "none",
-          }}
         />
       </div>
 
-      {/* Mobile photo — static, no spotlight */}
-      <div
-        className="relative md:hidden flex justify-center pt-24 pb-4"
-        style={{
-          maskImage:
-            "radial-gradient(ellipse 80% 85% at 50% 40%, black 50%, transparent 100%)",
-          WebkitMaskImage:
-            "radial-gradient(ellipse 80% 85% at 50% 40%, black 50%, transparent 100%)",
-        }}
-      >
+      {/* Mobile photo — clean cutout, centered */}
+      <div className="relative md:hidden flex justify-center pt-24 pb-4">
         <div className="relative w-[300px]" style={{ aspectRatio: "3/4" }}>
           <Image
-            src="/images/liran-portrait.jpg"
+            src="/images/liran-cutout.png"
             alt="Liran Aharoni"
             fill
-            className="object-cover object-top"
+            className="object-contain object-bottom"
             style={{
-              filter: dark
-                ? "brightness(0.8) contrast(1.2) saturate(0)"
-                : "brightness(1.0) contrast(1.0) saturate(0) sepia(0.05)",
+              filter: photoFilter,
+              transition: "filter 0.8s ease",
             }}
             sizes="300px"
             priority
