@@ -176,15 +176,6 @@ body::after {
   color: var(--gold);
 }
 
-/* Hero photo blend modes */
-.hero-photo-blend {
-  mix-blend-mode: multiply;
-}
-
-.theme-dark .hero-photo-blend {
-  mix-blend-mode: luminosity;
-}
-
 /* Scrollbar */
 ::-webkit-scrollbar {
   width: 4px;

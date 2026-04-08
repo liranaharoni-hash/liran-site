@@ -3,6 +3,54 @@
 import Image from "next/image";
 import FadeIn from "./FadeIn";
 import { useLang } from "@/i18n/LanguageContext";
+import { useTheme } from "./ThemeContext";
+
+function DualPhoto({ sizes, className }: { sizes: string; className?: string }) {
+  const { dark } = useTheme();
+
+  return (
+    <div className={`absolute inset-0 ${className ?? ""}`}>
+      {/* Light version — "The Strategist" */}
+      <Image
+        src="/images/liran-portrait.jpg"
+        alt="Liran Aharoni"
+        fill
+        className="object-cover object-top"
+        style={{
+          opacity: dark ? 0 : 1,
+          filter: "brightness(1.15) contrast(0.95) saturate(0) sepia(0.08)",
+          mixBlendMode: "multiply",
+          transform: "scale(1.0)",
+          willChange: "opacity, filter, transform",
+          transition:
+            "opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), filter 1.2s cubic-bezier(0.4, 0, 0.2, 1), transform 1.5s cubic-bezier(0.4, 0, 0.2, 1)",
+        }}
+        sizes={sizes}
+        priority
+      />
+
+      {/* Dark version — "The System Builder" */}
+      <Image
+        src="/images/liran-portrait.jpg"
+        alt=""
+        fill
+        aria-hidden
+        className="object-cover object-top"
+        style={{
+          opacity: dark ? 1 : 0,
+          filter: "brightness(0.8) contrast(1.4) saturate(0) sepia(0)",
+          mixBlendMode: "luminosity",
+          transform: "scale(1.02)",
+          willChange: "opacity, filter, transform",
+          transition:
+            "opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), filter 1.2s cubic-bezier(0.4, 0, 0.2, 1), transform 1.5s cubic-bezier(0.4, 0, 0.2, 1)",
+        }}
+        sizes={sizes}
+        priority
+      />
+    </div>
+  );
+}
 
 export default function Hero({ onOpenModal }: { onOpenModal: () => void }) {
   const { t, isHe } = useLang();
@@ -20,7 +68,7 @@ export default function Hero({ onOpenModal }: { onOpenModal: () => void }) {
         }}
       />
 
-      {/* Desktop photo — emerges from background, no container */}
+      {/* Desktop photo — emerges from background */}
       <div
         className={`absolute top-0 bottom-0 hidden md:block pointer-events-none ${
           isHe ? "left-0" : "right-0"
@@ -28,20 +76,12 @@ export default function Hero({ onOpenModal }: { onOpenModal: () => void }) {
         style={{
           width: "45vw",
           maskImage:
-            "radial-gradient(ellipse 85% 90% at 50% 45%, black 55%, transparent 100%)",
+            "radial-gradient(ellipse 80% 85% at 50% 40%, black 55%, transparent 100%)",
           WebkitMaskImage:
-            "radial-gradient(ellipse 85% 90% at 50% 45%, black 55%, transparent 100%)",
+            "radial-gradient(ellipse 80% 85% at 50% 40%, black 55%, transparent 100%)",
         }}
       >
-        <Image
-          src="/images/liran-portrait.jpg"
-          alt="Liran Aharoni"
-          fill
-          className="object-cover object-top hero-photo-blend"
-          style={{ filter: "var(--hero-photo-filter)" }}
-          sizes="45vw"
-          priority
-        />
+        <DualPhoto sizes="45vw" />
       </div>
 
       {/* Mobile photo — centered, soft mask */}
@@ -55,18 +95,7 @@ export default function Hero({ onOpenModal }: { onOpenModal: () => void }) {
         }}
       >
         <div className="relative w-[280px]" style={{ aspectRatio: "3/4" }}>
-          <Image
-            src="/images/liran-portrait.jpg"
-            alt="Liran Aharoni"
-            fill
-            className="object-cover object-top"
-            style={{
-              mixBlendMode: "var(--hero-blend-mode, luminosity)" as React.CSSProperties["mixBlendMode"],
-              filter: "var(--hero-photo-filter)",
-            }}
-            sizes="280px"
-            priority
-          />
+          <DualPhoto sizes="280px" />
         </div>
       </div>
 

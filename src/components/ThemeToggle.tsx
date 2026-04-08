@@ -1,31 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useTheme } from "./ThemeContext";
 
 export default function ThemeToggle() {
-  const [dark, setDark] = useState(false);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-    const saved = localStorage.getItem("theme");
-    if (saved === "dark") {
-      setDark(true);
-      document.documentElement.classList.add("theme-dark");
-    }
-  }, []);
-
-  const toggle = () => {
-    const next = !dark;
-    setDark(next);
-    if (next) {
-      document.documentElement.classList.add("theme-dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.classList.remove("theme-dark");
-      localStorage.setItem("theme", "light");
-    }
-  };
+  const { dark, toggle, mounted } = useTheme();
 
   if (!mounted) return <div className="w-8 h-8" />;
 
