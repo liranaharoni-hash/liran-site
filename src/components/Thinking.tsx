@@ -1,14 +1,17 @@
 "use client";
 
 import FadeIn from "./FadeIn";
+import { useLang } from "@/i18n/LanguageContext";
 
 export default function Thinking() {
+  const { t } = useLang();
+
   return (
     <section id="thinking" className="py-[120px]">
       <div className="max-w-[960px] mx-auto px-6">
         <div className="max-w-[560px]">
           <FadeIn>
-            <p className="label mb-10">HOW I THINK</p>
+            <p className="label mb-10">{t.thinking.label}</p>
           </FadeIn>
 
           <FadeIn delay={0.08}>
@@ -16,7 +19,7 @@ export default function Thinking() {
               className="font-serif text-[24px] font-light leading-relaxed"
               style={{ color: "var(--text-primary)" }}
             >
-              I don&apos;t approach projects as isolated campaigns.
+              {t.thinking.line1}
             </p>
           </FadeIn>
 
@@ -25,7 +28,7 @@ export default function Thinking() {
               className="font-serif text-[24px] font-normal leading-relaxed mt-2"
               style={{ color: "var(--gold)" }}
             >
-              I approach them as systems.
+              {t.thinking.line2}
             </p>
           </FadeIn>
 
@@ -34,7 +37,7 @@ export default function Thinking() {
               className="font-sans text-[16px] font-light leading-relaxed mt-7"
               style={{ color: "var(--text-muted)" }}
             >
-              Systems of behavior, attention, and interaction.
+              {t.thinking.line3}
             </p>
           </FadeIn>
 
@@ -43,8 +46,7 @@ export default function Thinking() {
               className="font-sans text-[15px] font-light leading-relaxed mt-4"
               style={{ color: "var(--text-dim)" }}
             >
-              Where most work focuses on visibility, I focus on what happens
-              after — how something is understood, used, and repeated.
+              {t.thinking.line4}
             </p>
           </FadeIn>
 
@@ -53,9 +55,7 @@ export default function Thinking() {
               className="font-sans text-[15px] font-light leading-relaxed mt-4"
               style={{ color: "var(--text-dim)" }}
             >
-              Over time, this naturally extended into product thinking,
-              AI-assisted workflows, and the design of systems that connect
-              ideas to real usage.
+              {t.thinking.line5}
             </p>
           </FadeIn>
         </div>

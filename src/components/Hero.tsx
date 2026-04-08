@@ -1,13 +1,17 @@
 "use client";
 
+import Image from "next/image";
 import FadeIn from "./FadeIn";
+import { useLang } from "@/i18n/LanguageContext";
 
 export default function Hero({ onOpenModal }: { onOpenModal: () => void }) {
+  const { t, isHe } = useLang();
+
   return (
     <section className="relative pt-28 pb-20 md:pt-36 md:pb-28">
       {/* Gold glow */}
       <div
-        className="absolute top-0 right-0 w-[500px] h-[500px] pointer-events-none"
+        className="absolute top-0 end-0 w-[500px] h-[500px] pointer-events-none"
         style={{
           background:
             "radial-gradient(circle, var(--gold-subtle) 0%, transparent 70%)",
@@ -16,11 +20,17 @@ export default function Hero({ onOpenModal }: { onOpenModal: () => void }) {
         }}
       />
 
-      <div className="max-w-[960px] mx-auto px-6 flex flex-col md:flex-row items-start gap-12 md:gap-16">
-        {/* Left column */}
+      <div
+        className={`max-w-[960px] mx-auto px-6 flex flex-col items-start gap-12 ${
+          isHe
+            ? "md:flex-row-reverse md:gap-16"
+            : "md:flex-row md:gap-16"
+        }`}
+      >
+        {/* Text column */}
         <div className="flex-1 relative z-10">
           <FadeIn>
-            <p className="label mb-6">LIRAN AHARONI</p>
+            <p className="label mb-6">{t.hero.label}</p>
           </FadeIn>
 
           <FadeIn delay={0.08}>
@@ -29,19 +39,19 @@ export default function Hero({ onOpenModal }: { onOpenModal: () => void }) {
               style={{ fontSize: "clamp(32px, 5vw, 50px)" }}
             >
               <span style={{ color: "var(--text-primary)" }}>
-                Creative strategy,
+                {t.hero.headline1}
               </span>
               <br />
               <span style={{ color: "var(--text-secondary)" }}>
-                evolved into systems,
+                {t.hero.headline2}
               </span>
               <br />
               <span style={{ color: "var(--text-secondary)" }}>
-                product thinking,
+                {t.hero.headline3}
               </span>
               <br />
               <span style={{ color: "var(--gold)" }}>
-                and AI-driven workflows
+                {t.hero.headline4}
               </span>
             </h1>
           </FadeIn>
@@ -51,8 +61,7 @@ export default function Hero({ onOpenModal }: { onOpenModal: () => void }) {
               className="font-sans text-[15px] font-light leading-relaxed mb-3"
               style={{ color: "var(--text-muted)" }}
             >
-              Applying creative thinking to user behavior, adoption, and
-              real-world product usage.
+              {t.hero.subheadline}
             </p>
           </FadeIn>
 
@@ -61,10 +70,7 @@ export default function Hero({ onOpenModal }: { onOpenModal: () => void }) {
               className="font-sans text-[13px] font-light leading-relaxed mb-8"
               style={{ color: "var(--text-dim)" }}
             >
-              Senior creative and strategy leader with 15+ years across content,
-              campaigns, production, and digital systems. Over time, the work
-              expanded into AI-enabled workflows, behavioral thinking, and
-              system design shaped by real-world use.
+              {t.hero.intro}
             </p>
           </FadeIn>
 
@@ -78,7 +84,7 @@ export default function Hero({ onOpenModal }: { onOpenModal: () => void }) {
                   color: "var(--cta-primary-text)",
                 }}
               >
-                View Systems
+                {t.hero.ctaSystems}
               </a>
               <a
                 href="#creative"
@@ -88,14 +94,14 @@ export default function Hero({ onOpenModal }: { onOpenModal: () => void }) {
                   color: "var(--cta-secondary-text)",
                 }}
               >
-                Creative Work
+                {t.hero.ctaCreative}
               </a>
               <a
                 href="#contact"
                 className="inline-block px-5 py-2.5 text-[13px] font-sans font-light transition-colors hover:!text-[var(--gold)]"
                 style={{ color: "var(--text-dim)" }}
               >
-                Contact
+                {t.hero.ctaContact}
               </a>
             </div>
           </FadeIn>
@@ -105,9 +111,7 @@ export default function Hero({ onOpenModal }: { onOpenModal: () => void }) {
               className="font-mono text-[10px] tracking-[2px] mb-5"
               style={{ color: "var(--text-faint)" }}
             >
-              Not a classic product manager. Not just a creative director.
-              <br className="hidden sm:block" />A hybrid operator working
-              between both.
+              {t.hero.microcopy}
             </p>
           </FadeIn>
 
@@ -117,47 +121,28 @@ export default function Hero({ onOpenModal }: { onOpenModal: () => void }) {
               className="font-mono text-[10px] uppercase tracking-[3px] transition-colors hover:!text-[var(--gold)]"
               style={{ color: "var(--text-faint)" }}
             >
-              How this site was built →
+              {t.hero.builtWith}
             </button>
           </FadeIn>
         </div>
 
-        {/* Right column — photo placeholder */}
+        {/* Photo column */}
         <FadeIn delay={0.24} className="shrink-0">
           <div
-            className="w-[260px] h-[340px] rounded-lg relative overflow-hidden flex items-center justify-center"
-            style={{
-              background:
-                "linear-gradient(135deg, var(--placeholder-gradient-from) 0%, var(--placeholder-gradient-to) 100%)",
-            }}
+            className="w-[260px] h-[340px] rounded-[14px] relative overflow-hidden border"
+            style={{ borderColor: "var(--border)" }}
           >
-            <svg
-              className="absolute inset-0 w-full h-full opacity-[0.06]"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <defs>
-                <pattern
-                  id="heroGrid"
-                  width="20"
-                  height="20"
-                  patternUnits="userSpaceOnUse"
-                >
-                  <path
-                    d="M 20 0 L 0 0 0 20"
-                    fill="none"
-                    stroke="var(--gold)"
-                    strokeWidth="0.5"
-                  />
-                </pattern>
-              </defs>
-              <rect width="100%" height="100%" fill="url(#heroGrid)" />
-            </svg>
-            <span
-              className="font-mono text-[10px] uppercase tracking-[3px] relative z-10"
-              style={{ color: "var(--text-dim)" }}
-            >
-              YOUR PHOTO
-            </span>
+            <Image
+              src="/images/liran-portrait.jpg"
+              alt="Liran Aharoni"
+              fill
+              className="object-cover object-top"
+              style={{
+                filter: "contrast(1.05) brightness(1.02)",
+              }}
+              sizes="260px"
+              priority
+            />
           </div>
         </FadeIn>
       </div>

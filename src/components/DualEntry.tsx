@@ -1,23 +1,26 @@
 "use client";
 
 import FadeIn from "./FadeIn";
-
-const cards = [
-  {
-    title: "Systems & AI",
-    copy: "Designing systems that connect product capabilities to real user behavior, adoption, and scalable use.",
-    cta: "View Systems →",
-    href: "#systems",
-  },
-  {
-    title: "Creative & Content",
-    copy: "Building campaigns, content, and visual work that translate ideas into strong real-world impact.",
-    cta: "View Creative Work →",
-    href: "#creative",
-  },
-];
+import { useLang } from "@/i18n/LanguageContext";
 
 export default function DualEntry() {
+  const { t } = useLang();
+
+  const cards = [
+    {
+      title: t.dualEntry.card1Title,
+      copy: t.dualEntry.card1Copy,
+      cta: t.dualEntry.card1Cta,
+      href: "#systems",
+    },
+    {
+      title: t.dualEntry.card2Title,
+      copy: t.dualEntry.card2Copy,
+      cta: t.dualEntry.card2Cta,
+      href: "#creative",
+    },
+  ];
+
   return (
     <section id="dual-entry" className="py-[120px]">
       <div className="max-w-[960px] mx-auto px-6">
@@ -26,7 +29,7 @@ export default function DualEntry() {
             className="font-serif text-[32px] font-light mb-3"
             style={{ color: "var(--text-primary)" }}
           >
-            What I Do
+            {t.dualEntry.title}
           </h2>
         </FadeIn>
 
@@ -35,8 +38,7 @@ export default function DualEntry() {
             className="font-sans text-[14px] font-light leading-relaxed mb-10"
             style={{ color: "var(--text-muted)" }}
           >
-            Two sides of the same thinking — ideas that don&apos;t just look
-            good, but work in real systems.
+            {t.dualEntry.subtitle}
           </p>
         </FadeIn>
 
@@ -59,9 +61,8 @@ export default function DualEntry() {
                     "var(--border)";
                 }}
               >
-                {/* Visual placeholder */}
                 <div
-                  className="relative rounded-md overflow-hidden mb-6 flex items-center justify-center"
+                  className="relative rounded-md overflow-hidden mb-6"
                   style={{
                     aspectRatio: "16/9",
                     background: `
@@ -72,7 +73,6 @@ export default function DualEntry() {
                     backgroundSize: "100% 100%, 32px 32px, 32px 32px",
                   }}
                 />
-
                 <h3
                   className="font-serif text-[24px] font-light mb-3"
                   style={{ color: "var(--text-primary)" }}

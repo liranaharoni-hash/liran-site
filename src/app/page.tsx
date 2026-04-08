@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { LanguageProvider } from "@/i18n/LanguageContext";
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import DualEntry from "@/components/DualEntry";
@@ -17,7 +18,7 @@ export default function Home() {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
-    <>
+    <LanguageProvider>
       <Navigation />
       <main>
         <Hero onOpenModal={() => setModalOpen(true)} />
@@ -38,6 +39,6 @@ export default function Home() {
       </main>
       <Footer onOpenModal={() => setModalOpen(true)} />
       <Modal open={modalOpen} onClose={() => setModalOpen(false)} />
-    </>
+    </LanguageProvider>
   );
 }

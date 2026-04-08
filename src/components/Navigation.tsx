@@ -1,19 +1,23 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import ThemeToggle from "./ThemeToggle";
-
-const links = [
-  { label: "What I Do", href: "#dual-entry" },
-  { label: "Creative", href: "#creative" },
-  { label: "Systems", href: "#systems" },
-  { label: "Experience", href: "#experience" },
-  { label: "Contact", href: "#contact" },
-];
+import LanguageToggle from "./LanguageToggle";
+import { useLang } from "@/i18n/LanguageContext";
 
 export default function Navigation() {
+  const { t } = useLang();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const links = [
+    { label: t.nav.whatIDo, href: "#dual-entry" },
+    { label: t.nav.creative, href: "#creative" },
+    { label: t.nav.systems, href: "#systems" },
+    { label: t.nav.experience, href: "#experience" },
+    { label: t.nav.contact, href: "#contact" },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -36,16 +40,22 @@ export default function Navigation() {
       }
     >
       <div className="max-w-[960px] mx-auto px-6 flex items-center justify-between h-14">
-        <a
-          href="#"
-          className="font-serif text-xl font-light tracking-wide"
-          style={{ color: "var(--gold)" }}
-        >
-          LA
+        <a href="#" className="shrink-0">
+          <Image
+            src="/images/logo.png"
+            alt="Liran Aharoni"
+            width={120}
+            height={30}
+            className="h-[28px] w-auto theme-dark:invert"
+            style={{ filter: "var(--logo-filter, none)" }}
+            priority
+          />
         </a>
 
-        <div className="hidden md:flex items-center gap-6">
+        {/* Desktop */}
+        <div className="hidden md:flex items-center gap-5">
           <ThemeToggle />
+          <LanguageToggle />
           {links.map((link) => (
             <a
               key={link.href}
@@ -58,8 +68,10 @@ export default function Navigation() {
           ))}
         </div>
 
-        <div className="md:hidden flex items-center gap-3">
+        {/* Mobile */}
+        <div className="md:hidden flex items-center gap-2">
           <ThemeToggle />
+          <LanguageToggle />
           <button
             className="flex flex-col gap-[5px] p-1"
             onClick={() => setMenuOpen(!menuOpen)}

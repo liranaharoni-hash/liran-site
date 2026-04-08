@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Cormorant_Garamond, DM_Sans, JetBrains_Mono } from "next/font/google";
+import {
+  Cormorant_Garamond,
+  DM_Sans,
+  JetBrains_Mono,
+  Heebo,
+} from "next/font/google";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -21,6 +26,12 @@ const jetbrains = JetBrains_Mono({
   weight: ["300", "400"],
 });
 
+const heebo = Heebo({
+  variable: "--font-heebo",
+  subsets: ["hebrew", "latin"],
+  weight: ["300", "400", "500"],
+});
+
 export const metadata: Metadata = {
   title: "Liran Aharoni — Creative Strategy, Systems & AI",
   description:
@@ -35,15 +46,16 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${cormorant.variable} ${dmSans.variable} ${jetbrains.variable} antialiased`}
+      dir="ltr"
+      className={`${cormorant.variable} ${dmSans.variable} ${jetbrains.variable} ${heebo.variable} antialiased`}
       suppressHydrationWarning
     >
       <body>
         <Script
-          id="theme-init"
+          id="theme-lang-init"
           strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
-            __html: `(function(){var t=localStorage.getItem('theme');if(t==='dark')document.documentElement.classList.add('theme-dark');})();`,
+            __html: `(function(){var t=localStorage.getItem('theme');if(t==='dark')document.documentElement.classList.add('theme-dark');var l=localStorage.getItem('lang');if(l==='he'){document.documentElement.lang='he';document.documentElement.dir='rtl';document.documentElement.classList.add('lang-he');}})();`,
           }}
         />
         {children}

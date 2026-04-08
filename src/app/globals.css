@@ -48,6 +48,7 @@
     --placeholder-gradient-from: rgba(160,128,48,0.06);
     --placeholder-gradient-to: rgba(160,128,48,0.02);
     --hamburger-color: #666666;
+    --logo-filter: none;
   }
 
   /* ===== DARK MODE ===== */
@@ -91,6 +92,7 @@
     --placeholder-gradient-from: rgba(201,168,76,0.05);
     --placeholder-gradient-to: rgba(201,168,76,0.01);
     --hamburger-color: #888888;
+    --logo-filter: invert(1);
   }
 
   html {
@@ -103,6 +105,23 @@
     font-family: var(--font-sans);
     overflow-x: hidden;
     transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Hebrew font overrides */
+  .lang-he body,
+  .lang-he .font-sans {
+    font-family: var(--font-heebo), sans-serif;
+    letter-spacing: 0;
+  }
+
+  .lang-he .font-serif {
+    font-family: var(--font-heebo), sans-serif;
+    font-weight: 400;
+  }
+
+  /* Hebrew body text line-height boost */
+  .lang-he p:not(.label):not(.font-mono) {
+    line-height: 1.9;
   }
 
   ::selection {
