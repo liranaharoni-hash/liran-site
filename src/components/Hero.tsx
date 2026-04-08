@@ -9,12 +9,15 @@ export default function Hero({ onOpenModal }: { onOpenModal: () => void }) {
   const { t, isHe } = useLang();
   const { dark } = useTheme();
 
-  const photoFilter = dark
-    ? "grayscale(1) contrast(1.35) brightness(0.85)"
-    : "grayscale(1) contrast(1.0) brightness(1.05)";
+  // Mask direction flips for RTL
+  const sideFade = isHe
+    ? "linear-gradient(to right, black 0%, black 55%, transparent 95%)"
+    : "linear-gradient(to left, black 0%, black 55%, transparent 95%)";
+  const bottomFade = "linear-gradient(to top, transparent 0%, black 10%, black 100%)";
+  const desktopMask = `${sideFade}, ${bottomFade}`;
 
   return (
-    <section className="relative min-h-screen overflow-hidden">
+    <section className="relative min-h-screen overflow-hidden flex items-center">
       {/* Gold glow */}
       <div
         className="absolute top-0 end-0 w-[500px] h-[500px] pointer-events-none z-10"
@@ -26,51 +29,96 @@ export default function Hero({ onOpenModal }: { onOpenModal: () => void }) {
         }}
       />
 
-      {/* Desktop photo — clean cutout, no effects */}
+      {/* Desktop photo container */}
       <div
-        className={`absolute bottom-0 hidden md:block pointer-events-none ${
+        className={`absolute top-0 bottom-0 hidden md:block pointer-events-none z-[1] ${
           isHe ? "left-0" : "right-0"
         }`}
         style={{
-          width: "42vw",
-          height: "85vh",
+          width: "50vw",
+          maskImage: desktopMask,
+          WebkitMaskImage: desktopMask,
+          maskComposite: "intersect",
+          WebkitMaskComposite: "source-in" as string,
         }}
       >
+        {/* Light mode image */}
         <Image
-          src="/images/liran-cutout.png"
+          src="/images/liran-light.png"
           alt="Liran Aharoni"
           fill
-          className="object-contain object-bottom"
+          className="object-cover"
           style={{
-            filter: photoFilter,
-            transition: "filter 0.8s ease",
+            objectPosition: "center 20%",
+            opacity: dark ? 0 : 1,
+            transition: "opacity 1s ease",
+            filter: "contrast(1.02) brightness(1.02)",
           }}
-          sizes="42vw"
+          sizes="50vw"
+          priority
+        />
+        {/* Dark mode image */}
+        <Image
+          src="/images/liran-dark.png"
+          alt="Liran Aharoni"
+          fill
+          className="object-cover"
+          style={{
+            objectPosition: "center 20%",
+            opacity: dark ? 1 : 0,
+            transition: "opacity 1s ease",
+            filter: "contrast(1.1) brightness(0.95)",
+          }}
+          sizes="50vw"
           priority
         />
       </div>
 
-      {/* Mobile photo — clean cutout, centered */}
-      <div className="relative md:hidden flex justify-center pt-24 pb-4">
-        <div className="relative w-[300px]" style={{ aspectRatio: "3/4" }}>
-          <Image
-            src="/images/liran-cutout.png"
-            alt="Liran Aharoni"
-            fill
-            className="object-contain object-bottom"
-            style={{
-              filter: photoFilter,
-              transition: "filter 0.8s ease",
-            }}
-            sizes="300px"
-            priority
-          />
-        </div>
+      {/* Mobile photo container */}
+      <div
+        className="relative md:hidden w-full pointer-events-none"
+        style={{
+          height: "50vh",
+          maxHeight: "400px",
+          maskImage:
+            "linear-gradient(to top, transparent 0%, black 15%, black 100%)",
+          WebkitMaskImage:
+            "linear-gradient(to top, transparent 0%, black 15%, black 100%)",
+        }}
+      >
+        <Image
+          src="/images/liran-light.png"
+          alt="Liran Aharoni"
+          fill
+          className="object-cover"
+          style={{
+            objectPosition: "center 20%",
+            opacity: dark ? 0 : 1,
+            transition: "opacity 1s ease",
+            filter: "contrast(1.02) brightness(1.02)",
+          }}
+          sizes="100vw"
+          priority
+        />
+        <Image
+          src="/images/liran-dark.png"
+          alt="Liran Aharoni"
+          fill
+          className="object-cover"
+          style={{
+            objectPosition: "center 20%",
+            opacity: dark ? 1 : 0,
+            transition: "opacity 1s ease",
+            filter: "contrast(1.1) brightness(0.95)",
+          }}
+          sizes="100vw"
+          priority
+        />
       </div>
 
       {/* Text content */}
-      <div className="relative z-20 max-w-[960px] mx-auto px-6 pt-8 pb-20 md:pt-36 md:pb-28">
-        <div className="md:max-w-[55%]">
+      <div className="relative z-20 max-w-[960px] mx-auto px-6 md:px-10 pt-8 pb-20 md:pt-0 md:pb-0">
+        <div className="md:max-w-[50%]">
           <FadeIn>
             <p className="label mb-6">{t.hero.label}</p>
           </FadeIn>
