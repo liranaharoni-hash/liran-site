@@ -49,8 +49,6 @@
     --placeholder-gradient-to: rgba(160,128,48,0.02);
     --hamburger-color: #666666;
     --logo-filter: none;
-    --hero-photo-filter: contrast(1.05) brightness(1.1);
-    --hero-blend-mode: multiply;
   }
 
   /* ===== DARK MODE ===== */
@@ -95,8 +93,6 @@
     --placeholder-gradient-to: rgba(201,168,76,0.01);
     --hamburger-color: #888888;
     --logo-filter: invert(1);
-    --hero-photo-filter: contrast(1.15) brightness(0.85);
-    --hero-blend-mode: luminosity;
   }
 
   html {
