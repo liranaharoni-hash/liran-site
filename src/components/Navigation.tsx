@@ -39,22 +39,22 @@ export default function Navigation() {
           : undefined
       }
     >
-      <div className="max-w-[960px] mx-auto px-6 flex items-center justify-between h-14">
-        {/* Left: Logo + nav links */}
+      <div className="max-w-[960px] mx-auto px-6 flex items-center justify-between h-16">
+        {/* Left: Logo + nav links + language toggle */}
         <div className="flex items-center gap-5">
           <a href="#" className="shrink-0">
             <Image
               src="/images/logo.png"
               alt="Liran Aharoni"
-              width={140}
-              height={36}
-              className="h-[36px] w-auto theme-dark:invert"
+              width={280}
+              height={72}
+              className="h-[72px] w-auto theme-dark:invert"
               style={{ filter: "var(--logo-filter, none)" }}
               priority
             />
           </a>
 
-          {/* Desktop nav links */}
+          {/* Desktop nav links + language toggle */}
           <div className="hidden md:flex items-center gap-5">
             {links.map((link) => (
               <a
@@ -66,39 +66,42 @@ export default function Navigation() {
                 {link.label}
               </a>
             ))}
+            <LanguageToggle />
           </div>
         </div>
 
-        {/* Right: Toggles */}
+        {/* Right: Theme toggle only */}
         <div className="flex items-center gap-2">
           <ThemeToggle />
-          <LanguageToggle />
 
-          {/* Mobile hamburger */}
-          <button
-            className="md:hidden flex flex-col gap-[5px] p-1"
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Menu"
-          >
-            <span
-              className={`block w-5 h-[1px] transition-all duration-300 ${
-                menuOpen ? "rotate-45 translate-y-[3px]" : ""
-              }`}
-              style={{ backgroundColor: "var(--hamburger-color)" }}
-            />
-            <span
-              className={`block w-5 h-[1px] transition-all duration-300 ${
-                menuOpen ? "-rotate-45 -translate-y-[3px]" : ""
-              }`}
-              style={{ backgroundColor: "var(--hamburger-color)" }}
-            />
-          </button>
+          {/* Mobile: language toggle + hamburger */}
+          <div className="md:hidden flex items-center gap-2">
+            <LanguageToggle />
+            <button
+              className="flex flex-col gap-[5px] p-1"
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label="Menu"
+            >
+              <span
+                className={`block w-5 h-[1px] transition-all duration-300 ${
+                  menuOpen ? "rotate-45 translate-y-[3px]" : ""
+                }`}
+                style={{ backgroundColor: "var(--hamburger-color)" }}
+              />
+              <span
+                className={`block w-5 h-[1px] transition-all duration-300 ${
+                  menuOpen ? "-rotate-45 -translate-y-[3px]" : ""
+                }`}
+                style={{ backgroundColor: "var(--hamburger-color)" }}
+              />
+            </button>
+          </div>
         </div>
       </div>
 
       {menuOpen && (
         <div
-          className="md:hidden fixed inset-0 top-14 backdrop-blur-md z-40"
+          className="md:hidden fixed inset-0 top-16 backdrop-blur-md z-40"
           style={{
             backgroundColor: "var(--nav-scrolled-bg)",
           }}

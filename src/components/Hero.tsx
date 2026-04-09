@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import FadeIn from "./FadeIn";
 import { useLang } from "@/i18n/LanguageContext";
@@ -9,8 +9,6 @@ import { useTheme } from "./ThemeContext";
 export default function Hero({ onOpenModal }: { onOpenModal: () => void }) {
   const { t, isHe } = useLang();
   const { dark } = useTheme();
-  const heroRef = useRef<HTMLElement>(null);
-  const [scrollProgress, setScrollProgress] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -19,18 +17,6 @@ export default function Hero({ onOpenModal }: { onOpenModal: () => void }) {
     window.addEventListener("resize", check);
     return () => window.removeEventListener("resize", check);
   }, []);
-
-  useEffect(() => {
-    if (isMobile) return;
-    const handleScroll = () => {
-      const heroHeight =
-        heroRef.current?.offsetHeight || window.innerHeight;
-      const progress = Math.min(window.scrollY / heroHeight, 1);
-      setScrollProgress(progress);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [isMobile]);
 
   // Mask direction flips for RTL
   const sideFade = isHe
@@ -41,7 +27,7 @@ export default function Hero({ onOpenModal }: { onOpenModal: () => void }) {
   const desktopMask = `${sideFade}, ${bottomFade}`;
 
   return (
-    <section ref={heroRef} className="relative min-h-screen overflow-hidden">
+    <section className="relative min-h-screen overflow-hidden">
       {/* Gold glow */}
       <div
         className="absolute top-0 end-0 w-[500px] h-[500px] pointer-events-none z-10"
@@ -66,10 +52,8 @@ export default function Hero({ onOpenModal }: { onOpenModal: () => void }) {
             WebkitMaskImage: desktopMask,
             maskComposite: "intersect",
             WebkitMaskComposite: "source-in" as string,
-            filter: `blur(${scrollProgress * 12}px)`,
-            opacity: 1 - scrollProgress * 0.7,
-            transform: `scale(${1 + scrollProgress * 0.05})`,
-            transition: "filter 0.1s linear, opacity 0.1s linear",
+            opacity: 0.35,
+            filter: "blur(2px)",
           }}
         >
           <Image
