@@ -4,7 +4,7 @@ import {
   Cormorant_Garamond,
   DM_Sans,
   JetBrains_Mono,
-  Heebo,
+  Rubik,
 } from "next/font/google";
 import "./globals.css";
 
@@ -26,14 +26,14 @@ const jetbrains = JetBrains_Mono({
   weight: ["300", "400"],
 });
 
-const heebo = Heebo({
-  variable: "--font-heebo",
+const rubik = Rubik({
+  variable: "--font-rubik",
   subsets: ["hebrew", "latin"],
-  weight: ["300", "400", "500"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
-  title: "Liran Aharoni — Creative Strategy, Systems & AI",
+  title: "Liran Aharoni: Creative Strategy, Systems & AI",
   description:
     "Applying creative thinking to user behavior, adoption, and real-world product usage.",
 };
@@ -47,7 +47,7 @@ export default function RootLayout({
     <html
       lang="en"
       dir="ltr"
-      className={`${cormorant.variable} ${dmSans.variable} ${jetbrains.variable} ${heebo.variable} antialiased`}
+      className={`${cormorant.variable} ${dmSans.variable} ${jetbrains.variable} ${rubik.variable} antialiased`}
       suppressHydrationWarning
     >
       <body>

@@ -35,7 +35,7 @@ function FlowDiagram({ steps }: { steps: readonly string[] }) {
   );
 }
 
-const icons = ["🤖", "📄", "✨", "📸"];
+const icons = ["🤖", "✨", "📸", "📄"];
 
 export default function CaseStudies() {
   const { t } = useLang();

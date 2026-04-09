@@ -40,40 +40,43 @@ export default function Navigation() {
       }
     >
       <div className="max-w-[960px] mx-auto px-6 flex items-center justify-between h-14">
-        <a href="#" className="shrink-0">
-          <Image
-            src="/images/logo.png"
-            alt="Liran Aharoni"
-            width={120}
-            height={30}
-            className="h-[28px] w-auto theme-dark:invert"
-            style={{ filter: "var(--logo-filter, none)" }}
-            priority
-          />
-        </a>
+        {/* Left: Logo + nav links */}
+        <div className="flex items-center gap-5">
+          <a href="#" className="shrink-0">
+            <Image
+              src="/images/logo.png"
+              alt="Liran Aharoni"
+              width={140}
+              height={36}
+              className="h-[36px] w-auto theme-dark:invert"
+              style={{ filter: "var(--logo-filter, none)" }}
+              priority
+            />
+          </a>
 
-        {/* Desktop */}
-        <div className="hidden md:flex items-center gap-5">
-          <ThemeToggle />
-          <LanguageToggle />
-          {links.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="font-sans text-[13px] transition-colors duration-300 hover:!text-[var(--gold)]"
-              style={{ color: "var(--text-dim)" }}
-            >
-              {link.label}
-            </a>
-          ))}
+          {/* Desktop nav links */}
+          <div className="hidden md:flex items-center gap-5">
+            {links.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="font-sans text-[13px] transition-colors duration-300 hover:!text-[var(--gold)]"
+                style={{ color: "var(--text-dim)" }}
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
         </div>
 
-        {/* Mobile */}
-        <div className="md:hidden flex items-center gap-2">
+        {/* Right: Toggles */}
+        <div className="flex items-center gap-2">
           <ThemeToggle />
           <LanguageToggle />
+
+          {/* Mobile hamburger */}
           <button
-            className="flex flex-col gap-[5px] p-1"
+            className="md:hidden flex flex-col gap-[5px] p-1"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Menu"
           >
@@ -95,18 +98,17 @@ export default function Navigation() {
 
       {menuOpen && (
         <div
-          className="md:hidden backdrop-blur-md"
+          className="md:hidden fixed inset-0 top-14 backdrop-blur-md z-40"
           style={{
             backgroundColor: "var(--nav-scrolled-bg)",
-            borderBottom: "1px solid var(--border)",
           }}
         >
-          <div className="max-w-[960px] mx-auto px-6 py-6 flex flex-col gap-5">
+          <div className="max-w-[960px] mx-auto px-6 py-8 flex flex-col gap-6">
             {links.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="font-sans text-[14px] transition-colors duration-300 hover:!text-[var(--gold)]"
+                className="font-sans text-[18px] transition-colors duration-300 hover:!text-[var(--gold)]"
                 style={{ color: "var(--text-dim)" }}
                 onClick={() => setMenuOpen(false)}
               >

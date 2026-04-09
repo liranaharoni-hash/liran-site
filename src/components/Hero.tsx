@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import FadeIn from "./FadeIn";
 import { useLang } from "@/i18n/LanguageContext";
@@ -8,16 +9,39 @@ import { useTheme } from "./ThemeContext";
 export default function Hero({ onOpenModal }: { onOpenModal: () => void }) {
   const { t, isHe } = useLang();
   const { dark } = useTheme();
+  const heroRef = useRef<HTMLElement>(null);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
+  useEffect(() => {
+    if (isMobile) return;
+    const handleScroll = () => {
+      const heroHeight =
+        heroRef.current?.offsetHeight || window.innerHeight;
+      const progress = Math.min(window.scrollY / heroHeight, 1);
+      setScrollProgress(progress);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isMobile]);
 
   // Mask direction flips for RTL
   const sideFade = isHe
     ? "linear-gradient(to right, black 0%, black 55%, transparent 95%)"
     : "linear-gradient(to left, black 0%, black 55%, transparent 95%)";
-  const bottomFade = "linear-gradient(to top, transparent 0%, black 10%, black 100%)";
+  const bottomFade =
+    "linear-gradient(to top, transparent 0%, black 10%, black 100%)";
   const desktopMask = `${sideFade}, ${bottomFade}`;
 
   return (
-    <section className="relative min-h-screen overflow-hidden flex items-center">
+    <section ref={heroRef} className="relative min-h-screen overflow-hidden">
       {/* Gold glow */}
       <div
         className="absolute top-0 end-0 w-[500px] h-[500px] pointer-events-none z-10"
@@ -29,61 +53,66 @@ export default function Hero({ onOpenModal }: { onOpenModal: () => void }) {
         }}
       />
 
-      {/* Desktop photo container */}
-      <div
-        className={`absolute top-0 bottom-0 hidden md:block pointer-events-none z-[1] ${
-          isHe ? "left-0" : "right-0"
-        }`}
-        style={{
-          width: "50vw",
-          maskImage: desktopMask,
-          WebkitMaskImage: desktopMask,
-          maskComposite: "intersect",
-          WebkitMaskComposite: "source-in" as string,
-        }}
-      >
-        {/* Light mode image */}
-        <Image
-          src="/images/liran-light.png"
-          alt="Liran Aharoni"
-          fill
-          className="object-cover"
+      {/* Desktop photo container — fixed, blurs on scroll */}
+      {!isMobile && (
+        <div
+          className={`fixed top-0 bottom-0 hidden md:block pointer-events-none ${
+            isHe ? "left-0" : "right-0"
+          }`}
           style={{
-            objectPosition: "center 20%",
-            opacity: dark ? 0 : 1,
-            transition: "opacity 1s ease",
-            filter: "contrast(1.02) brightness(1.02)",
+            width: "50vw",
+            zIndex: 0,
+            maskImage: desktopMask,
+            WebkitMaskImage: desktopMask,
+            maskComposite: "intersect",
+            WebkitMaskComposite: "source-in" as string,
+            filter: `blur(${scrollProgress * 12}px)`,
+            opacity: 1 - scrollProgress * 0.7,
+            transform: `scale(${1 + scrollProgress * 0.05})`,
+            transition: "filter 0.1s linear, opacity 0.1s linear",
           }}
-          sizes="50vw"
-          priority
-        />
-        {/* Dark mode image */}
-        <Image
-          src="/images/liran-dark.png"
-          alt="Liran Aharoni"
-          fill
-          className="object-cover"
-          style={{
-            objectPosition: "center 20%",
-            opacity: dark ? 1 : 0,
-            transition: "opacity 1s ease",
-            filter: "contrast(1.1) brightness(0.95)",
-          }}
-          sizes="50vw"
-          priority
-        />
-      </div>
+        >
+          <Image
+            src="/images/liran-light.png"
+            alt="Liran Aharoni"
+            fill
+            className="object-cover"
+            style={{
+              objectPosition: "center 20%",
+              opacity: dark ? 0 : 1,
+              transition: "opacity 1s ease",
+              filter: "contrast(1.02) brightness(1.02)",
+            }}
+            sizes="50vw"
+            priority
+          />
+          <Image
+            src="/images/liran-dark.png"
+            alt="Liran Aharoni"
+            fill
+            className="object-cover"
+            style={{
+              objectPosition: "center 20%",
+              opacity: dark ? 1 : 0,
+              transition: "opacity 1s ease",
+              filter: "contrast(1.1) brightness(0.95)",
+            }}
+            sizes="50vw"
+            priority
+          />
+        </div>
+      )}
 
-      {/* Mobile photo container */}
+      {/* Mobile photo container — static, no blur */}
       <div
         className="relative md:hidden w-full pointer-events-none"
         style={{
-          height: "50vh",
+          height: "55vh",
           maxHeight: "400px",
           maskImage:
-            "linear-gradient(to top, transparent 0%, black 15%, black 100%)",
+            "linear-gradient(to bottom, black 60%, transparent 100%)",
           WebkitMaskImage:
-            "linear-gradient(to top, transparent 0%, black 15%, black 100%)",
+            "linear-gradient(to bottom, black 60%, transparent 100%)",
         }}
       >
         <Image
@@ -117,7 +146,7 @@ export default function Hero({ onOpenModal }: { onOpenModal: () => void }) {
       </div>
 
       {/* Text content */}
-      <div className="relative z-20 max-w-[960px] mx-auto px-6 md:px-10 pt-8 pb-20 md:pt-0 md:pb-0">
+      <div className="relative z-20 max-w-[960px] mx-auto px-6 md:px-10 pt-8 pb-20 md:pt-36 md:pb-28">
         <div className="md:max-w-[50%]">
           <FadeIn>
             <p className="label mb-6">{t.hero.label}</p>

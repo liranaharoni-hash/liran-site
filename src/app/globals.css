@@ -110,18 +110,35 @@
   /* Hebrew font overrides */
   .lang-he body,
   .lang-he .font-sans {
-    font-family: var(--font-heebo), sans-serif;
+    font-family: var(--font-rubik), sans-serif;
     letter-spacing: 0;
-  }
-
-  .lang-he .font-serif {
-    font-family: var(--font-heebo), sans-serif;
     font-weight: 400;
   }
 
-  /* Hebrew body text line-height boost */
+  .lang-he .font-serif {
+    font-family: var(--font-rubik), sans-serif;
+    font-weight: 400;
+  }
+
+  .lang-he h1,
+  .lang-he h2,
+  .lang-he h3 {
+    font-family: var(--font-rubik), sans-serif;
+    letter-spacing: 0;
+  }
+
+  .lang-he h1 {
+    font-weight: 300;
+  }
+
+  .lang-he strong,
+  .lang-he b {
+    font-weight: 500;
+  }
+
+  /* Hebrew body text line-height */
   .lang-he p:not(.label):not(.font-mono) {
-    line-height: 1.9;
+    line-height: 1.7;
   }
 
   ::selection {
