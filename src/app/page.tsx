@@ -24,7 +24,7 @@ export default function Home() {
         <Navigation />
         <main>
           <Hero onOpenModal={() => setModalOpen(true)} />
-          <div className="relative z-[1]" style={{ backgroundColor: "color-mix(in srgb, var(--bg) 92%, transparent)" }}>
+          <div className="relative z-[1]" style={{ backgroundColor: "var(--bg)" }}>
             <div className="section-divider" />
             <DualEntry />
             <div className="section-divider" />

@@ -40,7 +40,7 @@ export default function Navigation() {
       }
     >
       <div className="max-w-[960px] mx-auto px-6 flex items-center justify-between h-16">
-        {/* Left: Logo + nav links + language toggle */}
+        {/* Left: Logo + nav links + toggles */}
         <div className="flex items-center gap-5">
           <a href="#" className="shrink-0">
             <Image
@@ -54,7 +54,7 @@ export default function Navigation() {
             />
           </a>
 
-          {/* Desktop nav links + language toggle */}
+          {/* Desktop nav links + both toggles */}
           <div className="hidden md:flex items-center gap-5">
             {links.map((link) => (
               <a
@@ -67,35 +67,32 @@ export default function Navigation() {
               </a>
             ))}
             <LanguageToggle />
+            <ThemeToggle />
           </div>
         </div>
 
-        {/* Right: Theme toggle only */}
-        <div className="flex items-center gap-2">
+        {/* Mobile: toggles + hamburger */}
+        <div className="md:hidden flex items-center gap-2">
+          <LanguageToggle />
           <ThemeToggle />
-
-          {/* Mobile: language toggle + hamburger */}
-          <div className="md:hidden flex items-center gap-2">
-            <LanguageToggle />
-            <button
-              className="flex flex-col gap-[5px] p-1"
-              onClick={() => setMenuOpen(!menuOpen)}
-              aria-label="Menu"
-            >
-              <span
-                className={`block w-5 h-[1px] transition-all duration-300 ${
-                  menuOpen ? "rotate-45 translate-y-[3px]" : ""
-                }`}
-                style={{ backgroundColor: "var(--hamburger-color)" }}
-              />
-              <span
-                className={`block w-5 h-[1px] transition-all duration-300 ${
-                  menuOpen ? "-rotate-45 -translate-y-[3px]" : ""
-                }`}
-                style={{ backgroundColor: "var(--hamburger-color)" }}
-              />
-            </button>
-          </div>
+          <button
+            className="flex flex-col gap-[5px] p-1"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Menu"
+          >
+            <span
+              className={`block w-5 h-[1px] transition-all duration-300 ${
+                menuOpen ? "rotate-45 translate-y-[3px]" : ""
+              }`}
+              style={{ backgroundColor: "var(--hamburger-color)" }}
+            />
+            <span
+              className={`block w-5 h-[1px] transition-all duration-300 ${
+                menuOpen ? "-rotate-45 -translate-y-[3px]" : ""
+              }`}
+              style={{ backgroundColor: "var(--hamburger-color)" }}
+            />
+          </button>
         </div>
       </div>
 
