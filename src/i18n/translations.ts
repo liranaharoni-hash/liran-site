@@ -240,7 +240,7 @@ export const translations = {
             bullets: [
               "bestie.ai — AI agent serving as a digital twin for influencers and brands. Defined positioning, voice, and product name.",
               "LEADERSPROP.AI — Internal AI-powered proposal generator. Cut proposal build-time from a full day to an hour.",
-              "LCOE (Leaders Client Opportunity Engine) — Brand-research tool for business development. In active development.",
+              "LCOE (Leaders Client Opportunity Engine) — Brand-research tool for the business development team, producing a tailored deck for every sales meeting. In active development.",
               "AI components in client campaigns — SodaStream ENSO launch with a brand-tuned AI model; interactive AI-powered Rush Hour landing page for Renault.",
             ],
           },
@@ -251,7 +251,7 @@ export const translations = {
               "Led the creative and strategy function into a full-service advertising operation of close to 30 people at peak. Owned the agency's Pareto clients with annual budgets in the millions of shekels.",
             bullets: [
               "Nespresso — Four years leading digital and influencer strategy and creative. The VERTUO POP launch repositioned the brand to a younger audience and drove a sellout within three days. Creative later adopted by Nespresso in Belgium and Brazil.",
-              "Visa — Multi-year initiative with Publicis Groupe, including content productions in London, Madrid, and Athens alongside Disney. Now in its fourth year. 18M+ impressions per cycle.",
+              "Visa — Multi-year initiative with Publicis Groupe, including content productions in London, Madrid, and Athens alongside Disney. Now in its fourth year, with 18M+ impressions per cycle.",
               "Sony PlayStation — Direct relationship with international marketing teams in Spain and Greece. Led a local Israeli production in a format with no precedent in the country. The brand embedded its local marketing lead within the agency team, under my management.",
               "Creative and strategic ownership of yearly brand initiatives for SodaStream, Renault, Colgate, Chivas, Duty Free, Columbia, Goldstar, and XPENG.",
             ],
@@ -533,7 +533,7 @@ export const translations = {
             bullets: [
               "bestie.ai — סוכן AI המשמש ככפיל דיגיטלי של משפיעניות ומותגים. הגדרתי את הפוזישן, הקול ושם המוצר.",
               "LEADERSPROP.AI — מחולל הצעות מחיר פנימי מבוסס AI. קיצר את הזמן לבניית הצעה מיום עבודה לשעה.",
-              "LCOE (Leaders Client Opportunity Engine) — כלי מחקר מותג לצוותי הפיתוח העסקי. בפיתוח.",
+              "LCOE (Leaders Client Opportunity Engine) — כלי מחקר מותג לצוותי הפיתוח העסקי, מייצר מסמך ממוקד לכל פגישת מכירה. בפיתוח.",
               "הטמעת רכיבי AI בקמפיינים — מהלך SodaStream להשקת מכונת ENSO עם מודל AI מותאם מותג, ודף נחיתה אינטראקטיבי מבוסס AI עם משחק Rush Hour למותג Renault.",
             ],
           },
@@ -544,7 +544,7 @@ export const translations = {
               "הובלתי את מחלקת הקריאייטיב והאסטרטגיה לסוכנות פרסום מלאה של קרוב ל-30 איש בשיא. אחריות על לקוחות פארטו של החברה בתקציבים של מיליוני שקלים בשנה.",
             bullets: [
               "Nespresso — אסטרטגיה וקריאייטיב לדיגיטל ומשפיענים במשך 4 שנים. השקת מכונות הקפה החדשות VERTUO POP כללה מעבר פוזישן מקהל בוגר לקהל צעיר, והובילה ל-Sold Out של המכונות תוך 3 ימים. הקריאייטיב אומץ על ידי Nespresso בבלגיה וברזיל.",
-              "Visa — מהלך רב-שנתי בשיתוף Publicis Groupe, כולל הפקות תוכן בלונדון, מדריד ואתונה בשיתוף Disney. המהלך נמצא בשנתו הרביעית. 18M+ חשיפות לקמפיין.",
+              "Visa — מהלך רב-שנתי בשיתוף Publicis Groupe, כולל הפקות תוכן בלונדון, מדריד ואתונה בשיתוף Disney. המהלך ממשיך זו השנה הרביעית, עם 18M+ חשיפות לקמפיין.",
               "Sony PlayStation — מערכת יחסים ישירה ואישית עם צוותי השיווק הבינלאומיים בספרד וביוון. הובלת הפקה לוקאלית ישראלית בפורמט שלא היה קיים לפני כן בישראל. המותג מיצב את איש השיווק שלו בצוות המשרד, תחת ניהולי.",
               "אחריות קריאייטיבית ואסטרטגית על מהלכי מותג שנתיים של SodaStream, Renault, Colgate, Chivas, Duty Free, Columbia, Goldstar ו-XPENG.",
             ],
@@ -560,10 +560,10 @@ export const translations = {
       },
       earlierLabel: "ניסיון קודם",
       earlier: [
-        "מנהל קריאייטיב, Rainer Communications (2015–2019) — ניהול מחלקת הקריאייטיב של בית הפקות תוכן ודיגיטל ללקוחות B2B ו-B2C.",
-        "בימוי הפקות אולפן, GG Studios (2013–2015) — בימוי תוכניות אולפן וריאליטי.",
-        "יוצר עצמאי (2010–2013) — הפקת תוכן ללקוחות: Cellcom, Bank Leumi, Migdal, SodaStream, HUMMER.",
-        "כתב שטח, AP News Agency (2010–2014) — דיווח בזמן אמת עבור Ynet, ישראל היום, NRG וערוצים בינלאומיים.",
+        "מנהל קריאייטיב, Rainer Communications \u2066(2015\u20132019)\u2069 — ניהול מחלקת הקריאייטיב של בית הפקות תוכן ודיגיטל ללקוחות B2B ו-B2C.",
+        "בימוי הפקות אולפן, GG Studios \u2066(2013\u20132015)\u2069 — בימוי תוכניות אולפן וריאליטי.",
+        "יוצר עצמאי \u2066(2010\u20132013)\u2069 — הפקת תוכן ללקוחות: Cellcom, Bank Leumi, Migdal, SodaStream, HUMMER.",
+        "כתב שטח, AP News Agency \u2066(2010\u20132014)\u2069 — דיווח בזמן אמת עבור Ynet, ישראל היום, NRG וערוצים בינלאומיים.",
       ],
       downloadCv: "להורדת קורות חיים מלאים ←",
       cvHref: "/LIRAN_AHARONI_CV_HEB.pdf",

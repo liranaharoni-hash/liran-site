@@ -25,7 +25,7 @@ export default function Experience() {
           <div className="py-10" style={{ borderBottom: "1px solid var(--gold-border)" }}>
             <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-4">
               <h3 className="font-serif text-[22px] font-light" style={{ color: "var(--text-primary)" }}>{main.company}</h3>
-              <p className="font-mono text-[10px] tracking-[2px] mt-1 sm:mt-2 shrink-0" style={{ color: "var(--text-faint)" }}>{main.period}</p>
+              <p dir="ltr" className="font-mono text-[10px] tracking-[2px] mt-1 sm:mt-2 shrink-0" style={{ color: "var(--text-faint)" }}>{main.period}</p>
             </div>
 
             <p className="font-sans text-[14px] font-light leading-relaxed mb-8" style={{ color: "var(--text-secondary)" }}>{main.summary}</p>
@@ -35,7 +35,7 @@ export default function Experience() {
                 <div key={i}>
                   <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-3">
                     <h4 className="font-serif text-[18px] font-light" style={{ color: "var(--text-primary)" }}>{sub.title}</h4>
-                    <p className="font-mono text-[10px] tracking-[2px] shrink-0" style={{ color: "var(--gold)" }}>{sub.period}</p>
+                    <p dir="ltr" className="font-mono text-[10px] tracking-[2px] shrink-0" style={{ color: "var(--gold)" }}>{sub.period}</p>
                   </div>
                   <p className="font-sans text-[13px] font-light leading-relaxed mb-3" style={{ color: "var(--text-secondary)" }}>{sub.description}</p>
                   {sub.bullets.length > 0 && (
