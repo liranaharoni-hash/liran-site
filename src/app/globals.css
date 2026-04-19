@@ -107,28 +107,37 @@
     transition: background-color 0.3s ease, color 0.3s ease;
   }
 
-  /* Hebrew font overrides */
+  /* Hebrew font overrides — Heebo for all text */
   .lang-he body,
-  .lang-he .font-sans {
-    font-family: var(--font-rubik), sans-serif;
+  .lang-he .font-sans,
+  .lang-he .font-serif {
+    font-family: var(--font-heebo), sans-serif;
     letter-spacing: 0;
-    font-weight: 400;
   }
 
-  .lang-he .font-serif {
-    font-family: var(--font-rubik), sans-serif;
-    font-weight: 400;
+  .lang-he .font-sans,
+  .lang-he body {
+    font-weight: 300;
   }
 
   .lang-he h1,
   .lang-he h2,
-  .lang-he h3 {
-    font-family: var(--font-rubik), sans-serif;
+  .lang-he h3,
+  .lang-he h4,
+  .lang-he h5 {
+    font-family: var(--font-heebo), sans-serif;
     letter-spacing: 0;
   }
 
   .lang-he h1 {
     font-weight: 300;
+  }
+
+  .lang-he h2,
+  .lang-he h3,
+  .lang-he h4,
+  .lang-he h5 {
+    font-weight: 400;
   }
 
   .lang-he strong,
@@ -187,6 +196,30 @@ body::after {
   letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--gold);
+}
+
+/* Collage grid — mobile: 2 columns, smaller rows */
+@media (max-width: 639px) {
+  .collage-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    grid-auto-rows: 90px !important;
+  }
+
+  .collage-grid .collage-thumb-h {
+    grid-column: span 2 !important;
+    grid-row: span 2 !important;
+  }
+
+  .collage-grid .collage-thumb-v {
+    grid-column: span 1 !important;
+    grid-row: span 2 !important;
+  }
+}
+
+/* Pipeline fade-in */
+.pipeline-step.pipeline-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
 }
 
 /* Scrollbar */

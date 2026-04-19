@@ -4,7 +4,7 @@ import {
   Cormorant_Garamond,
   DM_Sans,
   JetBrains_Mono,
-  Rubik,
+  Heebo,
 } from "next/font/google";
 import "./globals.css";
 
@@ -26,10 +26,10 @@ const jetbrains = JetBrains_Mono({
   weight: ["300", "400"],
 });
 
-const rubik = Rubik({
-  variable: "--font-rubik",
+const heebo = Heebo({
+  variable: "--font-heebo",
   subsets: ["hebrew", "latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["100", "200", "300", "400", "500", "700"],
 });
 
 export const metadata: Metadata = {
@@ -47,7 +47,7 @@ export default function RootLayout({
     <html
       lang="en"
       dir="ltr"
-      className={`${cormorant.variable} ${dmSans.variable} ${jetbrains.variable} ${rubik.variable} antialiased`}
+      className={`${cormorant.variable} ${dmSans.variable} ${jetbrains.variable} ${heebo.variable} antialiased`}
       suppressHydrationWarning
     >
       <body>

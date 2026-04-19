@@ -157,23 +157,23 @@ export default function Hero({ onOpenModal }: { onOpenModal: () => void }) {
               className="font-serif font-light leading-[1.2] mb-6"
               style={{ fontSize: "clamp(32px, 5vw, 50px)" }}
             >
-              <span style={{ color: "var(--text-primary)" }}>
+              <span className="md:whitespace-nowrap" style={{ color: "var(--text-primary)" }}>
                 {t.hero.headline1}
               </span>
               <br />
-              <span style={{ color: "var(--text-secondary)" }}>
+              <span className="md:whitespace-nowrap" style={{ color: "var(--text-secondary)" }}>
                 {t.hero.headline2}
               </span>
               {t.hero.headline3 && (
                 <>
                   <br />
-                  <span style={{ color: "var(--text-secondary)" }}>
+                  <span className="md:whitespace-nowrap" style={{ color: "var(--text-secondary)" }}>
                     {t.hero.headline3}
                   </span>
                 </>
               )}
               <br />
-              <span style={{ color: "var(--gold)" }}>
+              <span className="md:whitespace-nowrap" style={{ color: "var(--gold)" }}>
                 {t.hero.headline4}
               </span>
             </h1>

@@ -1,24 +1,12 @@
 "use client";
 
 import { useState, useRef, useCallback } from "react";
+import Image from "next/image";
 import FadeIn from "./FadeIn";
 import { useLang } from "@/i18n/LanguageContext";
-
-function Placeholder({ label, aspect = "3/2", icon }: { label: string; aspect?: string; icon?: string }) {
-  return (
-    <div className="relative overflow-hidden rounded-md flex items-center justify-center" style={{ aspectRatio: aspect, background: "linear-gradient(135deg, var(--placeholder-gradient-from) 0%, var(--placeholder-gradient-to) 100%)" }}>
-      <svg className="absolute inset-0 w-full h-full opacity-[0.04]" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <pattern id={`grid-${label.replace(/\s/g, "-")}`} width="24" height="24" patternUnits="userSpaceOnUse">
-            <path d="M 24 0 L 0 0 0 24" fill="none" stroke="var(--gold)" strokeWidth="0.5" />
-          </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill={`url(#grid-${label.replace(/\s/g, "-")})`} />
-      </svg>
-      {icon && <span className="relative z-10 text-2xl">{icon}</span>}
-    </div>
-  );
-}
+import Studio48Pipeline from "./Studio48Pipeline";
+import EnsoCaseStudy from "./EnsoCaseStudy";
+import BestieCaseStudy from "./BestieCaseStudy";
 
 function FlowDiagram({ steps }: { steps: readonly string[] }) {
   return (
@@ -35,7 +23,12 @@ function FlowDiagram({ steps }: { steps: readonly string[] }) {
   );
 }
 
-const icons = ["🤖", "✨", "📸", "📄"];
+const cardImages = [
+  "/images/bestiebot.png",
+  "/images/sodabot.png",
+  "/images/studiobot.png",
+  "/images/cvbot.png",
+];
 
 export default function CaseStudies() {
   const { t } = useLang();
@@ -69,8 +62,15 @@ export default function CaseStudies() {
         style={{ borderColor: "var(--border)", backgroundColor: "var(--bg-surface)" }}
         onClick={() => handleCardClick(idx)}
       >
-        <div className="shrink-0">
-          <Placeholder label={cs.cardTitle} icon={icons[idx]} aspect="3/2" />
+        <div className="relative shrink-0 h-[160px] md:h-[200px] overflow-hidden">
+          <Image
+            src={cardImages[idx]}
+            alt={cs.cardTitle}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
+          <div className="absolute inset-x-0 bottom-0 h-16" style={{ background: "linear-gradient(to top, var(--bg-surface), transparent)" }} />
         </div>
         <div className="p-5 flex items-start justify-between gap-4 flex-1">
           <div className="min-w-0 overflow-hidden">
@@ -83,6 +83,8 @@ export default function CaseStudies() {
       </div>
     );
   }
+
+  const hasDeepDive = (idx: number) => idx === 0 || idx === 1 || idx === 2;
 
   function ExpandedCard({ cs, idx }: { cs: (typeof cases)[number]; idx: number }) {
     return (
@@ -97,83 +99,96 @@ export default function CaseStudies() {
             <button onClick={(e) => { e.stopPropagation(); setOpenIndex(null); }} className="shrink-0 w-9 h-9 flex items-center justify-center text-xl border rounded-full" style={{ color: "var(--text-dim)", borderColor: "var(--gold-border)" }} aria-label="Close">×</button>
           </div>
 
-          {/* Hero line */}
-          <p className="font-serif text-[20px] font-light leading-relaxed mb-8" style={{ color: "var(--text-primary)" }}>{cs.heroLine}</p>
+          {/* Deep dive case studies go directly after the header */}
+          {idx === 0 && <BestieCaseStudy heroQuote={cs.heroLine} whatThisProves={cs.whatThisProves} whatThisProvesLabel={sec.whatThisProves} />}
+          {idx === 1 && <EnsoCaseStudy heroQuote={cs.heroLine} whatThisProves={cs.whatThisProves} whatThisProvesLabel={sec.whatThisProves} />}
+          {idx === 2 && <Studio48Pipeline heroQuote={cs.heroLine} whatThisProves={cs.whatThisProves} whatThisProvesLabel={sec.whatThisProves} />}
 
-          {/* Visual */}
-          <div className="mb-8"><Placeholder label={`${cs.cardTitle}-exp`} aspect="21/9" icon={icons[idx]} /></div>
+          {/* Basic case study content — only for cards without a deep dive */}
+          {!hasDeepDive(idx) && (
+            <>
+              {/* Hero line */}
+              <p className="font-serif text-[20px] font-light leading-relaxed mb-8" style={{ color: "var(--text-primary)" }}>{cs.heroLine}</p>
 
-          {/* Flow */}
-          <div className="mb-8">
-            <p className="font-mono text-[9px] uppercase tracking-[3px] mb-3" style={{ color: "var(--gold)" }}>{sec.systemFlow}</p>
-            <FlowDiagram steps={cs.flowSteps} />
-          </div>
-
-          {/* Problem / Insight */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-            <div>
-              <p className="font-mono text-[9px] uppercase tracking-[3px] mb-3" style={{ color: "var(--gold)" }}>{sec.problem}</p>
-              <p className="font-sans text-[14px] font-light leading-relaxed" style={{ color: "var(--text-secondary)" }}>{cs.problem}</p>
-            </div>
-            <div>
-              <p className="font-mono text-[9px] uppercase tracking-[3px] mb-3" style={{ color: "var(--gold)" }}>{sec.insight}</p>
-              <p className="font-sans text-[14px] font-light leading-relaxed" style={{ color: "var(--text-secondary)" }}>{cs.insight}</p>
-            </div>
-          </div>
-
-          {/* System Design */}
-          <div className="mb-8">
-            <p className="font-mono text-[9px] uppercase tracking-[3px] mb-3" style={{ color: "var(--gold)" }}>{sec.systemDesign}</p>
-            <p className="font-sans text-[14px] font-light leading-relaxed" style={{ color: "var(--text-secondary)" }}>{cs.systemDesign}</p>
-          </div>
-
-          {/* Behavioral Shift */}
-          <div className="mb-8">
-            <p className="font-mono text-[9px] uppercase tracking-[3px] mb-3" style={{ color: "var(--gold)" }}>{sec.behavioralShift}</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="border rounded-md p-4" style={{ borderColor: "var(--border)", backgroundColor: "var(--bg-expanded)" }}>
-                <p className="font-mono text-[9px] uppercase tracking-[2px] mb-2" style={{ color: "var(--text-faint)" }}>{sec.before}</p>
-                <p className="font-sans text-[13px] font-light" style={{ color: "var(--text-muted)" }}>{cs.shiftBefore}</p>
+              {/* Visual */}
+              <div className="relative mb-8 rounded-md overflow-hidden" style={{ aspectRatio: "21/9" }}>
+                <Image src={cardImages[idx]} alt={cs.cardTitle} fill className="object-cover" sizes="100vw" />
+                <div className="absolute inset-x-0 bottom-0 h-16" style={{ background: "linear-gradient(to top, var(--bg-surface), transparent)" }} />
               </div>
-              <div className="border rounded-md p-4" style={{ borderColor: "var(--gold-border)", backgroundColor: "var(--gold-subtle)" }}>
-                <p className="font-mono text-[9px] uppercase tracking-[2px] mb-2" style={{ color: "var(--gold)" }}>{sec.after}</p>
-                <p className="font-sans text-[13px] font-light" style={{ color: "var(--text-secondary)" }}>{cs.shiftAfter}</p>
+
+              {/* Flow */}
+              <div className="mb-8">
+                <p className="font-mono text-[9px] uppercase tracking-[3px] mb-3" style={{ color: "var(--gold)" }}>{sec.systemFlow}</p>
+                <FlowDiagram steps={cs.flowSteps} />
               </div>
-            </div>
-          </div>
 
-          {/* Outcome */}
-          <div className="mb-8">
-            <p className="font-mono text-[9px] uppercase tracking-[3px] mb-3" style={{ color: "var(--gold)" }}>{sec.outcome}</p>
-            <p className="font-sans text-[14px] font-light leading-relaxed" style={{ color: "var(--text-secondary)" }}>{cs.outcome}</p>
-          </div>
-
-          {/* Stats */}
-          {"stats" in cs && cs.stats && (
-            <div className="flex flex-wrap gap-8 mb-8">
-              {cs.stats.map((stat: { label: string; value: string }) => (
-                <div key={stat.label}>
-                  <p className="font-serif text-[36px] font-light" style={{ color: "var(--stats-color, var(--gold))" }}>{stat.value}</p>
-                  <p className="font-mono text-[9px] uppercase tracking-[2px]" style={{ color: "var(--text-dim)" }}>{stat.label}</p>
+              {/* Problem / Insight */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                <div>
+                  <p className="font-mono text-[9px] uppercase tracking-[3px] mb-3" style={{ color: "var(--gold)" }}>{sec.problem}</p>
+                  <p className="font-sans text-[14px] font-light leading-relaxed" style={{ color: "var(--text-secondary)" }}>{cs.problem}</p>
                 </div>
-              ))}
-            </div>
+                <div>
+                  <p className="font-mono text-[9px] uppercase tracking-[3px] mb-3" style={{ color: "var(--gold)" }}>{sec.insight}</p>
+                  <p className="font-sans text-[14px] font-light leading-relaxed" style={{ color: "var(--text-secondary)" }}>{cs.insight}</p>
+                </div>
+              </div>
+
+              {/* System Design */}
+              <div className="mb-8">
+                <p className="font-mono text-[9px] uppercase tracking-[3px] mb-3" style={{ color: "var(--gold)" }}>{sec.systemDesign}</p>
+                <p className="font-sans text-[14px] font-light leading-relaxed" style={{ color: "var(--text-secondary)" }}>{cs.systemDesign}</p>
+              </div>
+
+              {/* Behavioral Shift */}
+              <div className="mb-8">
+                <p className="font-mono text-[9px] uppercase tracking-[3px] mb-3" style={{ color: "var(--gold)" }}>{sec.behavioralShift}</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="border rounded-md p-4" style={{ borderColor: "var(--border)", backgroundColor: "var(--bg-expanded)" }}>
+                    <p className="font-mono text-[9px] uppercase tracking-[2px] mb-2" style={{ color: "var(--text-faint)" }}>{sec.before}</p>
+                    <p className="font-sans text-[13px] font-light" style={{ color: "var(--text-muted)" }}>{cs.shiftBefore}</p>
+                  </div>
+                  <div className="border rounded-md p-4" style={{ borderColor: "var(--gold-border)", backgroundColor: "var(--gold-subtle)" }}>
+                    <p className="font-mono text-[9px] uppercase tracking-[2px] mb-2" style={{ color: "var(--gold)" }}>{sec.after}</p>
+                    <p className="font-sans text-[13px] font-light" style={{ color: "var(--text-secondary)" }}>{cs.shiftAfter}</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Outcome */}
+              <div className="mb-8">
+                <p className="font-mono text-[9px] uppercase tracking-[3px] mb-3" style={{ color: "var(--gold)" }}>{sec.outcome}</p>
+                <p className="font-sans text-[14px] font-light leading-relaxed" style={{ color: "var(--text-secondary)" }}>{cs.outcome}</p>
+              </div>
+
+              {/* Stats */}
+              {"stats" in cs && cs.stats && (
+                <div className="flex flex-wrap gap-8 mb-8">
+                  {cs.stats.map((stat: { label: string; value: string }) => (
+                    <div key={stat.label}>
+                      <p className="font-serif text-[36px] font-light" style={{ color: "var(--stats-color, var(--gold))" }}>{stat.value}</p>
+                      <p className="font-mono text-[9px] uppercase tracking-[2px]" style={{ color: "var(--text-dim)" }}>{stat.label}</p>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {/* What This Proves */}
+              <div className="mb-8">
+                <p className="font-mono text-[9px] uppercase tracking-[3px] mb-3" style={{ color: "var(--gold)" }}>{sec.whatThisProves}</p>
+                <div className="ps-4 flex flex-col gap-2" style={{ borderInlineStart: "2px solid var(--gold-border)" }}>
+                  {cs.whatThisProves.map((item: string, j: number) => (
+                    <p key={j} className="font-sans text-[13px] font-light leading-relaxed" style={{ color: "var(--text-muted)" }}>{item}</p>
+                  ))}
+                </div>
+              </div>
+
+              {/* Process */}
+              <div className="pt-6" style={{ borderTop: "1px solid var(--border)" }}>
+                <p className="font-mono text-[10px] tracking-[1px]" style={{ color: "var(--text-dim)" }}>{cs.process}</p>
+              </div>
+            </>
           )}
-
-          {/* What This Proves */}
-          <div className="mb-8">
-            <p className="font-mono text-[9px] uppercase tracking-[3px] mb-3" style={{ color: "var(--gold)" }}>{sec.whatThisProves}</p>
-            <div className="ps-4 flex flex-col gap-2" style={{ borderInlineStart: "2px solid var(--gold-border)" }}>
-              {cs.whatThisProves.map((item: string, j: number) => (
-                <p key={j} className="font-sans text-[13px] font-light leading-relaxed" style={{ color: "var(--text-muted)" }}>{item}</p>
-              ))}
-            </div>
-          </div>
-
-          {/* Process */}
-          <div className="pt-6" style={{ borderTop: "1px solid var(--border)" }}>
-            <p className="font-mono text-[10px] tracking-[1px]" style={{ color: "var(--text-dim)" }}>{cs.process}</p>
-          </div>
         </div>
       </div>
     );

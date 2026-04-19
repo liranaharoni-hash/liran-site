@@ -1,10 +1,13 @@
 "use client";
 
+import Image from "next/image";
 import FadeIn from "./FadeIn";
 import { useLang } from "@/i18n/LanguageContext";
+import { useTheme } from "./ThemeContext";
 
 export default function DualEntry() {
   const { t } = useLang();
+  const { dark } = useTheme();
 
   const cards = [
     {
@@ -12,12 +15,18 @@ export default function DualEntry() {
       copy: t.dualEntry.card1Copy,
       cta: t.dualEntry.card1Cta,
       href: "#systems",
+      imgLight: "/images/brainlight.jpg",
+      imgDark: "/images/brainblack.jpg",
+      alt: "Systems & AI",
     },
     {
       title: t.dualEntry.card2Title,
       copy: t.dualEntry.card2Copy,
       cta: t.dualEntry.card2Cta,
       href: "#creative",
+      imgLight: "/images/heartlight.jpg",
+      imgDark: "/images/heartblack.jpg",
+      alt: "Creative & Content",
     },
   ];
 
@@ -63,16 +72,33 @@ export default function DualEntry() {
               >
                 <div
                   className="relative rounded-md overflow-hidden mb-6"
-                  style={{
-                    aspectRatio: "16/9",
-                    background: `
-                      linear-gradient(135deg, var(--placeholder-gradient-from), var(--placeholder-gradient-to)),
-                      linear-gradient(var(--border) 1px, transparent 1px),
-                      linear-gradient(90deg, var(--border) 1px, transparent 1px)
-                    `,
-                    backgroundSize: "100% 100%, 32px 32px, 32px 32px",
-                  }}
-                />
+                  style={{ aspectRatio: "16/9" }}
+                >
+                  <Image
+                    src={card.imgLight}
+                    alt={card.alt}
+                    fill
+                    className="object-cover"
+                    style={{
+                      opacity: dark ? 0 : 1,
+                      transition: "opacity 1s ease",
+                    }}
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    priority
+                  />
+                  <Image
+                    src={card.imgDark}
+                    alt={card.alt}
+                    fill
+                    className="object-cover"
+                    style={{
+                      opacity: dark ? 1 : 0,
+                      transition: "opacity 1s ease",
+                    }}
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    priority
+                  />
+                </div>
                 <h3
                   className="font-serif text-[24px] font-light mb-3"
                   style={{ color: "var(--text-primary)" }}
