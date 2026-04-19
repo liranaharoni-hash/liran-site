@@ -27,7 +27,6 @@ const cardImages = [
   "/images/bestiebot.png",
   "/images/sodabot.png",
   "/images/studiobot.png",
-  "/images/cvbot.png",
 ];
 
 export default function CaseStudies() {
@@ -206,7 +205,7 @@ export default function CaseStudies() {
         </FadeIn>
 
         {openIndex === null ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {cases.map((cs, i) => (
               <FadeIn key={i} delay={0.24 + i * 0.08}>
                 <CollapsedCard cs={cs} idx={i} />

@@ -212,21 +212,6 @@ export const translations = {
         process: "AI visual workflows, consistency systems, and controlled generation logic",
         flowSteps: ["Client brief", "AI generation pipeline", "Style consistency", "Output delivery", "Iteration & scaling"],
       },
-      {
-        cardLabel: "POSITIONING SYSTEM",
-        cardTitle: "CV Repositioning System",
-        cardDescriptor: "Restructuring how candidates are perceived through role-specific hiring logic",
-        heroLine: "Most hiring failures are not experience failures. They are positioning failures.",
-        problem: "Many candidates are filtered out not because they lack relevant experience, but because they present it in a way that hiring managers and screening systems do not interpret correctly.",
-        insight: "The same experience can look generic, weak, or highly relevant, depending on hierarchy, emphasis, framing, and structure.",
-        systemDesign: "Built a system that analyzes an existing CV against a target role and restructures the candidate's experience around actual hiring signals: relevance to the role, clarity of structure, hierarchy of information, business framing, keyword logic, and role-fit emphasis. The system does not invent or exaggerate. It reorganizes what is already true so the person is perceived more accurately.",
-        shiftBefore: "Candidate is scanned as broad or unfocused",
-        shiftAfter: "Candidate is understood as relevant, intentional, and role-aligned",
-        outcome: "Tested across multiple role types and industries. Created stronger alignment between candidate background and role requirements. Shifted evaluation from 'generic profile' to 'clear fit.'",
-        whatThisProves: ["Ability to turn ambiguity into structure", "Understanding of screening logic and decision behavior", "Product thinking applied to a real-world perception problem"],
-        process: "Hiring-logic mapping, restructuring systems, and AI-assisted iteration",
-        flowSteps: ["Raw CV input", "Target role analysis", "Signal mapping", "Repositioned output", "Decision-readiness"],
-      },
     ],
     thinking: {
       label: "HOW I THINK",
@@ -240,48 +225,55 @@ export const translations = {
       label: "BACKGROUND",
       title: "Experience",
       intro:
-        "I come from years of building creative strategy, content systems, and campaigns across brands and platforms. Over time, the work pushed deeper, from ideas into systems, from campaigns into behavior, and from content into how things are actually used. Instead of switching fields, I expanded the way I work, integrating product thinking, AI tools, and workflow design into the same creative foundation.",
-      roles: [
-        {
-          title: "VP Creative & Strategy",
-          company: "LEADERS (LDRSgroup / Stagwell)",
-          period: "2019 - Present",
-          description: "Leading creative, content, and strategy operations at a digital 360° agency serving major local and global brands. The role spans brand strategy, influencer campaigns, social systems, and cross-functional project leadership.",
-          highlights: [
-            "Led end-to-end creative and campaign strategy for brands including SodaStream, Sony PlayStation, Estée Lauder, Flormar, and others",
-            "Built and managed creative teams across content, design, video, and social",
-            "Worked directly with C-level stakeholders on growth strategy and brand differentiation",
-            "Introduced AI tools and workflows as strategic production layers inside influencer and campaign operations",
-            "Operated the IMAI influencer platform as a strategic intelligence layer for campaign planning",
-            "Shaped the agency's AI adoption approach, from creative generation to workflow integration",
-          ],
-        },
-        {
-          title: "Creative Director",
-          company: "Rainer Communications",
-          period: "2015 - 2019",
-          description: "Led creative and content strategy for B2B and B2C clients across digital platforms, from concept development through production and delivery.",
-          highlights: [
-            "Directed campaigns across digital, social, and branded content for technology and consumer brands",
-            "Managed cross-platform content production: video, editorial, social, web",
-            "Led client relationships and strategic presentations",
-            "Built creative processes and team workflows from concept to execution",
-          ],
-        },
-        {
-          title: "Production, Journalism & Content",
-          company: "Various",
-          period: "2010 - 2015",
-          description: "Hands-on production, reporting, and content creation across studio, field, and digital environments.",
-          highlights: [
-            "Studio direction and live production",
-            "Field reporting and editorial content (including work with AP News)",
-            "Video editing, post-production, and digital content creation",
-            "Early-stage digital brand production and content systems",
-          ],
-        },
+        "I come from years of building creative strategy, content systems, and campaigns across brands and platforms. Over time, the work expanded — from ideas into systems, from campaigns into behavior, from content into how things are actually used. The path led into product thinking, AI tools, and workflow design, built on the same creative foundation.",
+      main: {
+        company: "LEADERS (LDRSgroup / Stagwell International)",
+        period: "2019 – Present",
+        summary:
+          "Seven years across three consecutive roles. Built the creative and strategy function from boutique scale into a full-service advertising operation, then led the agency's shift to AI-native ways of working. Cumulative responsibility over dozens of brand clients, multi-million-shekel annual budgets, and teams of up to ~30.",
+        subRoles: [
+          {
+            title: "VP Creative AI",
+            period: "2024 – Present",
+            description:
+              "Leading LEADERS' transition to an AI-native agency. Defining and shipping AI-powered products and services, embedded both in internal operations and in client offerings.",
+            bullets: [
+              "bestie.ai — AI agent serving as a digital twin for influencers and brands. Defined positioning, voice, and product name.",
+              "LEADERSPROP.AI — Internal AI-powered proposal generator. Cut proposal build-time from a full day to an hour.",
+              "LCOE (Leaders Client Opportunity Engine) — Brand-research tool for business development. In active development.",
+              "AI components in client campaigns — SodaStream ENSO launch with a brand-tuned AI model; interactive AI-powered Rush Hour landing page for Renault.",
+            ],
+          },
+          {
+            title: "VP Creative & Strategy",
+            period: "2020 – 2024",
+            description:
+              "Led the creative and strategy function into a full-service advertising operation of close to 30 people at peak. Owned the agency's Pareto clients with annual budgets in the millions of shekels.",
+            bullets: [
+              "Nespresso — Four years leading digital and influencer strategy and creative. The VERTUO POP launch repositioned the brand to a younger audience and drove a sellout within three days. Creative later adopted by Nespresso in Belgium and Brazil.",
+              "Visa — Multi-year initiative with Publicis Groupe, including content productions in London, Madrid, and Athens alongside Disney. Now in its fourth year. 18M+ impressions per cycle.",
+              "Sony PlayStation — Direct relationship with international marketing teams in Spain and Greece. Led a local Israeli production in a format with no precedent in the country. The brand embedded its local marketing lead within the agency team, under my management.",
+              "Creative and strategic ownership of yearly brand initiatives for SodaStream, Renault, Colgate, Chivas, Duty Free, Columbia, Goldstar, and XPENG.",
+            ],
+          },
+          {
+            title: "Creative & Accounts Manager",
+            period: "2019 – 2020",
+            description:
+              "Day-to-day client and creative management, while pushing the company toward direct partnerships with major brands.",
+            bullets: [],
+          },
+        ],
+      },
+      earlierLabel: "Earlier Experience",
+      earlier: [
+        "Creative Director, Rainer Communications (2015–2019) — Led creative for a content and digital production house serving B2B and B2C clients.",
+        "Studio Director, GG Studios (2013–2015) — Directed studio-based TV and reality productions.",
+        "Independent Content Creator (2010–2013) — Content for Cellcom, Bank Leumi, Migdal, SodaStream, HUMMER.",
+        "Field Reporter, AP News Agency (2010–2014) — Real-time reporting for Ynet, Israel Hayom, NRG, and international networks.",
       ],
       downloadCv: "Download Full CV →",
+      cvHref: "/LIRAN_AHARONI_CV_ENG.pdf",
     },
     tools: {
       label: "CAPABILITIES",
@@ -513,21 +505,6 @@ export const translations = {
         process: "תהליכי הפקה ויזואליים ב-AI, מערכות עקביות, בקרת איכות",
         flowSteps: ["Client brief", "AI generation pipeline", "Style consistency", "Output delivery", "Iteration & scaling"],
       },
-      {
-        cardLabel: "מערכת מיצוב",
-        cardTitle: "מערכת מיצוב קורות חיים",
-        cardDescriptor: "שינוי האופן שבו מועמדים נתפסים דרך מיקוד תפקידי",
-        heroLine: "רוב הפילטרים בגיוס הם לא בגלל חוסר ניסיון. הם בגלל הצגה לא נכונה שלו.",
-        problem: "מועמדים רבים נפסלים לא כי חסר להם ניסיון רלוונטי, אלא כי הם מציגים אותו בצורה שמגייסים לא מצליחים לקרוא נכון.",
-        insight: "אותו ניסיון בדיוק יכול להיראות חלש או מדויק. הכל תלוי במבנה, בסדר העדיפויות ובמסגור.",
-        systemDesign: "המערכת מקבלת קורות חיים ותפקיד יעד, ומארגנת מחדש את הניסיון לפי מה שמגייסים באמת מחפשים: רלוונטיות, בהירות, היררכיה, שפה עסקית והתאמה לתפקיד. המערכת לא ממציאה כלום. היא מסדרת מחדש את מה שכבר נכון.",
-        shiftBefore: "מועמד שנראה רחב ולא ממוקד",
-        shiftAfter: "מועמד שנראה רלוונטי, מדויק ומתאים",
-        outcome: "נבדק על סוגי תפקידים שונים. יצר התאמה ברורה יותר בין הרקע של המועמד לדרישות התפקיד.",
-        whatThisProves: ["יכולת להפוך עמימות למבנה", "הבנה של איך מגייסים מסננים מועמדים", "חשיבה מוצרית על בעיה אמיתית של תפיסה"],
-        process: "מיפוי לוגיקת סינון, ארגון מחדש, איטרציה בעזרת AI",
-        flowSteps: ["Raw CV input", "Target role analysis", "Signal mapping", "Repositioned output", "Decision-readiness"],
-      },
     ],
     thinking: {
       label: "גישה",
@@ -540,48 +517,56 @@ export const translations = {
     experience: {
       label: "רקע",
       title: "ניסיון",
-      intro: "שנים של בניית אסטרטגיה קריאייטיבית, מערכות תוכן וקמפיינים. עם הזמן העבודה הלכה עמוק יותר: מרעיונות למערכות, מקמפיינים להתנהגות, ומתוכן להבנה של איך דברים באמת עובדים. לא החלפתי תחום. הרחבתי את הדרך שבה אני עובד.",
-      roles: [
-        {
-          title: 'סמנכ"ל קריאייטיב ואסטרטגיה',
-          company: "LEADERS",
-          period: "2019 עד היום",
-          description: "הובלת קריאייטיב, תוכן ואסטרטגיה בסוכנות דיגיטל 360° שעובדת עם מותגים מקומיים וגלובליים. אסטרטגיית מותג, קמפיינים עם משפיענים, מערכות סושיאל והובלת פרויקטים חוצי ארגון.",
-          highlights: [
-            "הובלת אסטרטגיה וקריאייטיב מקצה לקצה למותגים כמו SodaStream, Sony PlayStation, Estée Lauder, Flormar ועוד",
-            "בנייה וניהול של צוותי קריאייטיב: תוכן, עיצוב, וידאו וסושיאל",
-            "עבודה ישירה עם הנהלות בכירות על אסטרטגיית צמיחה ובידול",
-            "הטמעת כלי AI ותהליכי עבודה כשכבות הפקה בפעילות משפיענים וקמפיינים",
-            "שימוש בפלטפורמת IMAI ככלי אסטרטגי לתכנון קמפיינים",
-            "עיצוב גישת AI של הסוכנות: מיצירה קריאייטיבית ועד שילוב בתהליכי עבודה",
-          ],
-        },
-        {
-          title: "קריאייטיב דירקטור",
-          company: "Rainer Communications",
-          period: "2015 עד 2019",
-          description: "הובלת אסטרטגיית תוכן וקריאייטיב ללקוחות B2B ו-B2C בדיגיטל. מקונספט ועד הפקה ואספקה.",
-          highlights: [
-            "ניהול קמפיינים בדיגיטל, סושיאל ותוכן ממותג",
-            "הפקת תוכן חוצת פלטפורמות: וידאו, עריכה, סושיאל, אתרים",
-            "ניהול קשרי לקוחות ומצגות אסטרטגיות",
-            "בניית תהליכי עבודה קריאייטיביים מקונספט ועד ביצוע",
-          ],
-        },
-        {
-          title: "הפקה, עיתונות ותוכן",
-          company: "רקע מוקדם",
-          period: "2010 עד 2015",
-          description: "הפקה, כתבנות ויצירת תוכן בסביבות סטודיו, שטח ודיגיטל.",
-          highlights: [
-            "ניהול סטודיו והפקה חיה",
-            "כתבנות שטח ותוכן עריכתי (כולל AP News)",
-            "עריכת וידאו ופוסט פרודקשן",
-            "הפקת מותגים דיגיטלית ומערכות תוכן",
-          ],
-        },
+      intro:
+        "אני מגיע משנים של בנייה: אסטרטגיית קריאייטיב, מערכות תוכן וקמפיינים למותגים ופלטפורמות. עם הזמן העבודה התרחבה מרעיונות למערכות, מקמפיינים להתנהגות, ומתוכן לאופן שבו דברים באמת נמצאים בשימוש. זה הוביל אותי לחשיבה מוצרית, לכלי AI ולתכנון workflows, על אותו בסיס קריאייטיבי.",
+      main: {
+        company: "LEADERS (LDRSgroup / Stagwell International)",
+        period: "2019 – היום",
+        summary:
+          "שבע שנים, שלושה תפקידים רצופים. בניית מערך הקריאייטיב והאסטרטגיה מבסיס בוטיק לסוכנות פרסום מלאה, ובהמשך הובלת המעבר של החברה לעבודה AI-native. אחריות מצטברת על עשרות לקוחות מותג, תקציבים של מיליוני שקלים בשנה, וצוותים של עד כ-30 איש בשיא.",
+        subRoles: [
+          {
+            title: "סמנכ״ל קריאייטיב AI",
+            period: "2024 – היום",
+            description:
+              "מוביל את הטרנספורמציה של LEADERS לעבודה AI-native. מגדיר ומוציא לשוק מוצרים ושירותים מבוססי AI שמוטמעים בעבודה הפנימית של החברה ובהצעות הערך ללקוחותיה.",
+            bullets: [
+              "bestie.ai — סוכן AI המשמש ככפיל דיגיטלי של משפיעניות ומותגים. הגדרתי את הפוזישן, הקול ושם המוצר.",
+              "LEADERSPROP.AI — מחולל הצעות מחיר פנימי מבוסס AI. קיצר את הזמן לבניית הצעה מיום עבודה לשעה.",
+              "LCOE (Leaders Client Opportunity Engine) — כלי מחקר מותג לצוותי הפיתוח העסקי. בפיתוח.",
+              "הטמעת רכיבי AI בקמפיינים — מהלך SodaStream להשקת מכונת ENSO עם מודל AI מותאם מותג, ודף נחיתה אינטראקטיבי מבוסס AI עם משחק Rush Hour למותג Renault.",
+            ],
+          },
+          {
+            title: "סמנכ״ל קריאייטיב ואסטרטגיה",
+            period: "2020 – 2024",
+            description:
+              "הובלתי את מחלקת הקריאייטיב והאסטרטגיה לסוכנות פרסום מלאה של קרוב ל-30 איש בשיא. אחריות על לקוחות פארטו של החברה בתקציבים של מיליוני שקלים בשנה.",
+            bullets: [
+              "Nespresso — אסטרטגיה וקריאייטיב לדיגיטל ומשפיענים במשך 4 שנים. השקת מכונות הקפה החדשות VERTUO POP כללה מעבר פוזישן מקהל בוגר לקהל צעיר, והובילה ל-Sold Out של המכונות תוך 3 ימים. הקריאייטיב אומץ על ידי Nespresso בבלגיה וברזיל.",
+              "Visa — מהלך רב-שנתי בשיתוף Publicis Groupe, כולל הפקות תוכן בלונדון, מדריד ואתונה בשיתוף Disney. המהלך נמצא בשנתו הרביעית. 18M+ חשיפות לקמפיין.",
+              "Sony PlayStation — מערכת יחסים ישירה ואישית עם צוותי השיווק הבינלאומיים בספרד וביוון. הובלת הפקה לוקאלית ישראלית בפורמט שלא היה קיים לפני כן בישראל. המותג מיצב את איש השיווק שלו בצוות המשרד, תחת ניהולי.",
+              "אחריות קריאייטיבית ואסטרטגית על מהלכי מותג שנתיים של SodaStream, Renault, Colgate, Chivas, Duty Free, Columbia, Goldstar ו-XPENG.",
+            ],
+          },
+          {
+            title: "מנהל קריאייטיב ולקוחות",
+            period: "2019 – 2020",
+            description:
+              "ניהול לקוחות וקריאייטיב בשוטף, תוך דחיפה של החברה לעבודה ישירה מול מותגים גדולים.",
+            bullets: [],
+          },
+        ],
+      },
+      earlierLabel: "ניסיון קודם",
+      earlier: [
+        "מנהל קריאייטיב, Rainer Communications (2015–2019) — ניהול מחלקת הקריאייטיב של בית הפקות תוכן ודיגיטל ללקוחות B2B ו-B2C.",
+        "בימוי הפקות אולפן, GG Studios (2013–2015) — בימוי תוכניות אולפן וריאליטי.",
+        "יוצר עצמאי (2010–2013) — הפקת תוכן ללקוחות: Cellcom, Bank Leumi, Migdal, SodaStream, HUMMER.",
+        "כתב שטח, AP News Agency (2010–2014) — דיווח בזמן אמת עבור Ynet, ישראל היום, NRG וערוצים בינלאומיים.",
       ],
       downloadCv: "להורדת קורות חיים מלאים ←",
+      cvHref: "/LIRAN_AHARONI_CV_HEB.pdf",
     },
     tools: {
       label: "יכולות",
