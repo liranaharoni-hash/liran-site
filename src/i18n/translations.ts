@@ -12,18 +12,18 @@ export const translations = {
     hero: {
       label: "LIRAN AHARONI",
       headline1: "Where creative strategy",
-      headline2: "meets AI, product thinking,",
+      headline2: "meets AI",
       headline3: "",
       headline4: "and real-world use",
       subheadline:
-        "Applying creative thinking to user behavior, adoption, and real-world product usage.",
+        "Applying creative thinking to user behavior, adoption, and how ideas actually land in the real world.",
       intro:
         "Senior creative and strategy leader with 15+ years across content, campaigns, production, and digital systems. Over time, the work expanded into AI-enabled workflows, behavioral thinking, and system design shaped by real-world use.",
       ctaSystems: "View Systems",
       ctaCreative: "Creative Work",
       ctaContact: "Contact",
       microcopy:
-        "Not a classic product manager. Not just a creative director. A hybrid operator working between both.",
+        "Not a classic creative director. Not just another strategist. A hybrid operator working across both.",
       builtWith: "How this site was built →",
     },
     dualEntry: {
@@ -312,16 +312,16 @@ export const translations = {
     },
     hero: {
       label: "לירן אהרוני",
-      headline1: "כשאסטרטגיה קריאייטיבית",
-      headline2: "פוגשת AI, חשיבה מוצרית",
+      headline1: "חיבור בין אסטרטגיה קריאייטיבית,",
+      headline2: "AI",
       headline3: "",
       headline4: "ושימוש בעולם האמיתי",
-      subheadline: "יישום חשיבה קריאייטיבית על התנהגות משתמשים, אימוץ מוצר ושימוש אמיתי.",
+      subheadline: "חשיבה קריאייטיבית ליחסי קהל, אימוץ, ולאיך שרעיונות באמת פוגשים את העולם.",
       intro: "15+ שנים של הובלת קריאייטיב, אסטרטגיה, תוכן והפקות. עם הזמן העבודה התרחבה לכיוון AI, חשיבה מוצרית והבנה של איך דברים באמת עובדים.",
       ctaSystems: "למערכות",
       ctaCreative: "לעבודות",
       ctaContact: "דברו איתי",
-      microcopy: "לא PM קלאסי. לא רק קריאייטיב דירקטור. פרופיל היברידי שחי בין שני העולמות.",
+      microcopy: "לא מנהל קריאייטיב קלאסי. לא רק אסטרטג. אופרייטור היברידי שעובד בין השניים.",
       builtWith: "איך האתר הזה נבנה ←",
     },
     dualEntry: {
