@@ -146,8 +146,8 @@ export default function Hero({ onOpenModal }: { onOpenModal: () => void }) {
       </div>
 
       {/* Text content */}
-      <div className="relative z-20 max-w-[960px] mx-auto px-6 md:px-10 pt-8 pb-20 md:pt-36 md:pb-28">
-        <div className="md:max-w-[50%]">
+      <div className="relative z-20 max-w-[1100px] mx-auto px-6 md:px-10 pt-8 pb-20 md:pt-36 md:pb-28">
+        <div className="md:max-w-[58%]">
           <FadeIn>
             <p className="label mb-6">{t.hero.label}</p>
           </FadeIn>
@@ -155,7 +155,7 @@ export default function Hero({ onOpenModal }: { onOpenModal: () => void }) {
           <FadeIn delay={0.08}>
             <h1
               className="font-serif font-light leading-[1.2] mb-6"
-              style={{ fontSize: "clamp(32px, 5vw, 50px)" }}
+              style={{ fontSize: "clamp(30px, 4vw, 44px)" }}
             >
               <span style={{ color: "var(--text-primary)" }}>
                 {t.hero.headline1}

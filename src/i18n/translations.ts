@@ -19,7 +19,7 @@ export const translations = {
         "Applying creative thinking to user behavior, adoption, and how ideas actually land in the real world.",
       intro:
         "Senior creative and strategy leader with 15+ years across content, campaigns, production, and digital systems. Over time, the work expanded into AI-enabled workflows, behavioral thinking, and system design shaped by real-world use.",
-      ctaSystems: "View Systems",
+      ctaSystems: "AI Work",
       ctaCreative: "Creative Work",
       ctaContact: "Contact",
       microcopy:
@@ -318,8 +318,8 @@ export const translations = {
       headline4: "ל-AI ושימוש בעולם האמיתי",
       subheadline: "חשיבה קריאייטיבית ליחסי קהל, אימוץ, ולאיך שרעיונות באמת פוגשים את העולם.",
       intro: "15+ שנים של הובלת קריאייטיב, אסטרטגיה, תוכן והפקות. עם הזמן העבודה התרחבה לכיוון AI, חשיבה מוצרית והבנה של איך דברים באמת עובדים.",
-      ctaSystems: "למערכות",
-      ctaCreative: "לעבודות",
+      ctaSystems: "עבודות AI",
+      ctaCreative: "עבודות קריאייטיב",
       ctaContact: "דברו איתי",
       microcopy: "לא מנהל קריאייטיב קלאסי. לא רק אסטרטג. אופרייטור היברידי שעובד בין השניים.",
       builtWith: "איך האתר הזה נבנה ←",
