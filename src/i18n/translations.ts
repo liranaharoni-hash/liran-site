@@ -12,9 +12,9 @@ export const translations = {
     hero: {
       label: "LIRAN AHARONI",
       headline1: "Where creative strategy",
-      headline2: "meets AI",
+      headline2: "",
       headline3: "",
-      headline4: "and real-world use",
+      headline4: "meets AI and real-world use",
       subheadline:
         "Applying creative thinking to user behavior, adoption, and how ideas actually land in the real world.",
       intro:
@@ -312,10 +312,10 @@ export const translations = {
     },
     hero: {
       label: "לירן אהרוני",
-      headline1: "חיבור בין אסטרטגיה קריאייטיבית,",
-      headline2: "AI",
+      headline1: "חיבור בין אסטרטגיה קריאייטיבית",
+      headline2: "",
       headline3: "",
-      headline4: "ושימוש בעולם האמיתי",
+      headline4: "ל-AI ושימוש בעולם האמיתי",
       subheadline: "חשיבה קריאייטיבית ליחסי קהל, אימוץ, ולאיך שרעיונות באמת פוגשים את העולם.",
       intro: "15+ שנים של הובלת קריאייטיב, אסטרטגיה, תוכן והפקות. עם הזמן העבודה התרחבה לכיוון AI, חשיבה מוצרית והבנה של איך דברים באמת עובדים.",
       ctaSystems: "למערכות",
