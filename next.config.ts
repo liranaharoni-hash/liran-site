@@ -1,7 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  async rewrites() {
+    return [
+      { source: "/tml", destination: "/tml/index.html" },
+    ];
+  },
 };
 
 export default nextConfig;

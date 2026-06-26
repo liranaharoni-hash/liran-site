@@ -17,6 +17,7 @@ export default function Navigation() {
     { label: t.nav.systems, href: "#systems" },
     { label: t.nav.experience, href: "#experience" },
     { label: t.nav.contact, href: "#contact" },
+    { label: "The Marketing Layer", href: "/tml" },
   ];
 
   useEffect(() => {

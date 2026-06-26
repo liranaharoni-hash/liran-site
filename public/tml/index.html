@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Market Layer | The Marketing Layer for Solo-Built Products</title>
+<meta name="description" content="Marketing strategy, creative direction and launch planning for vibe coders, solo founders and AI builders who have a working product but need traffic, users and a sharper way to go public." />
+<meta name="keywords" content="AI builders, vibe coding, solo founders, product marketing, go to market, launch strategy, creative direction, traffic, distribution, first users, AI products" />
+<meta name="author" content="Liran Aharoni" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="The Market Layer | The Marketing Layer for Solo-Built Products" />
+<meta property="og:description" content="Built. Now what? The missing marketing layer between a working product and people actually using it." />
+<meta property="og:site_name" content="The Market Layer" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" type="image/png" href="/tml/favicon.png" />
+<link rel="apple-touch-icon" href="/tml/favicon.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&family=Heebo:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --ink:#050505; --ink-2:#0d0d0d; --surf:#0c0c0c;
+    --bone:#f0ede6; --bone-dim:#aca79c; --muted:#7c776d;
+    --gold:#d4af37; --gold-dim:#b8902c;
+    --hair:rgba(240,237,230,.11); --hair-2:rgba(240,237,230,.2);
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{background:var(--ink);color:var(--bone);font-family:'Inter',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  h1,h2,h3,h4{font-family:'Schibsted Grotesk',sans-serif;font-weight:600;letter-spacing:-.025em;line-height:1.05}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--bone);color:var(--ink)}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+
+  .hl{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:var(--gold)}
+  .serif{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400}
+
+  [dir="rtl"] body{font-family:'Heebo',sans-serif}
+  [dir="rtl"] h1,[dir="rtl"] h2,[dir="rtl"] h3,[dir="rtl"] h4{font-family:'Heebo',sans-serif;font-weight:700;letter-spacing:-.01em}
+  [dir="rtl"] .hl,[dir="rtl"] .serif{font-family:'Heebo',sans-serif;font-style:normal;font-weight:800;color:var(--gold)}
+  [dir="rtl"] .meta,[dir="rtl"] .btn,[dir="rtl"] .pain,[dir="rtl"] .lay-card .t,[dir="rtl"] .svc-card h3,[dir="rtl"] .field label,[dir="rtl"] .fhead,[dir="rtl"] .foot-h,[dir="rtl"] .proof .lab,[dir="rtl"] .role .r,[dir="rtl"] .link{font-family:'Heebo',sans-serif}
+  .keep-latin,.keep-latin *{font-family:'Schibsted Grotesk',sans-serif !important;font-style:normal !important}
+  [dir="rtl"] .arrow{display:inline-block;transform:scaleX(-1)}
+  [dir="rtl"] .field select{background-position:left 14px center;padding-right:15px;padding-left:36px}
+  [dir="rtl"] .step{border-left:none;border-right:1px solid var(--hair);padding:28px 30px 28px 0}
+
+  .meta{font-family:'Schibsted Grotesk';font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .meta .idx{color:var(--gold)}
+  .label-row{display:flex;align-items:center;gap:18px;margin-bottom:44px}
+  .label-row .line{flex:1;height:1px;background:var(--hair)}
+
+  .btn{font-family:'Schibsted Grotesk';font-weight:500;font-size:15px;display:inline-flex;align-items:center;gap:9px;padding:14px 24px;border-radius:3px;cursor:pointer;border:1px solid transparent;transition:transform .15s,background .2s,color .2s,border-color .2s}
+  [dir="rtl"] .btn{font-weight:700}
+  .btn:active{transform:translateY(1px)}
+  .btn-primary{background:var(--bone);color:var(--ink)}
+  .btn-primary:hover{background:#fff;transform:translateY(-2px)}
+  .btn-ghost{border-color:var(--hair-2);color:var(--bone)}
+  .btn-ghost:hover{background:rgba(236,230,218,.05);border-color:var(--bone-dim)}
+  .btn-sm{padding:10px 16px;font-size:13.5px}
+  .link{font-family:'Schibsted Grotesk';font-weight:500;font-size:15px;color:var(--bone);display:inline-flex;align-items:center;gap:8px;padding-bottom:4px;border-bottom:1px solid var(--hair-2);transition:.2s}
+  [dir="rtl"] .link{font-weight:700}
+  .link:hover{border-color:var(--bone);gap:11px}
+  .arrow{transition:transform .2s}
+  .btn:hover .arrow,.link:hover .arrow{transform:translateX(3px)}
+  [dir="rtl"] .btn:hover .arrow,[dir="rtl"] .link:hover .arrow{transform:scaleX(-1) translateX(3px)}
+
+  nav{position:sticky;top:0;z-index:50;background:rgba(10,10,11,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--hair)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:70px;gap:18px}
+  .brand{display:flex;align-items:center;gap:11px;font-family:'Schibsted Grotesk';font-weight:600;font-size:16.5px;letter-spacing:-.02em}
+  .brand .sq{width:9px;height:9px;background:var(--gold);display:inline-block}
+  .brand-mark{height:30px;width:auto;display:block}
+  .brand small{display:block;font-family:'Inter';font-weight:400;font-size:10.5px;color:var(--muted);letter-spacing:.06em;margin-top:-2px}
+  .nav-links{display:flex;gap:30px}
+  .nav-links a{font-size:13.5px;color:var(--bone-dim);transition:color .2s;white-space:nowrap}
+  .nav-links a:hover{color:var(--bone)}
+  .nav-right{display:flex;align-items:center;gap:14px}
+  .nav-cta{display:none}
+  .lang{display:inline-flex;align-items:center;gap:3px;border:1px solid var(--hair-2);border-radius:99px;padding:3px}
+  .lang-btn{display:inline-flex;align-items:center;justify-content:center;width:33px;height:25px;border:none;background:transparent;border-radius:99px;cursor:pointer;opacity:.4;transition:.2s;padding:0}
+  .lang-btn svg{width:23px;height:auto;border-radius:2px;display:block;box-shadow:0 0 0 1px rgba(236,230,218,.12)}
+  .lang-btn:hover{opacity:.8}
+  .lang-btn.active{opacity:1;background:rgba(236,230,218,.1)}
+
+  .hero{padding:76px 0 0}
+  .hero h1{font-size:clamp(42px,7vw,88px);font-weight:600;max-width:17ch}
+  .hero h1 .hl{font-size:1.04em}
+  .hero .sub{font-size:clamp(17px,2vw,21px);color:var(--bone-dim);max-width:56ch;margin-top:32px;line-height:1.55}
+  .hero-cta{display:flex;align-items:center;gap:26px;margin-top:40px;flex-wrap:wrap}
+  .hero-input{margin-top:38px;max-width:540px;border:1px solid var(--hair-2);border-radius:4px;background:var(--surf);padding:8px 8px 8px 18px;display:flex;align-items:center;gap:10px}
+  [dir="rtl"] .hero-input{padding:8px 18px 8px 8px}
+  .hero-input input{flex:1;min-width:0;background:transparent;border:none;color:var(--bone);font-family:inherit;font-size:15px;padding:10px 0}
+  .hero-input input::placeholder{color:var(--muted)}
+  .hero-input input:focus{outline:none}
+  .hero .innote{font-size:12.5px;color:var(--muted);margin-top:13px}
+
+  .proof{margin-top:86px;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:28px 0}
+  .proof .lab{font-family:'Schibsted Grotesk';font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:20px}
+  .marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+  .track{display:flex;gap:60px;width:max-content;animation:scroll 36s linear infinite;align-items:center}
+  .track span{font-family:'Schibsted Grotesk';font-weight:500;font-size:23px;letter-spacing:.02em;color:var(--bone-dim);white-space:nowrap;opacity:.8;transition:.2s}
+  .track:hover{animation-play-state:paused}
+  .track span:hover{color:var(--gold);opacity:1}
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  [dir="rtl"] .track{animation-direction:reverse}
+
+  .sec{padding:104px 0}
+  .sec-head{max-width:64ch}
+  .sec-head h2{font-size:clamp(30px,4.4vw,52px);font-weight:600}
+  .sec-head .lead{color:var(--bone-dim);font-size:clamp(16px,1.9vw,19px);margin-top:18px;line-height:1.6}
+
+  .grid6{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--hair);border-left:1px solid var(--hair);margin-top:48px}
+  .lay-card{border-right:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:30px 28px;transition:background .25s}
+  [dir="rtl"] .grid6{border-left:none;border-right:1px solid var(--hair)}
+  [dir="rtl"] .lay-card{border-right:none;border-left:1px solid var(--hair)}
+  .lay-card:hover{background:var(--ink-2)}
+  .lay-card .num{font-family:'Schibsted Grotesk';font-size:12.5px;font-weight:500;color:var(--muted);letter-spacing:.08em}
+  .lay-card .t{font-family:'Schibsted Grotesk';font-weight:600;font-size:21px;margin:14px 0 8px}
+  .lay-card .q{color:var(--bone-dim);font-size:15px;line-height:1.55}
+  .lay-nots{margin-top:8px;color:var(--muted);font-size:15px}
+  .lay-pos{margin-top:12px;color:var(--bone);font-size:clamp(16px,1.9vw,18px);max-width:72ch}
+
+  .grid4{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--hair);border-left:1px solid var(--hair);margin-top:46px}
+  [dir="rtl"] .grid4{border-left:none;border-right:1px solid var(--hair)}
+  .prob-card{border-right:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:28px 24px;min-height:200px;display:flex;flex-direction:column;justify-content:space-between;transition:background .25s}
+  [dir="rtl"] .prob-card{border-right:none;border-left:1px solid var(--hair)}
+  .prob-card:hover{background:var(--ink-2)}
+  .prob-card .n{font-family:'Schibsted Grotesk';font-size:12.5px;color:var(--muted);font-weight:500;letter-spacing:.08em}
+  .prob-card p{color:var(--bone);font-size:16px;line-height:1.45}
+  #problem .sec-head{max-width:24ch}
+  #problem .sec-head h2{font-size:clamp(36px,5.2vw,62px)}
+  .prob-sub{margin-top:24px;font-family:'Schibsted Grotesk';font-weight:600;font-size:clamp(24px,3.6vw,40px);line-height:1.12;color:var(--bone);max-width:22ch}
+  [dir="rtl"] .prob-sub{font-family:'Heebo';font-weight:700}
+
+  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
+  .svc-card{border:1px solid var(--hair);border-radius:4px;padding:30px 28px;display:flex;flex-direction:column;background:var(--surf);transition:border-color .25s,transform .25s}
+  .svc-card:hover{border-color:var(--hair-2);transform:translateY(-3px)}
+  .pain{font-family:'Schibsted Grotesk';font-size:11.5px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;display:block}
+  .svc-card h3{font-size:23px;margin-bottom:12px}
+  .svc-card .desc{font-size:14.5px;color:var(--bone-dim);margin-bottom:22px;line-height:1.55}
+  .svc-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+  .svc-list li{display:flex;gap:12px;font-size:14px;color:var(--bone-dim);align-items:baseline}
+  .svc-list li .d{color:var(--muted);font-family:'Schibsted Grotesk'}
+  .svc-card .link{margin-top:auto}
+
+  .steps-list{margin-top:48px}
+  .step{display:grid;grid-template-columns:80px 1fr;gap:24px;padding:28px 0 28px 30px;border-left:1px solid var(--hair);align-items:start}
+  .step .sn{font-family:'Schibsted Grotesk';font-weight:600;font-size:34px;color:var(--muted);line-height:1}
+  .step h3{font-size:21px;margin-bottom:7px}
+  .step p{color:var(--bone-dim);font-size:15.5px;max-width:62ch}
+
+  .about{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:start;margin-top:48px}
+  .portrait{position:relative;aspect-ratio:4/5;border:1px solid var(--hair-2);border-radius:4px;background:var(--ink-2);overflow:hidden;display:flex;align-items:center;justify-content:center}
+  .portrait img{width:100%;height:100%;object-fit:cover;display:block}
+  .portrait .ph{display:flex;flex-direction:column;align-items:center;gap:12px;color:var(--muted);text-align:center;padding:24px}
+  .portrait .corner{position:absolute;top:14px;left:14px;font-family:'Schibsted Grotesk';font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  [dir="rtl"] .portrait .corner{left:auto;right:14px}
+  .about-body h3{font-size:clamp(24px,3vw,34px);font-weight:600;line-height:1.18;margin-bottom:24px;max-width:20ch}
+  .about-body p{color:var(--bone-dim);font-size:16.5px;margin-bottom:16px;max-width:60ch}
+  .about-body p.em,.about-body p .em{color:var(--bone)}
+  .roles{margin-top:28px;border-top:1px solid var(--hair)}
+  .role{display:flex;justify-content:space-between;gap:20px;padding:15px 0;border-bottom:1px solid var(--hair)}
+  .role .r{font-family:'Schibsted Grotesk';font-weight:500;font-size:14.5px;color:var(--bone)}
+  .role .y{font-size:12.5px;color:var(--muted);font-family:'Schibsted Grotesk';letter-spacing:.04em;white-space:nowrap}
+
+  .cta-band{border:1px solid var(--hair-2);border-radius:4px;padding:50px 44px;margin-bottom:48px}
+  .cta-band h2{font-size:clamp(26px,3.8vw,42px);max-width:24ch}
+  .cta-band p{color:var(--bone-dim);font-size:16.5px;max-width:60ch;margin-top:16px}
+  .cta-band .sl{margin-top:14px;font-size:13.5px;color:var(--muted)}
+  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start}
+  form{display:flex;flex-direction:column;gap:15px}
+  .fhead{font-family:'Schibsted Grotesk';font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:-3px}
+  .field label{display:block;font-family:'Schibsted Grotesk';font-size:13px;font-weight:500;color:var(--bone);margin-bottom:8px}
+  [dir="rtl"] .field label{font-weight:600}
+  .field .opt{color:var(--muted);font-weight:400;font-size:12px}
+  .field input,.field textarea,.field select{width:100%;background:var(--surf);border:1px solid var(--hair-2);border-radius:3px;padding:13px 15px;color:var(--bone);font-family:inherit;font-size:15px;transition:border-color .2s}
+  .field input::placeholder,.field textarea::placeholder{color:var(--muted)}
+  .field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--bone-dim)}
+  .field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23827d73' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+  .field textarea{resize:vertical;min-height:78px}
+  form .btn{margin-top:6px;justify-content:center}
+  .form-note{font-size:12.5px;color:var(--muted)}
+  .form-side h2{font-size:clamp(24px,3.2vw,34px);margin-bottom:14px}
+  .form-side p{color:var(--bone-dim);font-size:16px;margin-bottom:18px}
+  .form-side .why{font-size:15px;color:var(--bone-dim);border-top:1px solid var(--hair);padding-top:18px}
+  .success-msg{display:none;border:1px solid var(--hair-2);border-radius:4px;padding:26px;font-size:16px;color:var(--bone);background:var(--surf)}
+  .success-msg.show{display:block}
+  .success-msg strong{font-family:'Schibsted Grotesk';font-size:20px;display:block;margin-bottom:6px}
+  [dir="rtl"] .success-msg strong{font-family:'Heebo';font-weight:700}
+
+  footer{border-top:1px solid var(--hair);padding:56px 0 40px;margin-top:30px}
+  .foot-grid{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap}
+  .foot-brand .b{font-family:'Schibsted Grotesk';font-size:20px;font-weight:600;display:flex;align-items:center;gap:10px}
+  .foot-brand .b .sq{width:8px;height:8px;background:var(--gold)}
+  .foot-logo{width:210px;max-width:62vw;height:auto;display:block;margin-bottom:6px}
+  .foot-brand p{color:var(--bone-dim);font-size:14px;margin-top:10px;max-width:32ch}
+  .foot-brand .slogan{color:var(--muted);font-family:'Schibsted Grotesk';font-size:12.5px;margin-top:6px;letter-spacing:.02em}
+  .foot-cols{display:flex;gap:56px;flex-wrap:wrap}
+  .foot-col{display:flex;flex-direction:column;gap:11px}
+  .foot-h{font-family:'Schibsted Grotesk';font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+  .foot-col a{font-size:14px;color:var(--bone-dim);transition:color .2s}
+  .foot-col a:hover{color:var(--bone)}
+  .foot-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:46px;padding-top:22px;border-top:1px solid var(--hair);flex-wrap:wrap;gap:14px}
+  .foot-bottom p{font-size:12.5px;color:var(--muted)}
+
+  .wa{display:flex;align-items:center;gap:22px;flex-wrap:wrap;border:1px solid var(--hair-2);border-radius:4px;padding:22px 26px;margin-bottom:48px}
+  .wa .wt{flex:1;min-width:220px}
+  .wa .wt .h{font-family:'Schibsted Grotesk';font-weight:600;font-size:19px;color:var(--bone)}
+  [dir="rtl"] .wa .wt .h{font-family:'Heebo';font-weight:700}
+  .wa .wt .s{color:var(--muted);font-size:14px;margin-top:4px}
+  .btn-wa{background:#25d366;color:#053b1e;border:none}
+  .btn-wa:hover{background:#2bea71;transform:translateY(-2px)}
+  .btn-wa svg{width:19px;height:19px}
+  .wa-float{position:fixed;bottom:22px;inset-inline-end:22px;width:54px;height:54px;border-radius:50%;background:#25d366;color:#053b1e;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px -8px rgba(0,0,0,.65);z-index:60;transition:transform .2s}
+  .wa-float:hover{transform:scale(1.08)}
+  .wa-float svg{width:28px;height:28px}
+
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.track{animation:none}*{scroll-behavior:auto}}
+
+  @media(min-width:900px){.nav-cta{display:inline-flex}}
+  @media(max-width:980px){
+    .grid6{grid-template-columns:1fr 1fr}
+    .grid4{grid-template-columns:1fr 1fr}
+    .svc-grid{grid-template-columns:1fr}
+    .about{grid-template-columns:1fr;gap:34px}
+    .portrait{max-width:360px}
+    .form-grid{grid-template-columns:1fr;gap:32px}
+    .nav-links{display:none}
+  }
+  @media(max-width:640px){
+    .sec{padding:72px 0}
+    .hero{padding:52px 0 0}
+    .grid6,.grid4{grid-template-columns:1fr}
+    .cta-band{padding:34px 22px}
+    .foot-grid{flex-direction:column}
+    .wrap{padding:0 22px}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-in">
+    <a href="#top" class="brand keep-latin" dir="ltr" aria-label="The Market Layer">
+      <img src="/tml/tml_mark.png" alt="" class="brand-mark" />
+      <span>The Market Layer</span>
+    </a>
+    <div class="nav-links">
+      <a href="#layer" data-i18n="nav.layer">The layer</a>
+      <a href="#problem" data-i18n="nav.problem">The problem</a>
+      <a href="#tracks" data-i18n="nav.tracks">Services</a>
+      <a href="#about" data-i18n="nav.about">About</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang" role="group" aria-label="Language / שפה">
+        <button class="lang-btn" data-lang="en" aria-label="English" title="English">
+          <svg viewBox="0 0 33 24" xmlns="http://www.w3.org/2000/svg"><rect width="33" height="24" fill="#fff"/><g fill="#b22234"><rect width="33" height="1.85" y="0"/><rect width="33" height="1.85" y="3.7"/><rect width="33" height="1.85" y="7.4"/><rect width="33" height="1.85" y="11.1"/><rect width="33" height="1.85" y="14.8"/><rect width="33" height="1.85" y="18.5"/><rect width="33" height="1.85" y="22.15"/></g><rect width="14.5" height="12.9" fill="#3c3b6e"/></svg>
+        </button>
+        <button class="lang-btn" data-lang="he" aria-label="עברית" title="עברית">
+          <svg viewBox="0 0 33 24" xmlns="http://www.w3.org/2000/svg"><rect width="33" height="24" fill="#fff"/><rect width="33" height="3.4" y="2.6" fill="#0038b8"/><rect width="33" height="3.4" y="18" fill="#0038b8"/><g fill="none" stroke="#0038b8" stroke-width="1.25"><polygon points="16.5,8 19.4,13.2 13.6,13.2"/><polygon points="16.5,14.6 13.6,9.4 19.4,9.4"/></g></svg>
+        </button>
+      </div>
+      <a href="#contact" class="btn btn-ghost btn-sm nav-cta" data-i18n="cta.primary">Send me your product</a>
+    </div>
+  </div>
+</nav>
+<span id="top"></span>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="label-row reveal">
+      <span class="meta"><span class="idx">(01)</span>&nbsp;&nbsp;<span data-i18n="hero.label">Marketing strategy for AI-built products</span></span>
+      <span class="line"></span>
+    </div>
+    <h1 class="reveal" data-i18n="hero.h1">You built the product. <span class="hl">Now let's get people to use it.</span></h1>
+    <p class="sub reveal" data-i18n="hero.sub">Marketing strategy, creative direction and launch planning for vibe coders, solo founders and AI builders who have a working product, but need traffic, users, attention and a sharper way to go public.</p>
+    <div class="hero-cta reveal">
+      <a href="#contact" class="btn btn-primary"><span data-i18n="cta.primary">Send me your product</span> <span class="arrow">→</span></a>
+      <a href="#layer" class="link" data-i18n="hero.cta2">See what I can build around it</a>
+    </div>
+    <div class="hero-input reveal">
+      <input id="hero-url" type="url" placeholder="Paste your product or demo link" data-i18n-ph="hero.inph" />
+      <button class="btn btn-primary btn-sm" id="hero-go" type="button"><span data-i18n="hero.inbtn">Get a launch read</span> <span class="arrow">→</span></button>
+    </div>
+    <p class="innote reveal" data-i18n="hero.innote">For working apps, SaaS tools, AI products, prototypes, demos and solo-built products.</p>
+
+    <div class="proof reveal">
+      <div class="lab" data-i18n="proof.lab">Selected brands I've built work for</div>
+      <!-- TODO: replace text wordmarks with real logo images (PNG/SVG) when supplied. -->
+      <div class="marquee">
+        <div class="track">
+          <span>VISA</span><span>NESPRESSO</span><span>SONY PLAYSTATION</span><span>SODASTREAM</span><span>COLGATE</span><span>CHIVAS</span><span>RENAULT</span><span>XPENG</span><span>DUTY&nbsp;FREE</span>
+          <span>VISA</span><span>NESPRESSO</span><span>SONY PLAYSTATION</span><span>SODASTREAM</span><span>COLGATE</span><span>CHIVAS</span><span>RENAULT</span><span>XPENG</span><span>DUTY&nbsp;FREE</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="sec" id="layer">
+  <div class="wrap">
+    <div class="label-row reveal">
+      <span class="meta"><span class="idx">(02)</span>&nbsp;&nbsp;<span data-i18n="lay.kicker">The missing layer</span></span>
+      <span class="line"></span>
+    </div>
+    <div class="sec-head reveal">
+      <h2 data-i18n="lay.h2">Between a working product and real users, there is a marketing layer.</h2>
+      <p class="lead" data-i18n="lay.lead">This is the layer I build.</p>
+      <p class="lay-nots" data-i18n="lay.nots">Not just a nicer landing page. Not just "some posts." Not vague startup advice.</p>
+      <p class="lay-pos" data-i18n="lay.pos">A clear marketing layer that helps your product go from built to understood, from understood to wanted, and <span class="hl">from wanted to used.</span></p>
+    </div>
+    <div class="grid6">
+      <div class="lay-card reveal"><div class="num">01</div><div class="t" data-i18n="lay.c1t">Positioning</div><div class="q" data-i18n="lay.c1q">What is the sharpest way to explain the product?</div></div>
+      <div class="lay-card reveal"><div class="num">02</div><div class="t" data-i18n="lay.c2t">Audience</div><div class="q" data-i18n="lay.c2q">Who should hear about it first, and why them?</div></div>
+      <div class="lay-card reveal"><div class="num">03</div><div class="t" data-i18n="lay.c3t">Message</div><div class="q" data-i18n="lay.c3q">What should people understand in the first 8 seconds?</div></div>
+      <div class="lay-card reveal"><div class="num">04</div><div class="t" data-i18n="lay.c4t">Creative Direction</div><div class="q" data-i18n="lay.c4q">What does the product need to look, sound and feel like when it goes public?</div></div>
+      <div class="lay-card reveal"><div class="num">05</div><div class="t" data-i18n="lay.c5t">Launch Path</div><div class="q" data-i18n="lay.c5q">Where should it show up: organic, paid, communities, creators, PR, Product Hunt, LinkedIn, TikTok, search or niche channels?</div></div>
+      <div class="lay-card reveal"><div class="num">06</div><div class="t" data-i18n="lay.c6t">First-User Plan</div><div class="q" data-i18n="lay.c6q">What should happen in the first 30 days to get signals, users, feedback and momentum?</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="problem">
+  <div class="wrap">
+    <div class="label-row reveal">
+      <span class="meta"><span class="idx">(03)</span>&nbsp;&nbsp;<span data-i18n="prob.kicker">The part code doesn't solve</span></span>
+      <span class="line"></span>
+    </div>
+    <div class="sec-head reveal">
+      <h2 data-i18n="prob.h2">AI sped up building products.</h2>
+      <p class="prob-sub" data-i18n="prob.punch">Their <span class="hl">marketing layer</span> still needs the right thinking.</p>
+    </div>
+    <div class="grid4">
+      <div class="prob-card reveal"><div class="n">01</div><p data-i18n="prob.c1">The product works — but is it clear why anyone would try it?</p></div>
+      <div class="prob-card reveal"><div class="n">02</div><p data-i18n="prob.c2">Does the landing page explain features instead of creating desire?</p></div>
+      <div class="prob-card reveal"><div class="n">03</div><p data-i18n="prob.c3">Is the launch plan random — a few posts, maybe a Product Hunt link, maybe some ads?</p></div>
+      <div class="prob-card reveal"><div class="n">04</div><p data-i18n="prob.c4">Do you keep adding features because getting users feels harder than building?</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="tracks">
+  <div class="wrap">
+    <div class="label-row reveal">
+      <span class="meta"><span class="idx">(04)</span>&nbsp;&nbsp;<span data-i18n="tr.kicker">Choose the marketing gap</span></span>
+      <span class="line"></span>
+    </div>
+    <div class="sec-head reveal">
+      <h2 data-i18n="tr.h2">Different products get stuck in different places.</h2>
+      <p class="lead" data-i18n="tr.lead">Some products need a sharper story. Some need a launch plan. Some need a campaign idea. Some need investor narrative. The sprint starts with what your product needs next.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card reveal">
+        <span class="pain" data-i18n="tr.t1.pain">I need clarity before launch</span>
+        <h3 class="keep-latin" dir="ltr">Launch Read</h3>
+        <p class="desc" data-i18n="tr.t1.desc">For builders who have a working product but are not sure how to explain it, who to target first or what the next move should be.</p>
+        <ul class="svc-list">
+          <li><span class="d">—</span><span data-i18n="tr.t1.i1">Product and landing page review</span></li>
+          <li><span class="d">—</span><span data-i18n="tr.t1.i2">Audience diagnosis</span></li>
+          <li><span class="d">—</span><span data-i18n="tr.t1.i3">Positioning direction</span></li>
+          <li><span class="d">—</span><span data-i18n="tr.t1.i4">Message rewrite</span></li>
+          <li><span class="d">—</span><span data-i18n="tr.t1.i5">Key friction points</span></li>
+          <li><span class="d">—</span><span data-i18n="tr.t1.i6">Recommended launch path</span></li>
+          <li><span class="d">—</span><span data-i18n="tr.t1.i7">30-day action plan</span></li>
+        </ul>
+        <a href="#contact" class="link" data-track="Launch Read"><span data-i18n="tr.t1.cta">Audit my product</span> <span class="arrow">→</span></a>
+      </div>
+      <div class="svc-card reveal">
+        <span class="pain" data-i18n="tr.t2.pain">I need to go public</span>
+        <h3 class="keep-latin" dir="ltr">Marketing Sprint</h3>
+        <p class="desc" data-i18n="tr.t2.desc">For builders who are ready to launch and need the marketing layer around the product: message, content, creative, channels and first-user plan.</p>
+        <ul class="svc-list">
+          <li><span class="d">—</span><span data-i18n="tr.t2.i1">Launch strategy</span></li>
+          <li><span class="d">—</span><span data-i18n="tr.t2.i2">Landing page copy direction</span></li>
+          <li><span class="d">—</span><span data-i18n="tr.t2.i3">Campaign concept</span></li>
+          <li><span class="d">—</span><span data-i18n="tr.t2.i4">Organic content plan</span></li>
+          <li><span class="d">—</span><span data-i18n="tr.t2.i5">Paid vs organic recommendation</span></li>
+          <li><span class="d">—</span><span data-i18n="tr.t2.i6">Community/channel strategy</span></li>
+          <li><span class="d">—</span><span data-i18n="tr.t2.i7">First traction plan</span></li>
+          <li><span class="d">—</span><span data-i18n="tr.t2.i8">Social proof ideas</span></li>
+        </ul>
+        <a href="#contact" class="link" data-track="Marketing Sprint"><span data-i18n="tr.t2.cta">Plan my launch</span> <span class="arrow">→</span></a>
+      </div>
+      <div class="svc-card reveal">
+        <span class="pain" data-i18n="tr.t3.pain">I need a stronger story</span>
+        <h3 class="keep-latin" dir="ltr">Pitch &amp; Growth Story</h3>
+        <p class="desc" data-i18n="tr.t3.desc">For builders who need to explain the product to investors, partners, first customers or a wider audience in a way that feels clear, credible and worth attention.</p>
+        <ul class="svc-list">
+          <li><span class="d">—</span><span data-i18n="tr.t3.i1">Product narrative</span></li>
+          <li><span class="d">—</span><span data-i18n="tr.t3.i2">Demo flow</span></li>
+          <li><span class="d">—</span><span data-i18n="tr.t3.i3">Pitch structure</span></li>
+          <li><span class="d">—</span><span data-i18n="tr.t3.i4">Market framing</span></li>
+          <li><span class="d">—</span><span data-i18n="tr.t3.i5">Why now</span></li>
+          <li><span class="d">—</span><span data-i18n="tr.t3.i6">Problem clarity</span></li>
+          <li><span class="d">—</span><span data-i18n="tr.t3.i7">Deck storyline</span></li>
+          <li><span class="d">—</span><span data-i18n="tr.t3.i8">Founder story sharpening</span></li>
+        </ul>
+        <a href="#contact" class="link" data-track="Pitch & Growth Story"><span data-i18n="tr.t3.cta">Sharpen my story</span> <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="how">
+  <div class="wrap">
+    <div class="label-row reveal">
+      <span class="meta"><span class="idx">(05)</span>&nbsp;&nbsp;<span data-i18n="sp.kicker">The sprint</span></span>
+      <span class="line"></span>
+    </div>
+    <div class="sec-head reveal">
+      <h2 data-i18n="sp.h2">A short sprint. A practical marketing plan.</h2>
+    </div>
+    <div class="steps-list">
+      <div class="step reveal"><div class="sn">01</div><div><h3 data-i18n="sp.s1h">Send the product</h3><p data-i18n="sp.s1p">Share your demo, landing page, prototype, deck or app.</p></div></div>
+      <div class="step reveal"><div class="sn">02</div><div><h3 data-i18n="sp.s2h">I review the marketing layer</h3><p data-i18n="sp.s2p">I look at the message, audience, landing page, creative, channels and next move.</p></div></div>
+      <div class="step reveal"><div class="sn">03</div><div><h3 data-i18n="sp.s3h">We sharpen the way out</h3><p data-i18n="sp.s3p">We define the story, launch angle, content direction and distribution path.</p></div></div>
+      <div class="step reveal"><div class="sn">04</div><div><h3 data-i18n="sp.s4h">You get a clear plan</h3><p data-i18n="sp.s4p">You leave with what to say, where to say it, who to say it to, and what to do next.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="about">
+  <div class="wrap">
+    <div class="label-row reveal">
+      <span class="meta"><span class="idx">(06)</span>&nbsp;&nbsp;<span data-i18n="ab.kicker">Who's behind it</span></span>
+      <span class="line"></span>
+    </div>
+    <div class="about">
+      <div class="portrait reveal">
+        <span class="corner keep-latin" dir="ltr">Liran Aharoni</span>
+        <img src="/tml/liran.png" alt="Liran Aharoni" onerror="this.style.display='none';document.getElementById('portrait-ph').style.display='flex';" />
+        <div class="ph" id="portrait-ph" style="display:none">
+          <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg>
+          <span class="meta" data-i18n="ab.photo">Your photo goes here</span>
+        </div>
+      </div>
+      <div class="about-body reveal">
+        <h3 data-i18n="ab.h2">I'm not here to make your product look nicer. I'm here to make its value <span class="hl">impossible to miss.</span></h3>
+        <p data-i18n="ab.p1">I'm <span class="em">Liran Aharoni</span> — VP Creative AI at LEADERS (Stagwell), a creative and marketing strategist with 15+ years in advertising, strategy, creative direction, campaigns, content, launches and brand communication.</p>
+        <p data-i18n="ab.p2">I've led work for global brands and built AI-native systems where strategy meets real user behavior. Today I bring that to solo builders, vibe coders and AI product makers: the marketing layer that turns a working product into something people notice, understand, click, try and remember.</p>
+        <p class="em" data-i18n="ab.p3">The product can be built with AI. The market still needs a reason to care.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="contact">
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <h2 data-i18n="fc.h2">Before you build another feature, invest in the way that gets people to actually use your product.</h2>
+      <p data-i18n="fc.p">If your product works but you do not have a clear way to launch, explain, promote or grow it, send it over. I'll help you understand what marketing layer it needs next.</p>
+      <p class="sl" data-i18n="fc.sl">For working apps, SaaS tools, AI products, prototypes, demos and solo-built products.</p>
+    </div>
+
+    <div class="wa reveal">
+      <div class="wt">
+        <div class="h" data-i18n="wa.h">Want a quick consult? Message me now.</div>
+        <div class="s" data-i18n="wa.s">Straight to my WhatsApp — no forms.</div>
+      </div>
+      <a class="btn btn-wa wa-link" href="https://wa.me/972543395020" target="_blank" rel="noopener">
+        <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 .5C7.4.5.5 7.4.5 16c0 2.8.7 5.4 2 7.8L.5 31.5l7.9-2c2.3 1.2 4.9 1.9 7.6 1.9 8.6 0 15.5-6.9 15.5-15.5S24.6.5 16 .5zm0 28.3c-2.4 0-4.7-.6-6.7-1.8l-.5-.3-4.7 1.2 1.3-4.6-.3-.5c-1.3-2.1-2-4.5-2-7 0-7.1 5.8-12.9 12.9-12.9S28.9 8.9 28.9 16 23.1 28.8 16 28.8zm7.1-9.6c-.4-.2-2.3-1.1-2.6-1.2-.3-.1-.6-.2-.8.2-.2.4-.9 1.2-1.2 1.5-.2.2-.4.2-.8.1-.4-.2-1.6-.6-3.1-1.9-1.1-1-1.9-2.2-2.2-2.6-.2-.4 0-.6.2-.8l.5-.7c.2-.2.2-.4.4-.7.1-.3 0-.5 0-.7s-.8-2-1.1-2.7c-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.6.1-.9.5s-1.2 1.2-1.2 2.9 1.2 3.4 1.4 3.6c.2.2 2.4 3.7 5.9 5.2.8.4 1.5.6 2 .7.8.2 1.6.2 2.2.1.7-.1 2.3-.9 2.6-1.8.3-.9.3-1.6.2-1.8-.1-.1-.3-.2-.7-.4z"/></svg>
+        <span data-i18n="wa.btn">Message me on WhatsApp</span>
+      </a>
+    </div>
+
+    <div class="form-grid">
+      <div class="form-side reveal">
+        <div class="label-row" style="margin-bottom:24px"><span class="meta"><span class="idx">(07)</span>&nbsp;&nbsp;<span data-i18n="fc.eyebrow">Send me your product</span></span><span class="line"></span></div>
+        <h2 data-i18n="fc.formh">Show me what you built.</h2>
+        <p data-i18n="fc.formp">I'll review it and come back with the smartest marketing move: what to sharpen, where to launch, what to say and how to start getting real traction.</p>
+        <div class="why" data-i18n="fc.why">Required fields first, the rest is optional. I read every submission personally and reply with the smartest next step.</div>
+      </div>
+
+      <div class="reveal">
+        <!-- FORM: connected to Formspree (form ID mzdlbvge). Submissions are emailed to the account owner. -->
+        <form id="tml-form" action="https://formspree.io/f/mzdlbvge" method="POST">
+          <input type="hidden" id="track" name="track" value="" />
+          <div class="fhead" data-i18n="fc.required">Required</div>
+          <div class="field"><label for="name" data-i18n="fc.l.name">Name</label><input id="name" name="name" type="text" placeholder="Your name" data-i18n-ph="ph.name" required /></div>
+          <div class="field"><label for="email" data-i18n="fc.l.email">Email</label><input id="email" name="email" type="email" placeholder="you@email.com" required /></div>
+          <div class="field"><label for="product" data-i18n="fc.l.product">Product / demo link</label><input id="product" name="product_link" type="url" placeholder="https://..." required /></div>
+          <div class="field"><label for="does" data-i18n="fc.l.does">What does the product do?</label><textarea id="does" name="what_it_does" placeholder="In one or two lines..." data-i18n-ph="ph.does" required></textarea></div>
+          <div class="field"><label for="goal" data-i18n="fc.l.goal">What are you trying to get next?</label>
+            <select id="goal" name="goal">
+              <option value="First users" data-i18n="opt.g1">First users</option>
+              <option value="Paying customers" data-i18n="opt.g2">Paying customers</option>
+              <option value="More traffic" data-i18n="opt.g3">More traffic</option>
+              <option value="Better landing page" data-i18n="opt.g4">Better landing page</option>
+              <option value="Launch plan" data-i18n="opt.g5">Launch plan</option>
+              <option value="Investor interest" data-i18n="opt.g6">Investor interest</option>
+              <option value="Community traction" data-i18n="opt.g7">Community traction</option>
+              <option value="Not sure yet" data-i18n="opt.g8">Not sure yet</option>
+            </select>
+          </div>
+          <div class="field"><label for="stuck" data-i18n="fc.l.stuck">Where are you stuck?</label><textarea id="stuck" name="stuck" placeholder="What's the part you can't crack?" data-i18n-ph="ph.stuck"></textarea></div>
+          <div class="fhead" data-i18n="fc.optionalh">Optional</div>
+          <div class="field"><label for="phone" data-i18n="fc.l.phone">Phone <span class="opt" data-i18n="fc.optional">(optional)</span></label><input id="phone" name="phone" type="tel" placeholder="Your phone number" data-i18n-ph="ph.phone" /></div>
+          <div class="field"><label for="forwho" data-i18n="fc.l.forwho">Who do you think it is for? <span class="opt" data-i18n="fc.optional">(optional)</span></label><textarea id="forwho" name="who_for" placeholder="Your current best guess..." data-i18n-ph="ph.forwho"></textarea></div>
+          <div class="field"><label for="budget" data-i18n="fc.l.budget">Approximate budget <span class="opt" data-i18n="fc.optional">(optional)</span></label>
+            <select id="budget" name="budget">
+              <option value="Not sure yet" data-i18n="opt.b0">Not sure yet</option>
+              <option value="Under $500" data-i18n="opt.b1">Under $500</option>
+              <option value="$500-$1,500">$500–$1,500</option>
+              <option value="$1,500-$5,000">$1,500–$5,000</option>
+              <option value="$5,000+">$5,000+</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary"><span data-i18n="fc.submit">Send my product</span> <span class="arrow">→</span></button>
+          <p class="form-note" data-i18n="fc.note">No spam. Just a clear read on your product and your next marketing move.</p>
+        </form>
+
+        <div class="success-msg" id="tml-success">
+          <strong data-i18n="fc.success.h">Got it.</strong>
+          <span data-i18n="fc.success.p">I'll review the product and get back to you with the smartest marketing move.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <img src="/tml/tml_logo.png" alt="The Market Layer — Built. Now what?" class="foot-logo" />
+        <p data-i18n="foot.tagline">The marketing layer for solo-built products.</p>
+        <a href="#contact" class="btn btn-primary btn-sm" style="margin-top:18px"><span data-i18n="cta.primary">Send me your product</span> <span class="arrow">→</span></a>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <span class="foot-h" data-i18n="foot.explore">Explore</span>
+          <a href="#layer" data-i18n="nav.layer">The layer</a>
+          <a href="#problem" data-i18n="nav.problem">The problem</a>
+          <a href="#tracks" data-i18n="nav.tracks">Services</a>
+          <a href="#about" data-i18n="nav.about">About</a>
+        </div>
+        <div class="foot-col">
+          <span class="foot-h" data-i18n="foot.connect">Connect</span>
+          <a href="#" data-link="instagram">Instagram</a>
+          <a href="https://www.linkedin.com/in/liran-aharoni-04809769/" data-link="linkedin">LinkedIn</a>
+          <a href="#contact" data-link="email" data-i18n="foot.email">Email</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p>© <span id="yr"></span> The Market Layer · TML. <span data-i18n="foot.rights">All rights reserved.</span></p>
+      <p data-i18n="foot.pills">Positioning · Launch · Creative · Content · Traffic · Pitch</p>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float wa-link" href="https://wa.me/972543395020" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 .5C7.4.5.5 7.4.5 16c0 2.8.7 5.4 2 7.8L.5 31.5l7.9-2c2.3 1.2 4.9 1.9 7.6 1.9 8.6 0 15.5-6.9 15.5-15.5S24.6.5 16 .5zm0 28.3c-2.4 0-4.7-.6-6.7-1.8l-.5-.3-4.7 1.2 1.3-4.6-.3-.5c-1.3-2.1-2-4.5-2-7 0-7.1 5.8-12.9 12.9-12.9S28.9 8.9 28.9 16 23.1 28.8 16 28.8zm7.1-9.6c-.4-.2-2.3-1.1-2.6-1.2-.3-.1-.6-.2-.8.2-.2.4-.9 1.2-1.2 1.5-.2.2-.4.2-.8.1-.4-.2-1.6-.6-3.1-1.9-1.1-1-1.9-2.2-2.2-2.6-.2-.4 0-.6.2-.8l.5-.7c.2-.2.2-.4.4-.7.1-.3 0-.5 0-.7s-.8-2-1.1-2.7c-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.6.1-.9.5s-1.2 1.2-1.2 2.9 1.2 3.4 1.4 3.6c.2.2 2.4 3.7 5.9 5.2.8.4 1.5.6 2 .7.8.2 1.6.2 2.2.1.7-.1 2.3-.9 2.6-1.8.3-.9.3-1.6.2-1.8-.1-.1-.3-.2-.7-.4z"/></svg>
+</a>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  const WA_NUM='972543395020';
+  const WA_TEXT={en:"Hi Liran — I built a product and I'd love a quick marketing read.",he:"היי לירן, בניתי מוצר ואשמח להתייעצות זריזה על השיווק."};
+
+  const he = {
+    "nav.layer":"השכבה","nav.problem":"הבעיה","nav.tracks":"שירותים","nav.about":"עליי",
+    "cta.primary":"שלח לי את המוצר",
+    "wa.h":"רוצה להתייעץ זריז? שלח הודעה עכשיו.","wa.s":"ישר לוואטסאפ שלי — בלי טפסים.","wa.btn":"שלח לי הודעה בוואטסאפ",
+    "hero.label":"אסטרטגיית שיווק למוצרים שנבנו עם AI",
+    "hero.h1":"בנית מוצר. <span class=\"hl\">עכשיו צריך לגרום לאנשים להשתמש בו.</span>",
+    "hero.sub":"אסטרטגיית שיווק, קריאייטיב ותכנון השקה לוייב-קודרים, יזמי סולו ובוני מוצרי AI שיש להם מוצר עובד, אבל צריכים טראפיק, משתמשים, תשומת לב ודרך חדה יותר לצאת החוצה.",
+    "hero.cta2":"מה אפשר לבנות סביבו",
+    "hero.inph":"הדבק כאן קישור למוצר או לדמו",
+    "hero.inbtn":"קבל כיוון השקה",
+    "hero.innote":"לאפליקציות עובדות, מוצרי SaaS, מוצרי AI, פרוטוטייפים, דמואים ומוצרים שנבנו לבד.",
+    "proof.lab":"מותגים נבחרים שעבדתי על השיווק שלהם",
+    "lay.kicker":"השכבה החסרה",
+    "lay.h2":"בין מוצר שעובד לבין אנשים שמשתמשים בו, יש שכבת מרקטינג.",
+    "lay.lead":"זאת השכבה שאני בונה.",
+    "lay.nots":"לא רק עמוד נחיתה יפה יותר. לא רק \"כמה פוסטים\". לא עצות סטארטאפ כלליות.",
+    "lay.pos":"שכבת מרקטינג ברורה שעוזרת למוצר שלך לעבור ממוצר שנבנה, למוצר שמבינים, <span class=\"hl\">דרך מוצר שרוצים — למוצר שמשתמשים בו.</span>",
+    "lay.c1t":"מיצוב","lay.c1q":"מה הדרך הכי חדה להסביר את המוצר?",
+    "lay.c2t":"קהל","lay.c2q":"מי צריך לשמוע עליו קודם, ולמה דווקא הוא?",
+    "lay.c3t":"מסר","lay.c3q":"מה אנשים צריכים להבין בשמונה השניות הראשונות?",
+    "lay.c4t":"כיוון קריאייטיבי","lay.c4q":"איך המוצר צריך להיראות, להישמע ולהרגיש כשהוא יוצא החוצה?",
+    "lay.c5t":"נתיב השקה","lay.c5q":"איפה נכון להפיץ אותו: אורגני, ממומן, קהילות, יוצרים, PR, Product Hunt, לינקדאין, טיקטוק, חיפוש או ערוצי נישה?",
+    "lay.c6t":"תוכנית משתמשים ראשונים","lay.c6q":"מה צריך לקרות ב-30 הימים הראשונים כדי לייצר סימנים, משתמשים, פידבק ותנועה?",
+    "prob.kicker":"החלק שקוד לא פותר",
+    "prob.h2":"AI האיץ את בניית המוצרים.",
+    "prob.punch":"שכבת הפרסום שלהם עדיין מצריכה <span class=\"hl\">חשיבה נכונה</span>.",
+    "prob.c1":"המוצר עובד, אבל לא ברור למה שמישהו ינסה אותו?",
+    "prob.c2":"עמוד הנחיתה מסביר פיצ'רים במקום ליצור רצון?",
+    "prob.c3":"ההשקה אקראית: כמה פוסטים, אולי Product Hunt, אולי קמפיין ממומן?",
+    "prob.c4":"אתה ממשיך להוסיף פיצ'רים כי להביא משתמשים מרגיש קשה יותר מלבנות?",
+    "tr.kicker":"בחר את פער המרקטינג",
+    "tr.h2":"מוצרים שונים נתקעים במקומות שונים.",
+    "tr.lead":"יש מוצרים שצריכים סיפור חד יותר. יש כאלה שצריכים תוכנית השקה. יש כאלה שצריכים רעיון קמפייני. יש כאלה שצריכים נרטיב למשקיעים. הספרינט מתחיל במה שהמוצר שלך צריך עכשיו.",
+    "tr.t1.pain":"אני צריך בהירות לפני יציאה",
+    "tr.t1.desc":"לבונים שיש להם מוצר עובד, אבל לא בטוחים איך להסביר אותו, למי לפנות קודם ומה צריך להיות הצעד הבא.",
+    "tr.t1.i1":"סקירת מוצר ועמוד נחיתה","tr.t1.i2":"אבחון קהל יעד","tr.t1.i3":"כיוון מיצוב","tr.t1.i4":"שכתוב מסר","tr.t1.i5":"נקודות חיכוך מרכזיות","tr.t1.i6":"נתיב השקה מומלץ","tr.t1.i7":"תוכנית פעולה ל-30 יום",
+    "tr.t1.cta":"אבחן לי את המוצר",
+    "tr.t2.pain":"אני צריך לצאת החוצה",
+    "tr.t2.desc":"לבונים שמוכנים להשיק וצריכים את שכבת המרקטינג סביב המוצר: מסר, תוכן, קריאייטיב, ערוצים ותוכנית משתמשים ראשונים.",
+    "tr.t2.i1":"אסטרטגיית השקה","tr.t2.i2":"כיוון קופי לעמוד נחיתה","tr.t2.i3":"רעיון קמפייני","tr.t2.i4":"תוכנית תוכן אורגני","tr.t2.i5":"המלצה: ממומן מול אורגני","tr.t2.i6":"אסטרטגיית קהילות וערוצים","tr.t2.i7":"תוכנית ליצירת טראפיק ראשוני","tr.t2.i8":"רעיונות להוכחה חברתית",
+    "tr.t2.cta":"תכנן לי השקה",
+    "tr.t3.pain":"אני צריך סיפור חזק יותר",
+    "tr.t3.desc":"לבונים שצריכים להסביר את המוצר למשקיעים, שותפים, לקוחות ראשונים או קהל רחב בצורה ברורה, אמינה ושווה תשומת לב.",
+    "tr.t3.i1":"נרטיב מוצר","tr.t3.i2":"מבנה דמו","tr.t3.i3":"מבנה פיץ'","tr.t3.i4":"מסגור שוק","tr.t3.i5":"למה עכשיו","tr.t3.i6":"חידוד הבעיה","tr.t3.i7":"סיפור למצגת","tr.t3.i8":"חידוד סיפור המייסד",
+    "tr.t3.cta":"חדד לי את הסיפור",
+    "sp.kicker":"הספרינט",
+    "sp.h2":"ספרינט קצר. תוכנית מרקטינג מעשית.",
+    "sp.s1h":"שלח את המוצר","sp.s1p":"שתף דמו, עמוד נחיתה, פרוטוטייפ, מצגת או אפליקציה.",
+    "sp.s2h":"אני בודק את שכבת המרקטינג","sp.s2p":"אני עובר על המסר, הקהל, עמוד הנחיתה, הקריאייטיב, הערוצים והצעד הבא.",
+    "sp.s3h":"מחדדים את הדרך החוצה","sp.s3p":"מגדירים סיפור, זווית השקה, כיוון תוכן ונתיב הפצה.",
+    "sp.s4h":"אתה מקבל תוכנית ברורה","sp.s4p":"אתה יוצא עם מה להגיד, איפה להגיד את זה, למי להגיד את זה ומה לעשות עכשיו.",
+    "ab.kicker":"מי עומד מאחורי זה",
+    "ab.photo":"התמונה שלך כאן",
+    "ab.h2":"אני לא כאן כדי שהמוצר ייראה יפה יותר. אני כאן כדי שיהיה <span class=\"hl\">קשה לפספס את הערך שלו.</span>",
+    "ab.p1":"אני <span class=\"em\">לירן אהרוני</span> — VP Creative AI ב-LEADERS (Stagwell), אסטרטג קריאייטיב ושיווק עם 15+ שנות ניסיון בפרסום, אסטרטגיה, קריאייטיב, קמפיינים, תוכן, השקות ותקשורת מותג.",
+    "ab.p2":"הובלתי עבודה למותגים גלובליים ובניתי מערכות AI-native שבהן אסטרטגיה פוגשת התנהגות משתמשים אמיתית. היום אני מביא את זה לבונים עצמאיים, וייב-קודרים ובוני מוצרי AI: שכבת המרקטינג שהופכת מוצר עובד למשהו שאנשים רואים, מבינים, לוחצים עליו, מנסים וזוכרים.",
+    "ab.p3":"את המוצר אפשר לבנות עם AI. לשוק עדיין צריך לתת סיבה להתעניין.",
+    "ab.r3":"15+ שנים בפרסום, קריאייטיב והשקות","ab.r3y":"רקע",
+    "fc.h2":"לפני שאתה בונה עוד פיצ'ר, תשקיע בדרך שתגרום לאנשים באמת להשתמש במוצר שלך.",
+    "fc.p":"אם המוצר שלך עובד אבל אין לך דרך ברורה להשיק, להסביר, לפרסם או לגדל אותו, שלח אותו. אני אעזור לך להבין איזו שכבת מרקטינג הוא צריך עכשיו.",
+    "fc.sl":"לאפליקציות עובדות, מוצרי SaaS, מוצרי AI, פרוטוטייפים, דמואים ומוצרים שנבנו לבד.",
+    "fc.eyebrow":"שלח לי את המוצר",
+    "fc.formh":"תראה לי מה בנית.",
+    "fc.formp":"אני אעבור עליו ואחזור אליך עם הצעד השיווקי החכם הבא: מה לחדד, איפה להשיק, מה להגיד ואיך להתחיל לייצר תנועה אמיתית.",
+    "fc.why":"שדות החובה קודם, השאר אופציונלי. אני קורא כל פנייה באופן אישי וחוזר עם הצעד הבא הכי חכם.",
+    "fc.required":"שדות חובה","fc.optionalh":"אופציונלי","fc.optional":"(אופציונלי)",
+    "fc.l.name":"שם","fc.l.email":"אימייל","fc.l.product":"קישור למוצר או לדמו","fc.l.does":"מה המוצר עושה?","fc.l.goal":"מה אתה מנסה להשיג עכשיו?","fc.l.stuck":"איפה אתה תקוע?","fc.l.phone":"טלפון","fc.l.forwho":"למי לדעתך זה מיועד?","fc.l.budget":"תקציב משוער",
+    "opt.g1":"משתמשים ראשונים","opt.g2":"לקוחות משלמים","opt.g3":"יותר טראפיק","opt.g4":"עמוד נחיתה טוב יותר","opt.g5":"תוכנית השקה","opt.g6":"עניין ממשקיעים","opt.g7":"תנועה מקהילה","opt.g8":"עדיין לא בטוח",
+    "opt.b0":"עדיין לא בטוח","opt.b1":"מתחת ל-$500",
+    "fc.submit":"שלח את המוצר",
+    "fc.note":"בלי ספאם. רק קריאה ברורה של המוצר שלך והצעד השיווקי הבא.",
+    "fc.success.h":"קיבלתי.","fc.success.p":"אני אעבור על המוצר ואחזור אליך עם הצעד השיווקי החכם הבא.",
+    "ph.name":"השם שלך","ph.does":"בשורה-שתיים...","ph.stuck":"מה החלק שאתה לא מצליח לפצח?","ph.phone":"מספר הטלפון שלך","ph.forwho":"הניחוש הכי טוב שלך כרגע...",
+    "foot.tagline":"שכבת המרקטינג למוצרים שנבנו לבד.",
+    "foot.explore":"ניווט","foot.connect":"צור קשר","foot.email":"אימייל",
+    "foot.rights":"כל הזכויות שמורות.",
+    "foot.pills":"מיצוב · השקה · קריאייטיב · תוכן · טראפיק · פיץ'"
+  };
+
+  const enCache={}; document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n'); if(!(k in enCache)) enCache[k]=el.innerHTML;});
+  const enPh={}; document.querySelectorAll('[data-i18n-ph]').forEach(el=>{const k=el.getAttribute('data-i18n-ph'); if(!(k in enPh)) enPh[k]=el.getAttribute('placeholder');});
+  const hePh={"hero.inph":he["hero.inph"],"ph.name":he["ph.name"],"ph.does":he["ph.does"],"ph.stuck":he["ph.stuck"],"ph.phone":he["ph.phone"],"ph.forwho":he["ph.forwho"]};
+
+  function setLang(lang){
+    document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');const v=(lang==='he')?he[k]:enCache[k];if(v!==undefined)el.innerHTML=v;});
+    document.querySelectorAll('[data-i18n-ph]').forEach(el=>{const k=el.getAttribute('data-i18n-ph');const v=(lang==='he')?hePh[k]:enPh[k];if(v!==undefined)el.setAttribute('placeholder',v);});
+    document.documentElement.lang=lang; document.documentElement.dir=(lang==='he')?'rtl':'ltr';
+    document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));
+    const wt=WA_TEXT[lang]||WA_TEXT.en;
+    document.querySelectorAll('.wa-link').forEach(a=>a.href='https://wa.me/'+WA_NUM+'?text='+encodeURIComponent(wt));
+    try{localStorage.setItem('tml_lang',lang);}catch(e){}
+  }
+  document.querySelectorAll('.lang-btn').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+  let saved='en'; try{saved=localStorage.getItem('tml_lang')||'en';}catch(e){}
+  setLang(saved);
+
+  function heroGo(){
+    const url=document.getElementById('hero-url').value.trim();
+    if(url){document.getElementById('product').value=url;}
+    document.getElementById('contact').scrollIntoView({behavior:'smooth'});
+    setTimeout(()=>{(url?document.getElementById('does'):document.getElementById('name')).focus();},650);
+  }
+  document.getElementById('hero-go').addEventListener('click',heroGo);
+  document.getElementById('hero-url').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();heroGo();}});
+  document.querySelectorAll('[data-track]').forEach(a=>a.addEventListener('click',()=>{const s=document.getElementById('track');if(s)s.value=a.getAttribute('data-track');}));
+
+  const obs=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=Math.min(i%5*0.05,0.25)+'s';obs.observe(el);});
+
+  const form=document.getElementById('tml-form'),success=document.getElementById('tml-success');
+  form.addEventListener('submit',async function(ev){
+    ev.preventDefault();
+    if(form.action.includes('YOUR_FORM_ID')){form.style.display='none';success.classList.add('show');success.scrollIntoView({behavior:'smooth',block:'center'});return;}
+    try{const res=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});
+      if(res.ok){form.style.display='none';success.classList.add('show');success.scrollIntoView({behavior:'smooth',block:'center'});}else{form.submit();}
+    }catch(err){form.submit();}
+  });
+</script>
+</body>
+</html>
